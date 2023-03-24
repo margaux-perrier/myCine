@@ -1,0 +1,14 @@
+@use 'src/scss/vars'; 
+
+.cardList{
+    display: flex; 
+    flex-direction: row;  
+    justify-content: center;
+    width: 90%;
+    flex-wrap: wrap; 
+    margin: vars.$gutter*4 auto 0 auto; 
+}
+
+.cardList>*{
+    flex-basis : 30vh; 
+}

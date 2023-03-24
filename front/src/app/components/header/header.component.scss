@@ -17,7 +17,7 @@
     }
 
     &_logo:hover{
-        color: white;  
+        
         transition-duration: 2ms;
         cursor: pointer;
     }     
@@ -42,21 +42,22 @@
         
             ul{
                 display: flex; 
-                align-items: center; 
-                
-                li{ 
-                    margin-right: 0;
-                }
+                align-items: center;    
             }
-        }
 
-        .nav_link:nth-child(2n)::after, .nav_link:nth-child(2n)::before{
-            content: '.';
-            padding: 1rem; 
-            align-self:flex-end; 
-            font-size: 1em;
-            font-weight : bold; 
-            color : vars.$primary-color; 
+            .nav_link:hover{ 
+                color : vars.$primary-color; 
+                cursor: pointer; 
+            }
+    
+            .nav_link:nth-child(2n)::after, .nav_link:nth-child(2n)::before{
+                content: '.';
+                padding: 1rem; 
+                align-self:flex-end; 
+                font-size: 1em;
+                font-weight : bold; 
+                color : vars.$primary-color; 
+            }
         }
 
         &_menu-burger{

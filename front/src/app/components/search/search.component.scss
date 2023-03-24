@@ -1,0 +1,73 @@
+@use 'src/scss/vars'; 
+
+.search{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto; 
+   
+    .searchBar{
+        font-size: 1rem; 
+        padding: vars.$gutter*0.6 vars.$gutter*1; 
+        border: 1px solid vars.$primary-color; 
+        border-radius : 10px; 
+        margin-bottom: vars.$gutter; 
+
+        &_icon{
+            color: vars.$primary-color; 
+        }
+
+        &_input{
+            background-color: rgba(0,0,000.9);
+            border: none; 
+            color: white; 
+        }
+    }
+}
+
+// à voir pour ne pas répéter ce code ! 
+.button{
+    border: 1px solid vars.$primary-color; 
+    background-color: vars.$secondary-color;
+    color : vars.$primary-color; 
+    border-radius : 10px; 
+    padding : vars.$gutter*0.6;
+    width: fit-content; 
+}
+
+.button:hover{
+    border: 1px solid vars.$secondary-color; 
+    background-color: vars.$primary-color; 
+    color : vars.$secondary-color; 
+    border-radius : 10px; 
+    padding : vars.$gutter*0.4;
+    width: fit-content; 
+}
+
+.button-reset{
+    border: 1px solid vars.$gray; 
+    color : vars.$gray;
+    background-color: vars.$secondary-color; 
+    border-radius : 10px; 
+    padding : vars.$gutter*0.6;
+    margin-left: vars.$gutter; 
+}
+
+.button-reset:hover{
+    border: 1px solid vars.$gray; 
+    color : vars.$secondary-color;
+    background-color: vars.$gray;  
+}
+
+@media screen and (min-width: 590px) {
+    .search{
+        justify-content: space-between;
+        flex-direction: row;
+
+        .searchBar{
+            display : flex; 
+            align-items: baseline;
+            margin: 0 vars.$gutter; 
+        }
+    }
+}

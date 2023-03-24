@@ -12,6 +12,8 @@ import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { CardComponent } from './components/card/card.component';
 import { MoviePageComponent } from './components/movie-page/movie-page.component';
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
+import { CardListComponent } from './components/card-list/card-list.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
     CardComponent,
     MoviePageComponent,
     NotFoundPageComponent,
+    CardListComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
