@@ -2,8 +2,6 @@
 @use 'src/scss/vars'; 
 
 .main{
-    background-color: black;
-    min-height: 200vh;   
 
     .top-frame{
         padding-top: vars.$gutter*4; 
