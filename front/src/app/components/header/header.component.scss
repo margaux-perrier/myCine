@@ -1,0 +1,67 @@
+@use 'src/scss/vars'; 
+
+.header{
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    padding : vars.$gutter vars.$gutter*3; 
+    color: white; 
+    background-color: vars.$secondary-color;  
+
+    &_logo{
+        font-size: vars.$gutter*1.5; 
+        font-weight: bold; 
+        color: vars.$primary-color; 
+    }
+
+    &_logo:hover{
+        color: white;  
+        transition-duration: 2ms;
+        cursor: pointer;
+    }     
+
+    &_nav--desktop{
+        display: none;  
+    }
+}
+
+@media screen and (min-width: 720px) {
+
+    .header{
+        &_nav--desktop{
+            display: flex; 
+            align-items: center;
+            justify-content: space-between;
+        
+            ul{
+                display: flex; 
+                align-items: center; 
+                
+                li{ 
+                    margin-right: vars.$gutter*1.5;
+                }
+            }
+        }
+
+        &_menu-burger{
+            display: none; 
+        }
+    }
+
+    // à voir pour ne pas répéter ce code ! 
+    .button{
+        border: 1px solid vars.$primary-color; 
+        background-color: vars.$secondary-color;
+        color : vars.$primary-color; 
+        border-radius : 10px; 
+        padding : vars.$gutter*0.4;
+        width: fit-content; 
+    }
+
+    .button:hover{
+        border: 1px solid vars.$secondary-color; 
+        background-color: vars.$primary-color; 
+        color : vars.$secondary-color; 
+    }
+
+}

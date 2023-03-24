@@ -1,0 +1,74 @@
+
+@use 'src/scss/vars'; 
+
+.main{
+    background-color: black;
+    min-height: 200vh;   
+
+    .top-frame{
+        padding-top: vars.$gutter*4; 
+        display: flex; 
+        align-items: center;
+        justify-content: center; 
+        width: 90%; 
+        color: white; 
+        margin: 0 auto; 
+        font-size: 0.9em;
+
+        &_content{
+            width: 80%; 
+            h1{
+                font-size: 1.3em; 
+                margin-bottom: vars.$gutter*2; 
+            }
+
+            p{
+                margin-bottom: vars.$gutter; 
+            }
+
+            span{
+                font-weight: bold; 
+                color: vars.$primary-color; 
+            }
+        }
+
+        &_image{
+           display: none
+        }
+
+        .button_container{
+            margin-top: vars.$gutter*3; 
+        }
+
+        // à voir pour ne pas répéter ce code ! 
+        .button{
+            margin-right: vars.$gutter; 
+            border: 1px solid vars.$primary-color; 
+            background-color: vars.$secondary-color;
+            color : vars.$primary-color; 
+            border-radius : 10px; 
+            padding : vars.$gutter*0.4;
+            width: fit-content; 
+        }
+    
+        .button:hover{
+            border: 1px solid vars.$secondary-color; 
+            background-color: vars.$primary-color; 
+            color : vars.$secondary-color; 
+        }
+
+
+    }
+    
+    @media screen and (min-width: 720px) {
+        .top-frame_image{
+            width : 30%;
+            display: flex; 
+            justify-content: center;
+     
+            img{
+                width: 60%; 
+            }
+        }
+    }
+}

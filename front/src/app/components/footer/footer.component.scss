@@ -1,0 +1,11 @@
+@use 'src/scss/vars'; 
+
+.footer{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    text-align: center; 
+    padding: vars.$gutter; 
+    background-color: vars.$primary-color;
+    color: black; 
+}
