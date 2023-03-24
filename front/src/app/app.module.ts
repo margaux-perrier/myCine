@@ -10,6 +10,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { CardComponent } from './components/card/card.component';
+import { MoviePageComponent } from './components/movie-page/movie-page.component';
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { CardComponent } from './components/card/card.component';
     FooterComponent,
     CarrouselComponent,
     CardComponent,
+    MoviePageComponent,
+    NotFoundPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,13 @@
 <header class='header'>
-    <h1 class='header_logo'>MYCINE</h1>
+
+    <h1 class='header_logo'><a [routerLink]="''">MYCINE</a></h1>
     <fa-icon class="header_menu-burger"  [icon]="menuBurgerIcon"></fa-icon> 
     
     <nav class='header_nav--desktop'>
         <ul>
-            <li class = 'nav_link'>Accueil</li>
-            <li class = 'nav_link'>Films</li>
-            <li class = 'nav_link'>Séries</li>
+            <li class = 'nav_link'><a [routerLinkActive]="'active'" [routerLink]="''" [routerLinkActiveOptions]="{ exact: true }">Accueil</a></li>
+            <li class = 'nav_link'><a [routerLinkActive]="'active'" [routerLink]="'/movies'">Films</a></li>
+            <li class = 'nav_link'><a href='#'>Séries</a></li>
         </ul>
     </nav>
     
@@ -14,7 +15,7 @@
         <ul>
             <li class = 'nav_link'>Ma bibliothèque</li>
             <li class = 'nav_link'>Mon profil</li>    
-            <button class='button'>Déconnexion</button>
+            <li class = 'nav_link'><button class='button'>Déconnexion</button></li>  
         </ul>
     </nav>
  

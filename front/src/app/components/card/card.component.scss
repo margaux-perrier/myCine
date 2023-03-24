@@ -2,26 +2,40 @@
 
 .card{  
     color: white;
-    height: fit-content; 
-    max-width: fit-content; 
-    border: solid 1px vars.$primary-color; 
-    margin: vars.$gutter; 
-
+    background-color: black;
+    width:100%; 
+    border : 1px solid vars.$primary-color; 
+    border-radius: 20px;
+    
     &_image{
-        width: 100%;
-        
         img{
             width: 100%; 
-            height: auto;  
+            border-radius: 20px 20px 0 0;
         }
     }
 
     &_content{
+        padding: vars.$gutter; 
         display: flex; 
         flex-direction: column; 
         align-items: center; 
-        margin-top: vars.$gutter; 
         text-align: center; 
+    }
+
+    &_title{
+        color : vars.$primary-color; 
+        margin-bottom: vars.$gutter; 
+        font-weight: 600; 
+    }
+
+    &_subtitle{
+        color : vars.$primary-color; 
+        margin-bottom: vars.$gutter; 
+        font-style: italic; 
+    }
+
+    &_description{
+        margin-top: vars.$gutter; 
     }
     
 

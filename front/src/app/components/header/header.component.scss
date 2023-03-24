@@ -1,15 +1,17 @@
 @use 'src/scss/vars'; 
 
 .header{
+    width:80%; 
+    margin:0 auto; 
     display: flex; 
     align-items: center;
     justify-content: space-between;
-    padding : vars.$gutter vars.$gutter*3; 
+    padding-top: vars.$gutter; 
     color: white; 
     background-color: vars.$secondary-color;  
 
     &_logo{
-        font-size: vars.$gutter*1.5; 
+        font-size: vars.$font-size*1.3;
         font-weight: bold; 
         color: vars.$primary-color; 
     }
@@ -25,7 +27,12 @@
     }
 }
 
-@media screen and (min-width: 720px) {
+.active{
+    font-weight : bold; 
+    color : vars.$primary-color; 
+}
+
+@media screen and (min-width: 950px) {
 
     .header{
         &_nav--desktop{
@@ -38,9 +45,18 @@
                 align-items: center; 
                 
                 li{ 
-                    margin-right: vars.$gutter*1.5;
+                    margin-right: 0;
                 }
             }
+        }
+
+        .nav_link:nth-child(2n)::after, .nav_link:nth-child(2n)::before{
+            content: '.';
+            padding: 1rem; 
+            align-self:flex-end; 
+            font-size: 1em;
+            font-weight : bold; 
+            color : vars.$primary-color; 
         }
 
         &_menu-burger{
