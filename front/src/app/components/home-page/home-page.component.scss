@@ -5,23 +5,23 @@
     min-height: 100vh;  
 
     .top-frame{
-
+        width: 70%; 
         display: flex; 
         align-items: center;
         justify-content: center;
-        width: 70%; 
-        color: white; 
-        margin:  vars.$gutter*5 auto 0 auto; 
+        margin: vars.$gutter*5 auto 0 auto; 
 
         &_content{
            
             h1{
                 font-size: vars.$font-size*1.3;
                 margin-bottom: vars.$gutter*2; 
+                color: white; 
             }
 
             p{
                 margin-bottom: vars.$gutter; 
+                color: white; 
             }
 
             span{
