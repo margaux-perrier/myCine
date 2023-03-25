@@ -1,0 +1,13 @@
+<div class="overlay-menuBurger">
+    <div class="menuBurger">
+        <button class="menuBurger_close-button" (click) = handleClick()>x</button>
+        <nav class="menuBurger_navLink">
+            <li><a [routerLinkActive]="'active'" [routerLink]="''" [routerLinkActiveOptions]="{ exact: true }">Accueil</a></li>
+            <li><a [routerLinkActive]="'active'" [routerLink]="'/movies'" [routerLinkActiveOptions]="{ exact: true }">Films</a></li>
+            <li><a [routerLinkActive]="'active'" [routerLink]="'/test'" [routerLinkActiveOptions]="{ exact: true }">Série</a></li>
+            <li><a [routerLinkActive]="'active'" [routerLink]="'/test'" [routerLinkActiveOptions]="{ exact: true }">Mon profil</a></li>
+            <li><a [routerLinkActive]="'active'" [routerLink]="'/test'" [routerLinkActiveOptions]="{ exact: true }">Ma bibliothèque</a></li>
+        </nav>
+        <button class="button">Se déconnecter</button>
+    </div>
+</div>

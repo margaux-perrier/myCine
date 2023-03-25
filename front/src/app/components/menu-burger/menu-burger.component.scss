@@ -1,0 +1,85 @@
+@use 'src/scss/vars.scss'; 
+
+.overlay-menuBurger{
+    position : fixed;
+    z-index: 10000; 
+    inset:0; 
+    background-color: rgba(0,0,0,0.75);
+    display : flex; 
+    justify-content: flex-end;
+}
+
+.menuBurger{ 
+    border-top: 3px solid vars.$primary-color; 
+    position : relative; 
+    background-color: vars.$gray;
+    width: fit-content; 
+    display: flex;
+    flex-direction : column; 
+    padding: vars.$gutter*5; 
+
+    &_close-button{
+        position : absolute;
+        top : 15px;
+        right: 20px;  
+        border: 1px solid vars.$primary-color;
+        font-size: vars.$gutter*1.5;
+        font-weight: 600;
+        border-radius : 20px;  
+        background-color: vars.$gray;
+        color: vars.$primary-color;  
+    }
+
+    &_close-button:hover{
+        background-color: vars.$primary-color;
+        color: vars.$gray;
+    }
+
+    &_status{
+      display: flex; 
+      align-items: center; 
+    }
+
+    &_navLink{
+        padding: vars.$gutter*3 0; 
+        color: white; 
+
+        li{
+            list-style-type : none; 
+            margin-bottom: vars.$gutter; 
+        }
+
+        li:hover, .active{
+            color: vars.$primary-color;
+        }
+
+        .active{
+            font-weight: 600;
+        }
+    }
+    
+    //à voir pour ne pas répéter ! 
+    .button{
+        margin : 0 auto; 
+        font-weight: bold; 
+        border: 1px solid vars.$primary-color; 
+        background-color: vars.$gray;
+        color : vars.$primary-color; 
+        border-radius : 10px; 
+        padding : vars.$gutter*0.4;
+        width: fit-content; 
+    }
+
+    .button:hover{
+        border: 1px solid vars.$gray; 
+        background-color: vars.$primary-color; 
+        color : vars.$gray; 
+    }
+
+}
+
+@media screen and (min-width: 950px) {
+    .overlay-menuBurger, .menuBurger{
+        display: none; 
+    }
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {faFilter} from '@fortawesome/free-solid-svg-icons'; 
 import {faRotateLeft} from '@fortawesome/free-solid-svg-icons'; 
+import { MenuBurgerService } from '../menu-burger/menu-burger.service'; 
 
 @Component({
   selector: 'app-movie-page',
@@ -11,9 +12,13 @@ export class MoviePageComponent implements OnInit {
   filterIcon = faFilter;
   resetIcon = faRotateLeft; 
    
-  constructor() { }
+  constructor(private MenuBurgerService : MenuBurgerService) { }
+  isMenuBurgerOpen! : boolean; 
 
   ngOnInit(): void {
+    this.MenuBurgerService.handleMenuBurgerState.subscribe(isOpen => {
+      this.isMenuBurgerOpen = isOpen;
+    });
   }
 
 }
