@@ -1,5 +1,5 @@
-import { Component, OnChanges, OnInit} from '@angular/core';
-import { MenuBurgerService } from '../menu-burger/menu-burger.service'; 
+import { Component, OnInit} from '@angular/core';
+import { MenuBurgerService } from '../../services/menu-burger.service'; 
 
 @Component({
   selector: 'app-home-page',

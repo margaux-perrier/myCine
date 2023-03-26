@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {faBars} from '@fortawesome/free-solid-svg-icons'
-import { MenuBurgerService } from '../menu-burger/menu-burger.service'; 
+import { MenuBurgerService } from '../../services/menu-burger.service'; 
 
 @Component({
   selector: 'app-header',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {faFilter} from '@fortawesome/free-solid-svg-icons'; 
 import {faRotateLeft} from '@fortawesome/free-solid-svg-icons'; 
-import { MenuBurgerService } from '../menu-burger/menu-burger.service'; 
+import { MenuBurgerService } from '../../services/menu-burger.service'; 
 
 @Component({
   selector: 'app-movie-page',

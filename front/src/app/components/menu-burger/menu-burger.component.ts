@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MenuBurgerService } from '../menu-burger/menu-burger.service'; 
+import { Component, OnInit} from '@angular/core';
+import { MenuBurgerService } from '../../services/menu-burger.service'; 
 
 @Component({
   selector: 'app-menu-burger',
@@ -12,7 +12,6 @@ export class MenuBurgerComponent implements OnInit {
 
   handleClick(): void {
     this.MenuBurgerService.changeMenuBurgerState(false); 
-    console.log('header click', this.MenuBurgerService.isMenuBurgerOpen); 
   }
 
   ngOnInit(): void {
