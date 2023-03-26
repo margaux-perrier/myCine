@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component} from '@angular/core';
-import { catchError, EMPTY, Observable } from 'rxjs';
-import { IItem } from 'src/app/models/item';
+import { catchError, combineLatest, EMPTY, Observable } from 'rxjs';
 import { ItemsService } from 'src/app/services/items/items.service';
 
 @Component({
@@ -14,12 +13,11 @@ export class CardListComponent {
   errorMessage = ''; 
   constructor(private itemsService: ItemsService) { }
 
-  items$ = this.itemsService.items$
-    .pipe(
-      catchError(err => {
-        this.errorMessage = err; 
-        return EMPTY; 
-      })
-    ) 
-
+  itemWithProducerList$ = this.itemsService.itemWithProducerList$.pipe(
+    catchError(err => {
+      this.errorMessage = err; 
+      return EMPTY; 
+    })
+  ); 
+  
 }

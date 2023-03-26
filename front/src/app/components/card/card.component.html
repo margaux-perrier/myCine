@@ -1,16 +1,14 @@
 <div class = 'card'>
     
-    <img src='../../../assets/images/succession.png' alt='titre du film'/> 
+    <img src='../../../assets/images/{{item.avatar}}' alt='visuel du film {{item.name}}'/> 
 
     <div class='card_content'>
         
-        <h2 class='card_content_title'>Titre du film</h2>
-        <h3 class='card_content_subtitle'>Réalisateur</h3>
+        <h2 class='card_content_title'>{{item.name | uppercase }}</h2>
+        <h3 class='card_content_subtitle'>{{ item.producer?.firstname | titlecase }} {{ item.producer?.lastname | titlecase }}</h3>
       
 
-        <p class='card_content_description'>
-            Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.
-        </p>
+        <p class='card_content_description'>{{item.description}}</p>
         
         <!-- à voir pour faire un component -->
         <div class="stars-container">

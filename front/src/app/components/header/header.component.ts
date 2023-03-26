@@ -8,18 +8,13 @@ import { MenuBurgerService } from '../../services/menu-burger.service';
   styleUrls: ['./header.component.scss']
 })
 
-export class HeaderComponent implements OnInit {
+export class HeaderComponent{
   menuBurgerIcon = faBars; 
 
   constructor(private MenuBurgerService : MenuBurgerService) { }
 
-  ngOnInit(): void {
-    console.log('header init', this.MenuBurgerService.isMenuBurgerOpen); 
-  }
-
   handleClick(): void {
     this.MenuBurgerService.changeMenuBurgerState(true); 
-    console.log('header click', this.MenuBurgerService.isMenuBurgerOpen); 
   }
 
 }

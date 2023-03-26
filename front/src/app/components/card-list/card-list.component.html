@@ -1,3 +1,3 @@
-<div class="cardList" *ngIf="items$ | async as items">
-    <app-card *ngFor="let item of items"></app-card>
+<div class="cardList" *ngIf="itemWithProducerList$ | async as itemList">
+    <app-card *ngFor="let item of itemList" [item]="item"></app-card>
 </div>
