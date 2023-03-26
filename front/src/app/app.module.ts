@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'; 
+import { HttpClientModule } from '@angular/common/http';
 
 import { DataService } from './data/data.service';
 
@@ -38,7 +39,8 @@ import { MenuBurgerComponent } from './components/menu-burger/menu-burger.compon
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientInMemoryWebApiModule.forRoot(DataService)
+    HttpClientInMemoryWebApiModule.forRoot(DataService),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
