@@ -2,7 +2,8 @@
 
     <div class="searchBar">
         <fa-icon class="searchBar_icon"  [icon]="searchIcon" style></fa-icon> 
-        <input  class="searchBar_input" type="text" placeholder="Rechercher un film">
+        <input  class="searchBar_input" type="text" placeholder="Rechercher un film" [(ngModel)] = 'searchBarValue' (input)='onSearchValueChanged()' >
+        <h1 style="color: white">{{searchBarValue}}</h1>
     </div>
 
     <div class="button-container">

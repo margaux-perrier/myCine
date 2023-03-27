@@ -5,7 +5,7 @@ import { IItem } from 'src/app/models/item';
 import { Observable, tap, catchError, throwError, combineLatest, map } from 'rxjs';
 import { ProducerService } from '../producer/producer.service';
 
-
+//commenter JSDOC 
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +13,7 @@ export class ItemsService {
   private itemListUrl = 'api/itemList'; 
 
   constructor( private http: HttpClient, private producerService : ProducerService ) {}
-  
+
   itemList$ = this.http.get<IItem[]>(this.itemListUrl).pipe(
     // tap((data: IItem[]) => console.log('Items: service', JSON.stringify(data))),
     catchError(this.handleError)

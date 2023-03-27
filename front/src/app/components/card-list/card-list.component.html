@@ -1,3 +1,4 @@
+<app-search (searchValueChanged)="onSearchTextEnter($event)"></app-search>
 <div class="cardList" *ngIf="itemWithProducerList$ | async as itemList">
-    <app-card *ngFor="let item of itemList" [item]="item"></app-card>
+    <app-card *ngFor="let item of itemList | searchPipe : searchValue" [item]="item"></app-card>
 </div>

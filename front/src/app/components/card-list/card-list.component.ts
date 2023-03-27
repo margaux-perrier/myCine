@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component} from '@angular/core';
-import { catchError, combineLatest, EMPTY, Observable } from 'rxjs';
+import { catchError, combineLatest, EMPTY, filter, Observable, tap } from 'rxjs';
 import { ItemsService } from 'src/app/services/items/items.service';
 
 @Component({
@@ -11,6 +11,7 @@ import { ItemsService } from 'src/app/services/items/items.service';
 export class CardListComponent {
 
   errorMessage = ''; 
+  searchValue = ''; 
   constructor(private itemsService: ItemsService) { }
 
   itemWithProducerList$ = this.itemsService.itemWithProducerList$.pipe(
@@ -19,5 +20,10 @@ export class CardListComponent {
       return EMPTY; 
     })
   ); 
+
+  onSearchTextEnter(searchText : string):void{
+    console.log(searchText); 
+    this.searchValue = searchText; 
+  }
   
 }

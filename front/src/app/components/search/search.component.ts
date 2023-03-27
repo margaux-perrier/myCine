@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {faSearch, faFilter, faRotateLeft} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
@@ -11,9 +11,20 @@ export class SearchComponent implements OnInit {
   filterIcon = faFilter;
   resetIcon = faRotateLeft; 
 
+  searchBarValue : string = 'test'; 
+
+  @Output()
+  searchValueChanged : EventEmitter<string> = new EventEmitter<string>(); 
+
+
+ onSearchValueChanged() {
+  this.searchValueChanged.emit(this.searchBarValue)
+ }
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.searchBarValue)
   }
 
 }
