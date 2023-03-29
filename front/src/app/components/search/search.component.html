@@ -1,13 +1,13 @@
 <div class="search">
-
     <div class="searchBar">
         <fa-icon class="searchBar_icon"  [icon]="searchIcon" style></fa-icon> 
-        <input  class="searchBar_input" type="text" placeholder="Rechercher un film" [(ngModel)] = 'searchBarValue' (input)='onSearchValueChanged()' >
-        <h1 style="color: white">{{searchBarValue}}</h1>
+        <input  class="searchBar_input" type="text" placeholder="Rechercher un film" [(ngModel)] = 'searchBarValue' (input)='onSearchValueChanged()'>
     </div>
-
+        
     <div class="button-container">
-        <button class="button">Filtrer <fa-icon [icon]="filterIcon" style></fa-icon></button>
+        <button (click) ='handleFilterMenu()' class="button">Filtrer <fa-icon [icon]="filterIcon" style></fa-icon></button>
         <button class="button-reset"><fa-icon [icon]="resetIcon" style></fa-icon></button>
     </div>
 </div>
+
+<app-filter *ngIf="isFilterMenuOpen"></app-filter>

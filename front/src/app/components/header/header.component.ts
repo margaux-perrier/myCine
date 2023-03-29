@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import {faBars} from '@fortawesome/free-solid-svg-icons'
-import { MenuBurgerService } from '../../services/menu-burger.service'; 
+import { Store } from '@ngrx/store';
+import { toggleMenuBurgerAction } from 'src/app/actions/menuBuger.actions';
 
 @Component({
   selector: 'app-header',
@@ -11,10 +12,11 @@ import { MenuBurgerService } from '../../services/menu-burger.service';
 export class HeaderComponent{
   menuBurgerIcon = faBars; 
 
-  constructor(private MenuBurgerService : MenuBurgerService) { }
+  constructor(private store : Store<any>) { }
 
   handleClick(): void {
-    this.MenuBurgerService.changeMenuBurgerState(true); 
+    this.store.dispatch(toggleMenuBurgerAction())
+    //SANS REDUX
+    // this.MenuBurgerService.changeMenuBurgerState(true); 
   }
-
 }

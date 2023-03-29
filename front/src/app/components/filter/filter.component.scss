@@ -1,0 +1,30 @@
+@use 'src/scss/vars'; 
+
+.filter{
+    background-color: black;
+    padding: vars.$gutter*2; 
+    margin: vars.$gutter*2 0; 
+    width: 100%; 
+
+    &_category{
+        &_title{
+            color: vars.$primary-color; 
+            font-weight: bold; 
+            margin-bottom : vars.$gutter*1; 
+        }
+
+        &_itemList{
+            margin-bottom : vars.$gutter*2; 
+            display: flex; 
+            flex-wrap: wrap;
+        }
+
+        &_item{
+            width: fit-content; 
+            padding : vars.$gutter*0.5;  
+            margin: vars.$gutter*0.5; 
+        }
+    }
+    
+    
+}

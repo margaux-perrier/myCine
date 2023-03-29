@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { MenuBurgerService } from '../../services/menu-burger.service'; 
+import { Store } from '@ngrx/store';
+import { getShowMenuBurgerProperty } from '../menu-burger/menuburger.reducer';
 
 @Component({
   selector: 'app-home-page',
@@ -8,13 +9,18 @@ import { MenuBurgerService } from '../../services/menu-burger.service';
 })
 export class HomePageComponent implements OnInit{
   
-  constructor(private MenuBurgerService : MenuBurgerService) { }
+  constructor(private store : Store<any>) { }
   isMenuBurgerOpen! : boolean; 
 
   ngOnInit(): void {
-    this.MenuBurgerService.handleMenuBurgerState.subscribe(isOpen => {
-      this.isMenuBurgerOpen = isOpen;
-    });
+    //TO DO UNSUBSCRIBE
+    this.store.select(getShowMenuBurgerProperty).subscribe(
+      showMenuBurger => this.isMenuBurgerOpen = showMenuBurger
+    )
+    //SANS REDUX
+    // this.MenuBurgerService.handleMenuBurgerState.subscribe(isOpen => {
+    //   this.isMenuBurgerOpen = isOpen;
+    // });
   }
 
 }

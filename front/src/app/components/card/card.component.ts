@@ -1,12 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import {faStar, faBookBookmark, faThumbsUp} from '@fortawesome/free-solid-svg-icons'; 
 import {faHeart as emptyHeart, faBookmark as empltyBookMark} from '@fortawesome/free-regular-svg-icons'; 
-import { IItem } from 'src/app/models/item';
+import { IItem } from '../../models/item';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
+  changeDetection : ChangeDetectionStrategy.OnPush
+
 })
 export class CardComponent implements OnInit {
   star = faStar; 

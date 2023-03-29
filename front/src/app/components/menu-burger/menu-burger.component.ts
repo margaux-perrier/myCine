@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { MenuBurgerService } from '../../services/menu-burger.service'; 
+import { toggleMenuBurgerAction } from '../../actions/menuBuger.actions'; 
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-menu-burger',
@@ -8,10 +9,12 @@ import { MenuBurgerService } from '../../services/menu-burger.service';
 })
 export class MenuBurgerComponent implements OnInit {
   
-  constructor(private MenuBurgerService : MenuBurgerService) { }
+  constructor(private store : Store<any>) { }
 
   handleClick(): void {
-    this.MenuBurgerService.changeMenuBurgerState(false); 
+    this.store.dispatch(toggleMenuBurgerAction())
+    //SANS REDUX
+    // this.MenuBurgerService.changeMenuBurgerState(false); 
   }
 
   ngOnInit(): void {

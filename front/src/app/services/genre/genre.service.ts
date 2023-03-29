@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, tap, catchError, throwError, combineLatest } from 'rxjs';
+import { Observable, tap, catchError, throwError, combineLatest, map } from 'rxjs';
 import { IGenre } from 'src/app/models/genre';
 
 
@@ -14,10 +14,15 @@ export class GenreService {
   constructor( private http: HttpClient ) {}
   
   genreList$ = this.http.get<IGenre[]>(this.genreListUrl)
-    .pipe(
-      tap((data: IGenre[]) => console.log('Genre: service', JSON.stringify(data))),
-      catchError(this.handleError)
-    ); 
+  .pipe(
+    map(genreList => 
+      genreList.map(genre => ({
+        ...genre,
+        checked : false
+      } as IGenre))),
+    tap((data: IGenre[]) => console.log('Genre: service', JSON.stringify(data))),
+    catchError(this.handleError)
+  ); 
   
     private handleError(err: HttpErrorResponse): Observable<never> {
       let errorMessage: string = "";

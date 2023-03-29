@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IItem } from 'src/app/models/item';
-
-import { Observable, tap, catchError, throwError, combineLatest, map } from 'rxjs';
+import { Observable, tap, catchError, throwError, combineLatest, map, BehaviorSubject } from 'rxjs';
 import { ProducerService } from '../producer/producer.service';
+import { GenreService } from '../genre/genre.service'; 
 
 //commenter JSDOC 
 @Injectable({
@@ -12,26 +12,52 @@ import { ProducerService } from '../producer/producer.service';
 export class ItemsService {
   private itemListUrl = 'api/itemList'; 
 
-  constructor( private http: HttpClient, private producerService : ProducerService ) {}
+  constructor( private http: HttpClient, private producerService : ProducerService, private genreService : GenreService) {}
 
   itemList$ = this.http.get<IItem[]>(this.itemListUrl).pipe(
-    // tap((data: IItem[]) => console.log('Items: service', JSON.stringify(data))),
     catchError(this.handleError)
   ); 
   
   itemWithProducerList$ = combineLatest([
     this.itemList$,
-    this.producerService.producerList$
+    this.producerService.producerList$,
   ]).pipe( 
     map(([itemList, producerList]) => 
       itemList.map( item => ({
         ...item, 
-        producer : producerList.find( producer => producer.id === item.producerId)
+        producer : producerList.find( producer => producer.id === item.producerId),
     } as IItem )),
     ), 
-    tap((data : any) => console.log('>>>>>>>ICI itemsWithCategory', data)), 
+    // tap((data : any) => console.log('>>>>>>>ICI itemsWithCategory', data)), 
   );
 
+  //action stream 
+  private filterItemsSubject = new BehaviorSubject<number[]>([]);
+  filterItemsActions$ = this.filterItemsSubject.asObservable(); 
+      
+  filteredItems$ = combineLatest([
+    this.itemWithProducerList$, 
+    this.filterItemsActions$
+  ]).pipe(
+    map(([itemList, selectedGenreIdList])=>
+      itemList.filter((item : IItem) => {
+        if(selectedGenreIdList.length >0){
+          return item.genre.map(id => selectedGenreIdList.includes(id)).includes(true)
+        }else{
+          return true
+        }
+      }, 
+    )),
+    // tap((data : IItem[]) => console.log('>>>>>>>>>>>>>>>CICI 2, ', data)),
+  )
+    
+  
+  //emit a value to the action stream each time the user selected a tag
+  onSelected(arrayId : number[]){
+    this.filterItemsSubject.next(arrayId); 
+  }
+
+  //A COMMENTER JSDOC
   private handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage: string = "";
     if (err.error instanceof ErrorEvent) {

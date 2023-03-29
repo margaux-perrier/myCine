@@ -1,10 +1,16 @@
 @use 'src/scss/vars'; 
 
+.search-container{
+    border : 1px solid red; 
+    display: flex; 
+    flex-direction : column; 
+}
 .search{
     display: flex; 
     flex-direction: column;
     align-items: center;
     margin: 0 auto; 
+    width: 90%;  
    
     .searchBar{
         font-size: 1rem; 
@@ -45,18 +51,18 @@
 }
 
 .button-reset{
-    border: 1px solid vars.$gray; 
-    color : vars.$gray;
-    background-color: vars.$secondary-color; 
+    border: 1px solid vars.$gray-light; 
+    color : black;
+    background-color : vars.$gray-light; 
     border-radius : 10px; 
     padding : vars.$gutter*0.6;
     margin-left: vars.$gutter; 
 }
 
 .button-reset:hover{
-    border: 1px solid vars.$gray; 
+    border: 1px solid vars.$primary-color; 
     color : vars.$secondary-color;
-    background-color: vars.$gray;  
+    background-color: vars.$primary-color;  
 }
 
 @media screen and (min-width: 590px) {

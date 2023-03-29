@@ -1,0 +1,6 @@
+@use 'src/scss/vars'; 
+
+.tag{
+    border-radius: 20px; 
+    padding : vars.$gutter; 
+}
