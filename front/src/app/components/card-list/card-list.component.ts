@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../../state/app.state'; 
-import { catchError, EMPTY, Observable, tap} from 'rxjs';
+import { Observable } from 'rxjs';
 import { loadItemListAction } from 'src/app/actions/items.actions';
-import { getItemList } from 'src/app/reducers/items.reducer';
-import { ItemsService } from 'src/app/services/items/items.service';
+import { getErrorItems, getItemList } from 'src/app/reducers/items.reducer';
 import { IItem } from 'src/app/models/item';
 
 @Component({
@@ -15,33 +14,18 @@ import { IItem } from 'src/app/models/item';
 })
 export class CardListComponent {
 
-  errorMessage = ''; 
+  errorMessage$!: Observable<string>; 
   searchValue = ''; 
   itemList$!: Observable<IItem[]>;
 
-  constructor(private itemsService: ItemsService, private store : Store<State>){}
-
-  // itemWithProducerList$ = this.itemsService.filteredItems$.pipe(
-  //   catchError(err => {
-  //     this.errorMessage = err; 
-  //     return EMPTY; 
-  //   })
-  // ); 
+  constructor( private store : Store<State> ){}
   
   ngOnInit(): void {
     this.store.dispatch(loadItemListAction());  
-    this.itemList$ = this.store.select(getItemList).pipe(
-      tap(data => console.log('ICIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII', data))
-    )
+    this.itemList$ = this.store.select(getItemList); 
+    this.errorMessage$ = this.store.select(getErrorItems); 
   }
   
-  
-
-
-
-  
-  
-
   onSearchTextEnter(searchText : string):void{
     this.searchValue = searchText; 
   }

@@ -3,3 +3,5 @@
 <div class="cardList" *ngIf="itemList$ | async as itemList">
     <app-card *ngFor="let item of itemList | searchPipe : searchValue" [item]="item"></app-card>
 </div>
+
+<div *ngIf = 'errorMessage$ | async as errorMessage' class="errorMessage">MESSAGE D'ERREUR</div>

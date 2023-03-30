@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { Store } from '@ngrx/store';
+import { State } from '../../state/app.state'; 
 import { Observable } from 'rxjs';
 import { getShowMenuBurgerProperty } from '../../reducers/menuburger.reducer';
 
@@ -11,7 +12,7 @@ import { getShowMenuBurgerProperty } from '../../reducers/menuburger.reducer';
 export class HomePageComponent implements OnInit{
   isMenuBurgerOpen$!: Observable<boolean>;
   
-  constructor(private store : Store<any>) { }
+  constructor(private store : Store<State>) { }
   isMenuBurgerOpen! : boolean; 
 
   ngOnInit(): void {

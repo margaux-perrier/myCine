@@ -18,8 +18,10 @@ import { MoviePageComponent } from './movie-page/movie-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { SearchPipe } from '../pipes/search-pipe.pipe';
 import { itemListReducer } from '../reducers/items.reducer';
+import { filterReducer } from '../reducers/filter.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { itemListEffects } from '../effects/items.effects';
+import { filterListEffects } from '../effects/filter.effects';
 
 
 
@@ -45,7 +47,8 @@ import { itemListEffects } from '../effects/items.effects';
     AppRoutingModule,
     StoreModule.forFeature('menuburger', menuburgerReducer), 
     StoreModule.forFeature('items', itemListReducer),
-    EffectsModule.forFeature([itemListEffects])
+    StoreModule.forFeature('filter', filterReducer),
+    EffectsModule.forFeature([itemListEffects, filterListEffects ])
   ]
 })
 export class ComponentsModule { }

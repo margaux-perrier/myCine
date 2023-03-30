@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core'; 
 import { ItemsService } from '../services/items/items.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects'; 
-import {loadItemListAction, loadItemListSuccessAction} from '../actions/items.actions'
-import { map, mergeMap, tap } from 'rxjs/operators';
+import {loadItemListAction, loadItemListFailure, loadItemListSuccessAction} from '../actions/items.actions'
+import { catchError, map, mergeMap, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable()
 export class itemListEffects{
@@ -15,9 +16,9 @@ export class itemListEffects{
             ofType(loadItemListAction), 
             mergeMap(() => this.itemService.itemWithProducerList$.pipe(
                 map(itemList => loadItemListSuccessAction({itemList})),
-                tap(data => console.log('effffffeccccctssss', data))
+                catchError(error => of(loadItemListFailure({error}))),
+                tap(data => console.log('EFFECTS', data))
             )),
-            tap(data => console.log('effffffeccccctssss', data))
         )
     })
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {faBars} from '@fortawesome/free-solid-svg-icons'
 import { Store } from '@ngrx/store';
 import { toggleMenuBurgerAction } from 'src/app/actions/menuBuger.actions';
+import { State } from '../../state/app.state'
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ export class HeaderComponent{
 
 
   //CHANGER ANY 
-  constructor(private store : Store<any>) { }
+  constructor(private store : Store<State>) { }
 
   handleClick(): void {
     this.store.dispatch(toggleMenuBurgerAction())

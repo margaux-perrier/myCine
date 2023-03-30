@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IItem } from 'src/app/models/item';
-import { Observable, catchError, throwError, combineLatest, map, BehaviorSubject } from 'rxjs';
+import { Observable, catchError, throwError, combineLatest, map, BehaviorSubject, tap } from 'rxjs';
 import { ProducerService } from '../producer/producer.service';
 import { GenreService } from '../genre/genre.service'; 
 
@@ -28,7 +28,6 @@ export class ItemsService {
         producer : producerList.find( producer => producer.id === item.producerId),
     } as IItem )),
     ), 
-    // tap((data : any) => console.log('>>>>>>>ICI itemsWithCategory', data)), 
   );
 
   //action stream 
@@ -48,12 +47,12 @@ export class ItemsService {
         }
       }, 
     )),
-    // tap((data : IItem[]) => console.log('>>>>>>>>>>>>>>> FILTERED ITEMS, ', data)),
+    tap((data : IItem[]) => console.log('>>>>>>>>>>>>>>> FILTERED ITEMS, ', data)),
   )
     
-  
   //emit a value to the action stream each time the user selected a tag
   onSelected(arrayId : number[]){
+    console.log("ca passe ici"); 
     this.filterItemsSubject.next(arrayId); 
   }
 

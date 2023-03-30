@@ -3,6 +3,7 @@ import {faFilter} from '@fortawesome/free-solid-svg-icons';
 import {faRotateLeft} from '@fortawesome/free-solid-svg-icons'; 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { State } from 'src/app/state/app.state';
 import { getShowMenuBurgerProperty } from '../../reducers/menuburger.reducer';
 
 @Component({
@@ -14,7 +15,7 @@ export class MoviePageComponent implements OnInit {
   filterIcon = faFilter;
   resetIcon = faRotateLeft; 
    
-  constructor(private store : Store<any>) { }
+  constructor(private store : Store<State>) { }
   isMenuBurgerOpen$! : Observable<boolean>; 
 
   ngOnInit(): void {
