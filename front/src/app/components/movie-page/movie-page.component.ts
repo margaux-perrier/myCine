@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {faFilter} from '@fortawesome/free-solid-svg-icons'; 
 import {faRotateLeft} from '@fortawesome/free-solid-svg-icons'; 
 import { Store } from '@ngrx/store';
-import { getShowMenuBurgerProperty } from '../menu-burger/menuburger.reducer';
+import { Observable } from 'rxjs';
+import { getShowMenuBurgerProperty } from '../../reducers/menuburger.reducer';
 
 @Component({
   selector: 'app-movie-page',
@@ -14,17 +15,10 @@ export class MoviePageComponent implements OnInit {
   resetIcon = faRotateLeft; 
    
   constructor(private store : Store<any>) { }
-  isMenuBurgerOpen! : boolean; 
+  isMenuBurgerOpen$! : Observable<boolean>; 
 
-  //TO DO UNSUBSCRIBE
   ngOnInit(): void {
-    this.store.select(getShowMenuBurgerProperty).subscribe(
-      showMenuBurger => this.isMenuBurgerOpen = showMenuBurger
-    )
-    //SANS REDUX
-    // this.MenuBurgerService.handleMenuBurgerState.subscribe(isOpen => {
-    //   this.isMenuBurgerOpen = isOpen;
-    // });
+    this.isMenuBurgerOpen$ = this.store.select(getShowMenuBurgerProperty); 
   }
 
 }

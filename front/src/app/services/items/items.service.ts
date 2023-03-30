@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IItem } from 'src/app/models/item';
-import { Observable, tap, catchError, throwError, combineLatest, map, BehaviorSubject } from 'rxjs';
+import { Observable, catchError, throwError, combineLatest, map, BehaviorSubject } from 'rxjs';
 import { ProducerService } from '../producer/producer.service';
 import { GenreService } from '../genre/genre.service'; 
 
@@ -48,7 +48,7 @@ export class ItemsService {
         }
       }, 
     )),
-    // tap((data : IItem[]) => console.log('>>>>>>>>>>>>>>>CICI 2, ', data)),
+    // tap((data : IItem[]) => console.log('>>>>>>>>>>>>>>> FILTERED ITEMS, ', data)),
   )
     
   

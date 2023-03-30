@@ -1,8 +1,8 @@
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
-import { toggleMenuBurgerAction } from "../../actions/menuBuger.actions";
+import { toggleMenuBurgerAction } from "../actions/menuBuger.actions";
 
 export interface MenuBurgerState {
-    showMenuBurger : boolean; 
+    showMenuBurger : boolean;
 }
 
 const initialState : MenuBurgerState = {

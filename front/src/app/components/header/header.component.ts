@@ -12,11 +12,11 @@ import { toggleMenuBurgerAction } from 'src/app/actions/menuBuger.actions';
 export class HeaderComponent{
   menuBurgerIcon = faBars; 
 
+
+  //CHANGER ANY 
   constructor(private store : Store<any>) { }
 
   handleClick(): void {
     this.store.dispatch(toggleMenuBurgerAction())
-    //SANS REDUX
-    // this.MenuBurgerService.changeMenuBurgerState(true); 
   }
 }

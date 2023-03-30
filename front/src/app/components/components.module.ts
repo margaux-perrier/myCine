@@ -12,11 +12,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { StoreModule } from '@ngrx/store';
-import { menuburgerReducer } from './menu-burger/menuburger.reducer';
+import { menuburgerReducer } from '../reducers/menuburger.reducer';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MoviePageComponent } from './movie-page/movie-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { SearchPipe } from '../pipes/search-pipe.pipe';
+import { itemListReducer } from '../reducers/items.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { itemListEffects } from '../effects/items.effects';
 
 
 
@@ -40,7 +43,9 @@ import { SearchPipe } from '../pipes/search-pipe.pipe';
     FormsModule, 
     FontAwesomeModule, 
     AppRoutingModule,
-    StoreModule.forFeature('menuburger', menuburgerReducer)
+    StoreModule.forFeature('menuburger', menuburgerReducer), 
+    StoreModule.forFeature('items', itemListReducer),
+    EffectsModule.forFeature([itemListEffects])
   ]
 })
 export class ComponentsModule { }
