@@ -1,0 +1,123 @@
+@use 'src/scss/vars'; 
+
+.page-container{
+    width: 90%; 
+    min-height: 100vh;  
+    margin: vars.$gutter*3 auto; 
+}
+
+.item_infos{
+    display: flex; 
+    justify-content: space-around;
+}
+
+img{
+    width: 40%; 
+    height: auto; 
+}
+
+.item_content{
+    width: 60%; 
+    display:flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    text-align: center; 
+}
+
+.item_title{
+    color:vars.$primary-color; 
+    font-weight: bold;
+    margin: vars.$gutter 0; 
+}
+
+.item_subtitle{
+    color: white; 
+    font-style:italic;
+    margin-bottom: vars.$gutter; 
+}
+
+.item_subinfos{
+    display: flex; 
+    margin: vars.$gutter*2 0; 
+    justify-content: center; 
+    align-items: baseline;
+}
+
+.item_time{
+    color: white; 
+}
+
+.tag--public{
+    color: rgb(180, 18, 18); 
+    border: 2px solid rgb(180, 18, 18); 
+    font-weight: bold; 
+    font-size: 0.9em; 
+    border-radius: 10px;  
+    padding : vars.$gutter*0.3 vars.$gutter*0.5; 
+    margin-right: vars.$gutter; 
+}
+
+.tag-container{
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap;
+}
+
+.buttons-container{
+    display: flex; 
+    height: 100%;  
+    justify-content: center;
+    align-items: center; 
+    margin-top : vars.$gutter; 
+}
+
+.icon{
+    color: white;
+    margin : vars.$gutter; 
+}
+
+.item_description, .item_casting{
+    color : white; 
+    padding: vars.$gutter; 
+    border: 1px solid vars.$primary-color; 
+    border-radius : 10px; 
+}
+
+.item_description--mobile{
+   margin-top : vars.$gutter; 
+}
+
+.item_description--desktop{
+    display: none;
+}
+
+.item_casting{
+    margin-top : vars.$gutter*3; 
+    background-color: vars.$gray;  
+    position : relative;
+    display: flex; 
+    flex-wrap : wrap; 
+
+    span{
+        margin: vars.$gutter vars.$gutter; 
+    }
+
+    div{
+        z-index: 1;
+        background-color: vars.$primary-color; 
+        color: black; 
+        border-radius : 10px; 
+        padding : 0.2em; 
+        position: absolute; 
+        top: -8px; 
+         
+    }
+}
+
+@media screen and (min-width: 500px) {
+    img{
+        width: 40%; 
+        height: auto; 
+    }
+}
+

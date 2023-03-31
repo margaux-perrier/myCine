@@ -1,6 +1,11 @@
 @use 'src/scss/vars'; 
 
 .tag{
-    border-radius: 20px; 
-    padding : vars.$gutter; 
+    color: white; 
+    width: fit-content; 
+    border: 1px solid red; 
+    border-radius: 10px; 
+    padding : vars.$gutter*0.5; 
+    margin: vars.$gutter*0.5; 
+    font-size: 0.8em; 
 }

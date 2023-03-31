@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TagComponent implements OnInit {
 
-  @Input() name = ''; 
+  @Input() name = '';  
 
   constructor() { }
 

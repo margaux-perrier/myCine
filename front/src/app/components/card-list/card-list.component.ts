@@ -17,6 +17,7 @@ export class CardListComponent {
   errorMessage$!: Observable<string>; 
   searchValue = ''; 
   itemList$!: Observable<IItem[]>;
+  // currentPage : number = 1; 
 
   constructor( private store : Store<State> ){}
   
@@ -29,5 +30,9 @@ export class CardListComponent {
   onSearchTextEnter(searchText : string):void{
     this.searchValue = searchText; 
   }
+
+  // changePage(page: number): void {
+  //   this.currentPage = page;
+  // }
   
 }

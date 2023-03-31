@@ -24,6 +24,7 @@ import { itemListEffects } from '../effects/items.effects';
 import { filterListEffects } from '../effects/filter.effects';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { StarsComponent } from './stars/stars.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 
@@ -42,7 +43,8 @@ import { StarsComponent } from './stars/stars.component';
     NotFoundPageComponent,
     SearchPipe,
     DetailsPageComponent,
-    StarsComponent
+    StarsComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
