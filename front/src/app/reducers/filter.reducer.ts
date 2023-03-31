@@ -39,7 +39,6 @@ export const getSelectedGenreIdList = createSelector(
     }
 )
 
-
 export const filterReducer = createReducer<FilterListState>(
     initialState, 
     on(loadFilterListSuccessAction, (state, action) : FilterListState => {

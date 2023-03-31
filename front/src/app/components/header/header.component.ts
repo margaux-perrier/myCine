@@ -13,8 +13,6 @@ import { State } from '../../state/app.state'
 export class HeaderComponent{
   menuBurgerIcon = faBars; 
 
-
-  //CHANGER ANY 
   constructor(private store : Store<State>) { }
 
   handleClick(): void {

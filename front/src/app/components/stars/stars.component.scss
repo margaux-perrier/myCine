@@ -1,0 +1,22 @@
+@use 'src/scss/vars'; 
+
+.stars-container{
+    margin-top: vars.$gutter*3; 
+    display: flex; 
+    
+    .icon{
+        margin-right: vars.$gutter; 
+    }
+
+    .icon:last-of-type{
+        margin-right: 0; 
+    }
+
+    .star-full{
+        color : yellow; 
+    }
+
+    
+
+    
+}

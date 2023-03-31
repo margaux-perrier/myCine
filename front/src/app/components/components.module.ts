@@ -22,6 +22,8 @@ import { filterReducer } from '../reducers/filter.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { itemListEffects } from '../effects/items.effects';
 import { filterListEffects } from '../effects/filter.effects';
+import { DetailsPageComponent } from './details-page/details-page.component';
+import { StarsComponent } from './stars/stars.component';
 
 
 
@@ -38,7 +40,9 @@ import { filterListEffects } from '../effects/filter.effects';
     HomePageComponent, 
     MoviePageComponent, 
     NotFoundPageComponent,
-    SearchPipe
+    SearchPipe,
+    DetailsPageComponent,
+    StarsComponent
   ],
   imports: [
     CommonModule,

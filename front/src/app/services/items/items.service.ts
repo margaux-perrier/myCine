@@ -5,7 +5,11 @@ import { Observable, catchError, throwError, combineLatest, map, BehaviorSubject
 import { ProducerService } from '../producer/producer.service';
 import { GenreService } from '../genre/genre.service'; 
 
-//commenter JSDOC 
+/** @class
+* retrieve movies and series from back-end and combine it with producer list
+* @param {Http} Http service
+* @param {ProducerService} producer service
+*/
 @Injectable({
   providedIn: 'root'
 })
@@ -31,32 +35,36 @@ export class ItemsService {
   );
 
   //action stream 
-  private filterItemsSubject = new BehaviorSubject<number[]>([]);
-  filterItemsActions$ = this.filterItemsSubject.asObservable(); 
+  // private filterItemsSubject = new BehaviorSubject<number[]>([]);
+  // filterItemsActions$ = this.filterItemsSubject.asObservable(); 
       
-  filteredItems$ = combineLatest([
-    this.itemWithProducerList$, 
-    this.filterItemsActions$
-  ]).pipe(
-    map(([itemList, selectedGenreIdList])=>
-      itemList.filter((item : IItem) => {
-        if(selectedGenreIdList.length >0){
-          return item.genre.map(id => selectedGenreIdList.includes(id)).includes(true)
-        }else{
-          return true
-        }
-      }, 
-    )),
-    tap((data : IItem[]) => console.log('>>>>>>>>>>>>>>> FILTERED ITEMS, ', data)),
-  )
+  // filteredItems$ = combineLatest([
+  //   this.itemWithProducerList$, 
+  //   this.filterItemsActions$
+  // ]).pipe(
+  //   map(([itemList, selectedGenreIdList])=>
+  //     itemList.filter((item : IItem) => {
+  //       if(selectedGenreIdList.length >0){
+  //         return item.genre.map(id => selectedGenreIdList.includes(id)).includes(true)
+  //       }else{
+  //         return true
+  //       }
+  //     }, 
+  //   )),
+  //   tap((data : IItem[]) => console.log('>>>>>>>>>>>>>>> FILTERED ITEMS, ', data)),
+  // )
     
   //emit a value to the action stream each time the user selected a tag
-  onSelected(arrayId : number[]){
-    console.log("ca passe ici"); 
-    this.filterItemsSubject.next(arrayId); 
-  }
+  // onSelected(arrayId : number[]){
+  //   console.log("ca passe ici"); 
+  //   this.filterItemsSubject.next(arrayId); 
+  // }
 
-  //A COMMENTER JSDOC
+  /** @function handleError
+   * handle error
+   * @param {HttpErrorResponse} err
+   * @returns {Observable} errorMessage 
+   */
   private handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage: string = "";
     if (err.error instanceof ErrorEvent) {

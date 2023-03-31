@@ -5,6 +5,12 @@ import {loadItemListAction, loadItemListFailure, loadItemListSuccessAction} from
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
+/** @class
+* effect
+* @param {Action} action$
+* @param {ItemsService} itemsService - service
+* @return {Action} action$ - new action
+*/
 @Injectable()
 export class itemListEffects{
 

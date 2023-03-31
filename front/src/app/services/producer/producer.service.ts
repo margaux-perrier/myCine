@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IProducer } from 'src/app/models/producer';
-import { catchError, Observable, tap, throwError } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 
-
+/** @class
+* retrieve producer list from back-end 
+* @param {Http} Http service
+*/
 @Injectable({
   providedIn: 'root'
 })
@@ -14,10 +17,14 @@ export class ProducerService {
 
   producerList$ = this.http.get<IProducer[]>(this.producerListUrl)
   .pipe(
-    // tap((data: IProducer[]) => console.log('Genre: service', JSON.stringify(data))),
     catchError(this.handleError)
   ); 
 
+  /** @function handleError
+   * handle error
+   * @param {HttpErrorResponse} err
+   * @returns {Observable} errorMessage 
+   */
   private handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage: string = "";
     if (err.error instanceof ErrorEvent) {
