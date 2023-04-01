@@ -12,5 +12,7 @@ export interface IItem {
     duration? : number, 
     description : string, 
     type : string, 
-    genre : number[]
+    genre : number[],
+    rating : number, 
+    classification : string
 }

@@ -8,11 +8,6 @@ import { IItem } from '../../models/item';
   changeDetection : ChangeDetectionStrategy.OnPush
 
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
   @Input() item! : IItem; 
-
-  constructor() { }
-
-  ngOnInit(): void {}
-
 }

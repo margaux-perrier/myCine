@@ -12,8 +12,6 @@ import { getShowMenuBurgerProperty } from '../../reducers/menuburger.reducer';
   styleUrls: ['./movie-page.component.scss']
 })
 export class MoviePageComponent implements OnInit {
-  filterIcon = faFilter;
-  resetIcon = faRotateLeft; 
    
   constructor(private store : Store<State>) { }
   isMenuBurgerOpen$! : Observable<boolean>; 

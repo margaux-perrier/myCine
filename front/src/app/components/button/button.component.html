@@ -1,0 +1,4 @@
+<button [ngClass]="{'button' : true, 'reset' : reset}">{{text}} 
+    <fa-icon *ngIf="filter" class="fas fa-filter"></fa-icon>
+    <fa-icon *ngIf="reset" class="fas fa-arrow-rotate-left"></fa-icon>
+</button>

@@ -25,6 +25,7 @@ import { filterListEffects } from '../effects/filter.effects';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { StarsComponent } from './stars/stars.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { ButtonComponent } from './button/button.component';
 
 
 
@@ -44,7 +45,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     SearchPipe,
     DetailsPageComponent,
     StarsComponent,
-    PaginationComponent
+    PaginationComponent,
+    ButtonComponent
   ],
   imports: [
     CommonModule,

@@ -58,24 +58,10 @@
         }
     }
     
-    //à voir pour ne pas répéter ! 
-    .button{
-        margin : 0 auto; 
-        font-weight: bold; 
-        border: 1px solid vars.$primary-color; 
+    //A voir pour styliser 
+    :host(.menu-burger) button{
         background-color: vars.$gray;
-        color : vars.$primary-color; 
-        border-radius : 10px; 
-        padding : vars.$gutter*0.4;
-        width: fit-content; 
     }
-
-    .button:hover{
-        border: 1px solid vars.$gray; 
-        background-color: vars.$primary-color; 
-        color : vars.$gray; 
-    }
-
 }
 
 @media screen and (min-width: 950px) {

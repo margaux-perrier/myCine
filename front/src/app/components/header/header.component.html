@@ -1,7 +1,7 @@
 <header class='header'>
 
     <h1 class='header_logo'><a [routerLink]="''">MYCINE</a></h1>
-    <fa-icon class="header_menu-burger"  [icon]="menuBurgerIcon" (click) = "handleClick()"></fa-icon> 
+    <fa-icon class="header_menu-burger fas fa-bars fa-lg" (click) = "handleClick()"></fa-icon> 
     
     <nav class='header_nav--desktop'>
         <ul>
@@ -15,7 +15,7 @@
         <ul>
             <li class = 'nav_link'>Ma bibliothèque</li>
             <li class = 'nav_link'>Mon profil</li>    
-            <li class = 'nav_link'><button class='button'>Déconnexion</button></li>  
+            <li class = 'nav_link'><app-button [text]="'Déconnexion'" class="primary-button">{{buttonText}}</app-button></li>  
         </ul>
     </nav>
  

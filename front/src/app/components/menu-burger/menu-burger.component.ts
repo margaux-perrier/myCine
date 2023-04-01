@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { toggleMenuBurgerAction } from '../../actions/menuBuger.actions'; 
 import { Store } from '@ngrx/store';
 import { State } from '../../state/app.state'
@@ -8,15 +8,11 @@ import { State } from '../../state/app.state'
   templateUrl: './menu-burger.component.html',
   styleUrls: ['./menu-burger.component.scss']
 })
-export class MenuBurgerComponent implements OnInit {
-  
+export class MenuBurgerComponent  {
+  buttonText! : String; 
   constructor(private store : Store<State>) { }
 
   handleClick(): void {
     this.store.dispatch(toggleMenuBurgerAction())
   }
-
-  ngOnInit(): void {
-  }
-
 }

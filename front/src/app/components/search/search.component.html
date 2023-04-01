@@ -1,12 +1,12 @@
 <div class="search">
     <div class="searchBar">
-        <fa-icon class="searchBar_icon"  [icon]="searchIcon"></fa-icon> 
+        <fa-icon class="searchBar_icon fas fa-magnifying-glass"></fa-icon> 
         <input  class="searchBar_input" type="text" placeholder="Rechercher un film" [(ngModel)] = 'searchBarValue' (input)='onSearchValueChanged()'>
     </div>
         
     <div class="button-container">
-        <button (click) ='handleFilterMenu()' class="button">Filtrer <fa-icon [icon]="filterIcon"></fa-icon></button>
-        <button (click) = 'resetFilter()' class="button-reset"><fa-icon [icon]="resetIcon"></fa-icon></button>
+        <app-button (click) ='handleFilterMenu()' [text]="'Filtrer'" [filter]="true" class="primary-button">{{buttonText}}</app-button>
+        <app-button (click) = 'resetFilter()' [reset]="true" class="reset-button"></app-button>
     </div>
 </div>
 

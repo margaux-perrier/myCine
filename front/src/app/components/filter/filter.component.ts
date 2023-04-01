@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../../state/app.state'; 
-import {Observable, tap } from 'rxjs';
+import {Observable} from 'rxjs';
 import { loadFilterListAction, selectedGenreAction } from 'src/app/actions/filter.action';
 import { IGenre } from 'src/app/models/genre';
 import { getErrorGenre, getGenreList, getSelectedGenreIdList } from 'src/app/reducers/filter.reducer';

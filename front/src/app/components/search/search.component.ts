@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../../state/app.state'; 
-import {faSearch, faFilter, faRotateLeft} from '@fortawesome/free-solid-svg-icons'
 import { resetFilter } from 'src/app/actions/filter.action';
 
 
@@ -11,12 +10,11 @@ import { resetFilter } from 'src/app/actions/filter.action';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  searchIcon = faSearch; 
-  filterIcon = faFilter;
-  resetIcon = faRotateLeft; 
+ 
   searchBarValue : string = ''; 
   isFilterMenuOpen: boolean = false; 
-
+  buttonText! : String; 
+  
   @Output() searchValueChanged : EventEmitter<string> = new EventEmitter<string>(); 
 
   constructor(private store : Store<State>) {}
@@ -30,13 +28,10 @@ export class SearchComponent implements OnInit {
   }
 
   resetFilter(){
-    console.log('test'); 
     this.store.dispatch(resetFilter())
   }
 
-  ngOnInit(): void {
-    console.log(this.searchBarValue)
-  }
+  ngOnInit(): void {}
 
   
 

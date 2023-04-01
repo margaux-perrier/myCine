@@ -9,3 +9,11 @@
     margin: vars.$gutter*0.5; 
     font-size: 0.8em; 
 }
+
+@media screen and (min-width: 600px) {
+   
+    .tag{
+        font-size: 1em; 
+    }
+    
+}

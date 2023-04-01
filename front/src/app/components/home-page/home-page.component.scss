@@ -38,23 +38,9 @@
             margin-top: vars.$gutter*3; 
         }
 
-        // à voir pour ne pas répéter ce code ! 
         .button{
             margin-right: vars.$gutter; 
-            border: 1px solid vars.$primary-color; 
-            background-color: vars.$secondary-color;
-            color : vars.$primary-color; 
-            border-radius : 10px; 
-            padding : vars.$gutter*0.4;
-            width: fit-content; 
         }
-    
-        .button:hover{
-            border: 1px solid vars.$secondary-color; 
-            background-color: vars.$primary-color; 
-            color : vars.$secondary-color; 
-        }
-
 
     }
     

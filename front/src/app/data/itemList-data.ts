@@ -10,7 +10,9 @@ export class ItemListData {
             duration: 120, 
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'film', 
-            genre : [1,2]
+            genre : [1,2],
+            rating : 2.5,
+            classification : 'tous public'
           }, 
           {
             id : 2, 
@@ -21,7 +23,9 @@ export class ItemListData {
             duration: 101,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'film', 
-            genre : [3]
+            genre : [3],
+            rating : 4,
+            classification : 'tous publics'
           }, 
           {
             id : 3, 
@@ -32,7 +36,9 @@ export class ItemListData {
             duration: 130,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'film', 
-            genre : [1,4,5]
+            genre : [1,4,5],
+            rating : 4.5,
+            classification : 'tous publics'
           }, 
           {
             id : 4, 
@@ -43,7 +49,9 @@ export class ItemListData {
             duration: 115,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'film', 
-            genre : [4]
+            genre : [4],
+            rating : 3,
+            classification : 'interdit aux moins de 16'
           }, 
           {
             id : 5, 
@@ -54,7 +62,9 @@ export class ItemListData {
             duration: 150,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'film', 
-            genre : [4]
+            genre : [4],
+            rating : 4.5,
+            classification : 'interdit aux moins de 16'
           }, 
           {
             id : 6, 
@@ -65,7 +75,9 @@ export class ItemListData {
             duration: null,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'serie', 
-            genre : [4,6,7]
+            genre : [4,6,7],
+            rating : 3,
+            classification : 'tous publics'
           }, 
           {
             id : 7, 
@@ -76,7 +88,9 @@ export class ItemListData {
             duration: 115,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'film',  
-            genre : [8]
+            genre : [8],
+            rating : 3,
+            classification : 'interdit aux moins de 16'
           }, 
           {
             id : 8, 
@@ -87,7 +101,9 @@ export class ItemListData {
             duration: 115,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'film', 
-            genre : [7]
+            genre : [7],
+            rating : 4,
+            classification : 'tous publics'
           }, 
           {
             id : 9, 
@@ -98,7 +114,9 @@ export class ItemListData {
             duration: 110,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'film', 
-            genre : [2,6]
+            genre : [2,6],
+            rating : 3.5,
+            classification : 'tous publics'
           }, 
           {
             id : 10, 
@@ -109,7 +127,9 @@ export class ItemListData {
             duration: 110,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'film', 
-            genre : [2,6]
+            genre : [2,6],
+            rating : 2.5,
+            classification : 'tous publics'
           }, 
           {
             id : 11, 
@@ -120,7 +140,9 @@ export class ItemListData {
             duration: 150,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'film', 
-            genre : [4,7]
+            genre : [4,7],
+            rating : 4.5,
+            classification : 'tous publics'
           }, 
           {
             id : 12, 
@@ -131,7 +153,9 @@ export class ItemListData {
             duration: null,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'serie', 
-            genre : [6]
+            genre : [6],
+            rating : 4.5,
+            classification : 'tous publics'
           },
           {
             id : 13, 
@@ -142,7 +166,9 @@ export class ItemListData {
             duration: null,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'serie', 
-            genre : [1]
+            genre : [1],
+            rating : 5,
+            classification : 'tous publics'
           },
           {
             id : 14, 
@@ -153,7 +179,9 @@ export class ItemListData {
             duration: null,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'serie', 
-            genre : [7,4]
+            genre : [7,4],
+            rating : 3,
+            classification : 'tous publics'
           },
           {
             id : 15, 
@@ -164,7 +192,9 @@ export class ItemListData {
             duration: null,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'serie', 
-            genre : [6]
+            genre : [6],
+            rating : 2.5,
+            classification : 'tous publics'
           },
           {
             id : 16, 
@@ -175,7 +205,9 @@ export class ItemListData {
             duration: null,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'serie', 
-            genre : [6,2]
+            genre : [6,2],
+            rating : 4.5 ,
+            classification : 'tous publics'
           },
           {
             id : 17, 
@@ -186,7 +218,9 @@ export class ItemListData {
             duration: null,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'serie', 
-            genre : [3]
+            genre : [3],
+            rating : 3.5,
+            classification : 'tous publics'
           },
           {
             id : 18, 
@@ -197,7 +231,9 @@ export class ItemListData {
             duration: null,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'serie', 
-            genre : [3]
+            genre : [3],
+            rating : 4,
+            classification : 'tous publics'
           },
           {
             id : 19, 
@@ -208,7 +244,9 @@ export class ItemListData {
             duration: null,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'serie', 
-            genre : [4,6,7]
+            genre : [4,6,7],
+            rating : 4.5 ,
+            classification : 'tous publics'
           },
           {
             id : 20, 
@@ -219,7 +257,9 @@ export class ItemListData {
             duration: null,
             description : 'Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.',
             type : 'serie', 
-            genre : [7]
+            genre : [7],
+            rating : 2,
+            classification : 'tous publics'
           },
     ]
 }

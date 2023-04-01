@@ -1,7 +1,10 @@
 <app-header></app-header>
 <main class="page-container">
     <div class="item_infos">
+        
         <img src='../../../assets/images/succession.png' alt='visuel du film'/> 
+       
+        
         <div class="item_content">
             <h1 class="item_title">Titre du film (date)</h1>
             <h2 class="item_subtitle">Nom du réalisateur</h2>
@@ -17,6 +20,20 @@
 
             <app-stars></app-stars>
 
+            <div class="buttons-container buttons-container--desktop">
+                <fa-icon class="heart icon far fa-heart fa-lg"></fa-icon> 
+                <fa-icon class="bookmark icon far fa-bookmark fa-lg"></fa-icon> 
+                <fa-icon class="thumbUp icon far fa-thumbs-up fa-lg"></fa-icon> 
+                <fa-icon class="star icon far fa-star fa-lg"></fa-icon> 
+            </div>
+    
+        </div>
+
+        <div class="items--desktop">
+            <div class="item_description item_description--desktop">
+                Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.
+            </div>
+    
             <div class="item_casting item_casting--desktop">
                 <div>Casting</div>
                 <span>Acteur 1</span>
@@ -25,14 +42,13 @@
                 <span>Acteur 1</span>
             </div>
         </div>
-    
     </div>
 
-    <div class="buttons-container">
-        <fa-icon class="heart icon fa-lg" [icon]="heart"></fa-icon> 
-        <fa-icon class="bookmark icon fa-lg"  [icon]="bookmark"></fa-icon> 
-        <fa-icon class="thumbUp icon fa-lg"  [icon]="thumbUp"></fa-icon> 
-        <fa-icon class="star icon fa-lg"  [icon]="star"></fa-icon> 
+    <div class="buttons-container buttons-container--mobile">
+        <fa-icon class="heart icon far fa-heart fa-lg"></fa-icon> 
+        <fa-icon class="bookmark icon far fa-bookmark fa-lg"></fa-icon> 
+        <fa-icon class="thumbUp icon far fa-thumbs-up fa-lg"></fa-icon> 
+        <fa-icon class="star icon far fa-star fa-lg"></fa-icon>  
     </div>
 
     <div class="item_description">

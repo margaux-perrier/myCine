@@ -1,0 +1,32 @@
+@use 'src/scss/vars'; 
+
+.button{
+    border-radius : 10px; 
+    border: 1px solid; 
+    padding : vars.$gutter*0.6;
+}
+
+:host(.primary-button) button{
+    border-color: vars.$primary-color; 
+    background-color: vars.$secondary-color;
+    color : vars.$primary-color; 
+    width: fit-content; 
+}
+
+:host(.primary-button) button:hover{
+    border: 1px solid vars.$secondary-color; 
+    background-color: vars.$primary-color; 
+    color : vars.$secondary-color; 
+}
+
+:host(.reset-button) button{
+    border-color: vars.$gray-light; 
+    color : black;
+    background-color : vars.$gray-light; 
+}
+
+:host(.reset-button) button:hover{
+    border-color: vars.$primary-color; 
+    color : vars.$secondary-color;
+    background-color: vars.$primary-color; 
+}

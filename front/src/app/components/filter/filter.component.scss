@@ -1,7 +1,7 @@
 @use 'src/scss/vars'; 
 
 .filter{
-    background-color: black;
+    background-color: vars.$secondary-color;
     padding: vars.$gutter*2; 
     margin: vars.$gutter*2 0; 
     width: 100%; 

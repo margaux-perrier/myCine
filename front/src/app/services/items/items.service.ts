@@ -16,7 +16,7 @@ import { GenreService } from '../genre/genre.service';
 export class ItemsService {
   private itemListUrl = 'api/itemList'; 
 
-  constructor( private http: HttpClient, private producerService : ProducerService, private genreService : GenreService) {}
+  constructor( private http: HttpClient, private producerService : ProducerService) {}
 
   itemList$ = this.http.get<IItem[]>(this.itemListUrl).pipe(
     catchError(this.handleError)
@@ -34,11 +34,11 @@ export class ItemsService {
     ), 
   );
 
-  //action stream 
-  // private filterItemsSubject = new BehaviorSubject<number[]>([]);
-  // filterItemsActions$ = this.filterItemsSubject.asObservable(); 
+  // action stream 
+  // private searchValueSubject = new BehaviorSubject<number[]>([]);
+  // searchValueActions$ = this.searchValueSubject.asObservable(); 
       
-  // filteredItems$ = combineLatest([
+  // searchedItems$ = combineLatest([
   //   this.itemWithProducerList$, 
   //   this.filterItemsActions$
   // ]).pipe(
@@ -54,14 +54,14 @@ export class ItemsService {
   //   tap((data : IItem[]) => console.log('>>>>>>>>>>>>>>> FILTERED ITEMS, ', data)),
   // )
     
-  //emit a value to the action stream each time the user selected a tag
+  // emit a value to the action stream each time the user selected a tag
   // onSelected(arrayId : number[]){
   //   console.log("ca passe ici"); 
   //   this.filterItemsSubject.next(arrayId); 
   // }
 
   /** @function handleError
-   * handle error
+   * handle error + rajouter cas d'utilisation 
    * @param {HttpErrorResponse} err
    * @returns {Observable} errorMessage 
    */

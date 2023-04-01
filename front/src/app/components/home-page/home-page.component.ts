@@ -14,6 +14,7 @@ export class HomePageComponent implements OnInit{
   
   constructor(private store : Store<State>) { }
   isMenuBurgerOpen! : boolean; 
+  buttonText! : String; 
 
   ngOnInit(): void {
     this.isMenuBurgerOpen$ = this.store.select(getShowMenuBurgerProperty); 

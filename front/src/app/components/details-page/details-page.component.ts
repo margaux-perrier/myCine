@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {faThumbsUp, faStar} from '@fortawesome/free-solid-svg-icons'; 
-import {faHeart as emptyHeart, faBookmark as emptyBookMark, faStar as emptyStar, faThumbsUp as emptyThumbsUp} from '@fortawesome/free-regular-svg-icons'; 
 
 @Component({
   selector: 'app-details-page',
@@ -9,10 +7,7 @@ import {faHeart as emptyHeart, faBookmark as emptyBookMark, faStar as emptyStar,
 })
 export class DetailsPageComponent implements OnInit {
 
-  heart = emptyHeart;
-  bookmark = emptyBookMark;  
-  thumbUp = emptyThumbsUp; 
-  star = emptyStar; 
+  name! : String; 
 
   constructor() { }
 

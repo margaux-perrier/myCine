@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {faBars} from '@fortawesome/free-solid-svg-icons'
 import { Store } from '@ngrx/store';
 import { toggleMenuBurgerAction } from 'src/app/actions/menuBuger.actions';
 import { State } from '../../state/app.state'
@@ -11,8 +10,9 @@ import { State } from '../../state/app.state'
 })
 
 export class HeaderComponent{
-  menuBurgerIcon = faBars; 
 
+  buttonText! : String; 
+  
   constructor(private store : Store<State>) { }
 
   handleClick(): void {

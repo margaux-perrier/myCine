@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {faStar} from '@fortawesome/free-solid-svg-icons'; 
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-stars',
@@ -7,9 +6,11 @@ import {faStar} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./stars.component.scss']
 })
 export class StarsComponent implements OnInit {
-  star = faStar; 
-  constructor() { }
 
+  @Input() rating! : number; 
+
+  constructor() { }
+  
   ngOnInit(): void {
   }
 
