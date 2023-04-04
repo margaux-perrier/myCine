@@ -20,6 +20,7 @@ import { SearchPipe } from '../pipes/search/search-pipe.pipe';
 import { DurationPipe } from '../pipes/duration/duration.pipe';
 import { itemListReducer } from '../reducers/items.reducer';
 import { filterReducer } from '../reducers/filter.reducer';
+import { libraryReducer } from '../reducers/library.reducers'; 
 import { EffectsModule } from '@ngrx/effects';
 import { itemListEffects } from '../effects/items.effects';
 import { filterListEffects } from '../effects/filter.effects';
@@ -58,6 +59,7 @@ import { ButtonComponent } from './button/button.component';
     StoreModule.forFeature('menuburger', menuburgerReducer), 
     StoreModule.forFeature('items', itemListReducer),
     StoreModule.forFeature('filter', filterReducer),
+    StoreModule.forFeature('library', libraryReducer),
     EffectsModule.forFeature([itemListEffects, filterListEffects ])
   ]
 })

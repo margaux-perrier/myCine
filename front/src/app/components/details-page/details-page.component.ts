@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, tap } from 'rxjs';
+import { map, Observable} from 'rxjs';
 import { setCurrentItem } from 'src/app/actions/items.actions';
+import { handleListAction } from 'src/app/actions/list.action';
 import { IItem } from 'src/app/models/item';
 import { getCurrentItem } from 'src/app/reducers/items.reducer';
+import { getFavorisIdList, getWatchedIdList, getwhishIdList } from 'src/app/reducers/library.reducers';
 import { State } from '../../state/app.state'; 
 
 @Component({
@@ -16,20 +18,34 @@ export class DetailsPageComponent implements OnInit {
 
   name! : string; 
   currentItem$! : Observable<IItem | null | undefined>; 
-  
+  favoriteValue$! :  Observable<number | undefined>; 
+  whishValue$! :  Observable<number | undefined>; 
+  watchedValue$! :  Observable<number | undefined>; 
+  itemId! : number; 
+
   constructor(private activatedRoute: ActivatedRoute, private router : Router, private store : Store<State> ) {}
 
   ngOnInit() : void {
-    const itemId = Number(this.activatedRoute.snapshot.paramMap.get('id')); 
-    this.store.dispatch(setCurrentItem({ currentItemId: itemId })); 
+    this.itemId = Number(this.activatedRoute.snapshot.paramMap.get('id')); 
+    this.store.dispatch(setCurrentItem({ currentItemId: this.itemId })); 
     this.currentItem$ = this.store.select(getCurrentItem); 
-    this.currentItem$.pipe(
-      tap(data => console.log('ici', data))
+    this.favoriteValue$ = this.store.select(getFavorisIdList).pipe(
+      map(ids => ids.find(id => id === this.itemId)),
+    )
+    this.whishValue$ = this.store.select(getwhishIdList).pipe(
+      map(ids => ids.find(id => id === this.itemId)),
+    )
+    this.watchedValue$ = this.store.select(getWatchedIdList).pipe(
+      map(ids => ids.find(id => id === this.itemId)),
     )
   }
 
-  handleClick(){
-    console.log('test'); 
+  handleClose(){
     this.router.navigateByUrl('/movies'); 
+  }
+
+  handleClick(e : Event){
+    console.log((e.target as HTMLSelectElement).id)
+    this.store.dispatch(handleListAction({ name : `${(e.target as HTMLSelectElement).id}`, idItem : this.itemId })); 
   }
 }

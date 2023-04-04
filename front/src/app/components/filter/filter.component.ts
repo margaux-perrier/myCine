@@ -21,7 +21,6 @@ export class FilterComponent implements OnInit {
  
   onSelected(e : Event){
     this.store.dispatch(selectedGenreAction({ selectedGenreId : Number((e.target as HTMLSelectElement).id)})); 
-    this.store.select(getSelectedGenreIdList); 
   }
 
   ngOnInit(): void {

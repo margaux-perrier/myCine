@@ -41,7 +41,7 @@ export class ItemListData {
             type : 'film', 
             genreIds : [1,4,5],
             rating : 4.5,
-            classification : 'tous publics'
+            classification : '-16'
           }, 
           {
             id : 4, 
@@ -83,7 +83,7 @@ export class ItemListData {
             type : 'serie', 
             genreIds : [4,6,7],
             rating : 3,
-            classification : 'tous publics'
+            classification : '-10'
           }, 
           {
             id : 7, 
@@ -139,7 +139,7 @@ export class ItemListData {
             type : 'film', 
             genreIds : [2,6],
             rating : 2.5,
-            classification : 'tous publics'
+            classification : '-10'
           }, 
           {
             id : 11, 
@@ -181,7 +181,7 @@ export class ItemListData {
             type : 'serie', 
             genreIds : [1],
             rating : 5,
-            classification : 'tous publics'
+            classification : '-10'
           },
           {
             id : 14, 

@@ -1,7 +1,7 @@
 @use 'src/scss/vars'; 
 
-.carrousel{
-    width: 100%;
+.carrousel-container{
+    width: 90%;
     margin: vars.$gutter*4 auto; 
     display: flex; 
     flex-direction: column; 

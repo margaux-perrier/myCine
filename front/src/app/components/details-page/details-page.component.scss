@@ -13,7 +13,6 @@
     min-height: fit-content; 
     width: 100%;   
     position: relative;  
-    overflow: auto;
 }
 
 .content-container{
@@ -39,7 +38,7 @@
     margin : vars.$gutter*2 vars.$gutter; 
 
     .tag--public{
-        color: #EC3655;
+        color: vars.$pink;
         font-size: 0.9em; 
     }
 
@@ -51,7 +50,7 @@
 
 img{
     width: 100%; 
-    max-height: 110vh;
+    max-height: 100vh;
 }
 
 .item_title{
@@ -95,7 +94,6 @@ img{
     display: flex;
     justify-content: center;
     align-items: center; 
-    color: white;
     width: 45px; 
     height : 45px; 
     margin : vars.$gutter*0.5; 
@@ -104,19 +102,37 @@ img{
     opacity: 0.8; 
 }
 
+.heart--active{
+    color: vars.$pink;
+}
+
+.eye--active{
+    color: vars.$primary-color;
+}
+
+.icon-forbidden{
+    display: flex;
+    align-items: center; 
+    background-color: vars.$pink;
+    font-weight: bold; 
+    width : 25px; 
+    height: 25px; 
+    border-radius: 25px; 
+}
+
 .rating-container{
     position: relative; 
 }
 
 .rating{
     position: absolute; 
-    color: white; 
+    color: black;  
     background-color: vars.$primary-color;
+    font-weight: bold; 
     border-radius: 100px;
-    font-size: 12px; 
     padding: 0.4em;
     top: -3px;
-    right: -6px;
+    right: -12px;
 }
 
 .description-section{
