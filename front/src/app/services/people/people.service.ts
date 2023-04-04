@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { IProducer } from 'src/app/models/producer';
+import { IPeople } from 'src/app/models/people';
 import { catchError, Observable, throwError } from 'rxjs';
 
 /** @class
-* retrieve producer list from back-end 
+* retrieve people list from back-end 
 * @param {Http} Http service
 */
 @Injectable({
   providedIn: 'root'
 })
-export class ProducerService {
-  private producerListUrl = 'api/producerList';
+export class PeopleService {
+  private peopleListUrl = 'api/peopleList';
 
   constructor( private http: HttpClient ) {}
 
-  producerList$ = this.http.get<IProducer[]>(this.producerListUrl)
+  peopleList$ = this.http.get<IPeople[]>(this.peopleListUrl)
   .pipe(
     catchError(this.handleError)
   ); 

@@ -3,11 +3,7 @@
 .tag{
     color: white; 
     width: fit-content; 
-    border: 1px solid red; 
-    border-radius: 10px; 
-    padding : vars.$gutter*0.5; 
-    margin: vars.$gutter*0.5; 
-    font-size: 0.8em; 
+    font-size: 0.9em; 
 }
 
 @media screen and (min-width: 600px) {

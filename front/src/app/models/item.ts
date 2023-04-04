@@ -1,18 +1,20 @@
+import {IGenre} from './genre';
+import { IPeople } from './people';
+
 export interface IItem {
     id: number, 
     name : string, 
     avatar : string, 
     producerId : number, 
-    producer? : {
-        id : number, 
-        firstname : string, 
-        lastname : string
-    }, 
+    producer? : IPeople, 
+    actorIds : number[], 
+    actors? : IPeople[], 
     year : number, 
     duration? : number, 
     description : string, 
     type : string, 
-    genre : number[],
+    genreIds : number[],
+    genres? : IGenre[], 
     rating : number, 
     classification : string
 }

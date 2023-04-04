@@ -16,7 +16,8 @@ import { menuburgerReducer } from '../reducers/menuburger.reducer';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MoviePageComponent } from './movie-page/movie-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
-import { SearchPipe } from '../pipes/search-pipe.pipe';
+import { SearchPipe } from '../pipes/search/search-pipe.pipe';
+import { DurationPipe } from '../pipes/duration/duration.pipe';
 import { itemListReducer } from '../reducers/items.reducer';
 import { filterReducer } from '../reducers/filter.reducer';
 import { EffectsModule } from '@ngrx/effects';
@@ -43,6 +44,7 @@ import { ButtonComponent } from './button/button.component';
     MoviePageComponent, 
     NotFoundPageComponent,
     SearchPipe,
+    DurationPipe,
     DetailsPageComponent,
     StarsComponent,
     PaginationComponent,

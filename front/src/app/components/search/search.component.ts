@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../../state/app.state'; 
 import { resetFilter } from 'src/app/actions/filter.action';
+import { ItemsService } from 'src/app/services/items/items.service';
 
 
 @Component({
@@ -17,10 +18,11 @@ export class SearchComponent implements OnInit {
   
   @Output() searchValueChanged : EventEmitter<string> = new EventEmitter<string>(); 
 
-  constructor(private store : Store<State>) {}
+  constructor(private store : Store<State>, private itemService : ItemsService) {}
   
   onSearchValueChanged() {
-    this.searchValueChanged.emit(this.searchBarValue)
+    // this.searchValueChanged.emit(this.searchBarValue)
+    this.itemService.onSearchItems(this.searchBarValue)
   }
 
   handleFilterMenu(){

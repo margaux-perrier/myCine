@@ -1,68 +1,34 @@
-<app-header></app-header>
-<main class="page-container">
-    <div class="item_infos">
+<div class="overlay">
+    <div class="details-container" *ngIf="currentItem$ | async as item">
+            <div class="content-container">
+
+                <div class="tag-container">
+                    <div class="item_classification tag--public">{{item.classification | titlecase}} </div>
+                    <div class="item_time">{{item.duration | durationPipe}}</div>
+                    <app-tag *ngFor="let genre of item.genres" [genre]="genre"></app-tag>
+                </div>
+                
+                <h1 class="item_title">{{item.name | uppercase}}</h1>
+                <h2 class="item_subtitle">{{item.producer?.firstname | titlecase}} {{ item.producer?.lastname | titlecase }} <span>({{item.year}})</span></h2>
+                
+                <div class="buttons-container">
+                    <fa-icon class="heart icon far fa-heart fa-lg"></fa-icon> 
+                    <fa-icon class="bookmark icon far fa-bookmark fa-lg"></fa-icon> 
+                    <fa-icon class="thumbUp icon far fa-thumbs-up fa-lg"></fa-icon> 
+                    <div class="rating-container">
+                        <fa-icon class="star icon far fa-star fa-lg"></fa-icon>
+                        <div class="rating">{{item.rating}}</div>
+                    </div>
+                </div>
+
+                <p class="description-section">{{item.description}}</p>
         
-        <img src='../../../assets/images/succession.png' alt='visuel du film'/> 
-       
-        
-        <div class="item_content">
-            <h1 class="item_title">Titre du film (date)</h1>
-            <h2 class="item_subtitle">Nom du réalisateur</h2>
-            <div class="item_subinfos">
-                <div class="tag--public">Tous public</div>
-                <div class="item_time">1h57</div>
+                <ul class="actors">
+                    <li class="actor" *ngFor="let actor of item.actors">{{actor.firstname | titlecase}} {{actor.lastname | titlecase}}</li>
+                </ul>
             </div>
-            <div class="tag-container">
-                <app-tag></app-tag>
-                <app-tag></app-tag>
-                <app-tag></app-tag>
-            </div>
-
-            <app-stars></app-stars>
-
-            <div class="buttons-container buttons-container--desktop">
-                <fa-icon class="heart icon far fa-heart fa-lg"></fa-icon> 
-                <fa-icon class="bookmark icon far fa-bookmark fa-lg"></fa-icon> 
-                <fa-icon class="thumbUp icon far fa-thumbs-up fa-lg"></fa-icon> 
-                <fa-icon class="star icon far fa-star fa-lg"></fa-icon> 
-            </div>
-    
+            
+            <button class="close-button">x</button>
+            <img src='../../../assets/images/{{item.avatar}}' alt='visuel de {{item.name}}'/> 
         </div>
-
-        <div class="items--desktop">
-            <div class="item_description item_description--desktop">
-                Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.
-            </div>
-    
-            <div class="item_casting item_casting--desktop">
-                <div>Casting</div>
-                <span>Acteur 1</span>
-                <span>Acteur 1</span>
-                <span>Acteur 1</span>
-                <span>Acteur 1</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="buttons-container buttons-container--mobile">
-        <fa-icon class="heart icon far fa-heart fa-lg"></fa-icon> 
-        <fa-icon class="bookmark icon far fa-bookmark fa-lg"></fa-icon> 
-        <fa-icon class="thumbUp icon far fa-thumbs-up fa-lg"></fa-icon> 
-        <fa-icon class="star icon far fa-star fa-lg"></fa-icon>  
-    </div>
-
-    <div class="item_description">
-        Latius iam disseminata licentia onerosus bonis omnibus Caesar nullum post haec adhibens modum orientis latera cuncta vexabat nec honoratis.
-    </div>
-
-    
-    <div class="item_casting item_casting--mobile">
-        <div>Casting</div>
-        <span>Acteur 1</span>
-        <span>Acteur 1</span>
-        <span>Acteur 1</span>
-        <span>Acteur 1</span>
-    </div>
-
-</main>
-<app-footer></app-footer>
+</div>

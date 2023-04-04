@@ -8,7 +8,12 @@ export const loadItemListSuccessAction = createAction(
     props<{ itemList: IItem[] }>()
   );
   
-  export const loadItemListFailure = createAction(
-    '[ItemList] Load Fail',
-    props<{ error: string }>()
-  );
+export const loadItemListFailure = createAction(
+  '[ItemList] Load Fail',
+  props<{ error: string }>()
+);
+
+export const setCurrentItem = createAction(
+  '[itemList] Set current Item', 
+  props<{currentItemId: number }>()
+); 

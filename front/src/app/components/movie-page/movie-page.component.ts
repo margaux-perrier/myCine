@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {faFilter} from '@fortawesome/free-solid-svg-icons'; 
-import {faRotateLeft} from '@fortawesome/free-solid-svg-icons'; 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { State } from 'src/app/state/app.state';

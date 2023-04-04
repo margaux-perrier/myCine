@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IItem } from 'src/app/models/item';
 import { Observable, catchError, throwError, combineLatest, map, BehaviorSubject, tap } from 'rxjs';
-import { ProducerService } from '../producer/producer.service';
+import { PeopleService } from '../people/people.service';
 import { GenreService } from '../genre/genre.service'; 
 
 /** @class
@@ -16,49 +16,53 @@ import { GenreService } from '../genre/genre.service';
 export class ItemsService {
   private itemListUrl = 'api/itemList'; 
 
-  constructor( private http: HttpClient, private producerService : ProducerService) {}
+  constructor( private http: HttpClient, private peopleService : PeopleService, private genreService : GenreService) {}
 
   itemList$ = this.http.get<IItem[]>(this.itemListUrl).pipe(
     catchError(this.handleError)
   ); 
   
-  itemWithProducerList$ = combineLatest([
+  itemWithProducerActorGenreList$ = combineLatest([
     this.itemList$,
-    this.producerService.producerList$,
+    this.peopleService.peopleList$,
+    this.genreService.genreList$
   ]).pipe( 
-    map(([itemList, producerList]) => 
+    map(([itemList, peopleList, genreList]) => 
       itemList.map( item => ({
         ...item, 
-        producer : producerList.find( producer => producer.id === item.producerId),
+        producer : peopleList.find( people => people.id === item.producerId),
+        actors : item.actorIds.map(id => peopleList.find( actor => id === actor.id)), 
+        genres : item.genreIds.map( id => genreList.find(genre => id === genre.id))
     } as IItem )),
     ), 
   );
 
-  // action stream 
-  // private searchValueSubject = new BehaviorSubject<number[]>([]);
-  // searchValueActions$ = this.searchValueSubject.asObservable(); 
+  //action stream (searchBar)
+  private searchValueSubject = new BehaviorSubject<string>('');
+  searchValueActions$ = this.searchValueSubject.asObservable(); 
       
-  // searchedItems$ = combineLatest([
-  //   this.itemWithProducerList$, 
-  //   this.filterItemsActions$
-  // ]).pipe(
-  //   map(([itemList, selectedGenreIdList])=>
-  //     itemList.filter((item : IItem) => {
-  //       if(selectedGenreIdList.length >0){
-  //         return item.genre.map(id => selectedGenreIdList.includes(id)).includes(true)
-  //       }else{
-  //         return true
-  //       }
-  //     }, 
-  //   )),
-  //   tap((data : IItem[]) => console.log('>>>>>>>>>>>>>>> FILTERED ITEMS, ', data)),
-  // )
-    
-  // emit a value to the action stream each time the user selected a tag
-  // onSelected(arrayId : number[]){
-  //   console.log("ca passe ici"); 
-  //   this.filterItemsSubject.next(arrayId); 
-  // }
+  searchedItems$ = combineLatest([
+    this.itemWithProducerActorGenreList$,  
+    this.searchValueActions$
+  ]).pipe(
+    map(([itemList, searchValue]) => 
+      itemList.filter( (item : IItem) => {
+        if(searchValue.length >0){
+          const searchText = searchValue.toLowerCase(); 
+          return item.name.toLowerCase().includes(searchText) || item.producer?.firstname.toLowerCase().includes(searchText)
+        }else{
+          return true 
+        }
+      }) as IItem[]
+    ),
+    tap((data) => console.log('>>>>>>>>>>>>>>> FILTERED ITEMS, ', data)),
+  )
+  
+  // emit a value to the action stream when the user search an item
+  onSearchItems(searchValue : string){
+    console.log("ca passe ici"); 
+    this.searchValueSubject.next(searchValue); 
+  }
 
   /** @function handleError
    * handle error + rajouter cas d'utilisation 
