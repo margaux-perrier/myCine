@@ -1,5 +1,5 @@
-<div class="overlay">
-    <div class="details-container" *ngIf="currentItem$ | async as item">
+<div class="overlay" *ngIf="currentItem$ | async as item">
+    <div class="details-container" >
             <div class="content-container">
 
                 <div class="tag-container">
@@ -28,7 +28,7 @@
                 </ul>
             </div>
             
-            <button class="close-button">x</button>
+            <button (click)="handleClick()" class="close-button">x</button>
             <img src='../../../assets/images/{{item.avatar}}' alt='visuel de {{item.name}}'/> 
         </div>
 </div>

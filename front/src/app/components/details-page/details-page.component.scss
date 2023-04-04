@@ -1,8 +1,8 @@
 @use 'src/scss/vars'; 
 
 .overlay{
-    position : relative;
-    z-index: 0; 
+    position : fixed;
+    z-index: 1; 
     inset:0; 
     display : flex; //pour centrer la modal
     justify-content: center; 
@@ -10,10 +10,8 @@
 }
 
 .details-container{
-    height:110vh; 
     min-height: fit-content; 
     width: 100%;   
-    background-color: blue;
     position: relative;  
     overflow: auto;
 }
@@ -154,21 +152,18 @@ img{
 
 @media screen and (min-width: 500px) {
     .details-container{
-        // min-height: 100vh; 
         width: 60%;   
     }
 }
 
 @media screen and (min-width: 900px) {
     .details-container{
-        // min-height: 100vh; 
         width: 40%;   
     }
 }
 
 @media screen and (min-width: 1200px) {
     .details-container{
-        // min-height: 100vh; 
         width: 30%;   
     }
 }
