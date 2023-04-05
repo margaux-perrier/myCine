@@ -28,6 +28,7 @@ import { DetailsPageComponent } from './details-page/details-page.component';
 import { StarsComponent } from './stars/stars.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { ButtonComponent } from './button/button.component';
+import { CarrouselComponent } from './carrousel/carrousel.component';
 
 
 
@@ -35,6 +36,7 @@ import { ButtonComponent } from './button/button.component';
   declarations: [
     CardComponent, 
     CardListComponent, 
+    CarrouselComponent, 
     FilterComponent, 
     FooterComponent, 
     HeaderComponent, 

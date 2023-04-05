@@ -54,8 +54,7 @@ export class ItemsService {
           return true 
         }
       }) as IItem[]
-    ),
-    tap((data) => console.log('>>>>>>>>>>>>>>> FILTERED ITEMS, ', data)),
+    )
   )
   
   // emit a value to the action stream when the user search an item

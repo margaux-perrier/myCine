@@ -1,5 +1,5 @@
 <ul class="pagination">
-    <fa-icon class='pagination_icons fa-xl' [icon]="prevIcon" ></fa-icon>
+    <fa-icon class='pagination_icons fa-xl'></fa-icon>
     <li 
     *ngFor='let page of pages'
     [ngClass]="{'pagination_number': true, 'page_active' : currentPage === page, 'page_inactive' : currentPage !== page } "
@@ -7,5 +7,5 @@
     >
     {{page}}
     </li>
-    <fa-icon class='pagination_icons fa-xl' [icon]="nextIcon"></fa-icon>
+    <fa-icon class='pagination_icons fa-xl fa-caret-right'></fa-icon>
 </ul>

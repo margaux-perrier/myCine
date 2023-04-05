@@ -1,4 +1,4 @@
-<a [routerLink] = "['/movies', item.id ]">
+<a (click)='handleCurrentRoute()' [routerLink] = "['/movies', item.id ]">
     <div class = 'card'>
         <img src='../../../assets/images/{{item.avatar}}' alt='visuel du film {{item.name}}'/>
 

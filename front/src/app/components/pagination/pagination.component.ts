@@ -8,9 +8,6 @@ import { faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 })
 export class PaginationComponent implements OnInit {
 
-  nextIcon = faCaretRight; 
-  prevIcon = faCaretLeft; 
-
   constructor() { }
   @Input() currentPage: number = 1;
   @Input() total: number = 0;

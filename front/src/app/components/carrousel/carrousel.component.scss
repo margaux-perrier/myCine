@@ -1,10 +1,15 @@
 @use 'src/scss/vars'; 
 
+.card img{
+     width: 100%; 
+}
+
 .carrousel-container{
-    width: 90%;
+    width: 80%;
     margin: vars.$gutter*4 auto; 
     display: flex; 
     flex-direction: column; 
+    position: relative; 
 
     &_title{
         text-align: center; 
@@ -15,14 +20,37 @@
     }
 }
 
-.cardList{
-    display: flex; 
-    flex-direction : row; 
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: space-between;
+.carrousel-inner{
+    overflow: hidden;
 }
 
-.cardList>*{
-    flex-basis : 30%; 
+.card-container{
+    width: calc(50%); 
+    padding-right: 10px; 
+    flex-shrink : 0; 
+    // border: 1px solid red; 
 }
+
+.track{
+    display: flex; 
+    flex-direction : row;
+}
+
+.icon{
+    width: 30px; 
+    height: 30px; 
+    border: 1px solid gray; 
+    border-radius: 50%;
+    position: absolute; 
+    top: 50%; 
+    transform : translateY(-50%); 
+}
+
+.prev{
+    left : -15px; 
+}
+
+.next{
+    right: -5px; 
+}
+

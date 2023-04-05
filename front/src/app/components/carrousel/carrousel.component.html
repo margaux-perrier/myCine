@@ -1,15 +1,73 @@
 <div class="carrousel-container">
-	<h2 class="carrousel_title">Titre de la section</h2>
-	<div class="track">
-		<div class = 'card'>
-			<img src='../../../assets/images/succession.png' alt='visuel du film'/>
-	
-			<div class='card_content'>
-				<h2 class='card_content_title'>TITRE DU FILM</h2>
-				<h3 class='card_content_subtitle'>Réalisateur</h3>
-				<p class='card_content_description'>Blablablablablala</p>
-				<app-stars></app-stars>
+
+	<!-- <h2 class="carrousel_title">Titre de la section</h2> -->
+
+	<div class="carrousel-inner">
+		<div class="track">
+			
+			<div class="card-container" *ngFor="let item of itemList$ | async">
+				<app-card [item]="item"></app-card>
 			</div>
+	
+			<!-- <div class="card-container">
+				<div class = 'card'>
+					<img src='../../../assets/images/heroes_academy.png' alt='visuel du film'>
+				</div>
+			</div>
+	
+			<div class="card-container">
+				<div class = 'card'>
+					<img src='../../../assets/images/future_never_dies.png' alt='visuel du film'>
+				</div>
+			</div>
+	
+			<div class="card-container">
+				<div class = 'card'>
+					<img src='../../../assets/images/mieve_thille.png' alt='visuel du film'>
+				</div>
+			</div>
+	
+			<div class="card-container">
+				<div class = 'card'>
+					<img src='../../../assets/images/landscape.png' alt='visuel du film'>
+				</div>
+			</div>
+	
+			<div class="card-container">
+				<div class = 'card'>
+					<img src='../../../assets/images/musique_campagne.png' alt='visuel du film'>
+				</div>
+			</div>
+	
+			<div class="card-container">
+				<div class = 'card'>
+					<img src='../../../assets/images/star_is_born.png' alt='visuel du film'>
+				</div>
+			</div>
+	
+			<div class="card-container">
+				<div class = 'card'>
+					<img src='../../../assets/images/mask_of_horror.png' alt='visuel du film'>
+				</div>
+			</div>
+	
+			<div class="card-container">
+				<div class = 'card'>
+					<img src='../../../assets/images/foehe.png' alt='visuel du film'>
+				</div>
+			</div>
+	
+			<div class="card-container">
+				<div class = 'card'>
+					<img src='../../../assets/images/paralleles.png' alt='visuel du film'>
+				</div>
+			</div> -->
 		</div>
+
+	</div>
+	
+	<div class="nav">
+		<button class="icon next"><fa-icon class='fas fa-xl fa-caret-right'></fa-icon></button>
+		<button class="icon prev"><fa-icon class='fas fa-xl fa-caret-left'></fa-icon></button>
 	</div>
 </div>

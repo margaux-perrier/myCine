@@ -8,8 +8,7 @@ import { DetailsPageComponent } from './components/details-page/details-page.com
 const routes: Routes = [
   { path : '', component : HomePageComponent }, 
   { path : 'movies', component : MoviePageComponent },
-  { path : 'movies/:id', component : MoviePageComponent }, 
-  { path : 'movies/test', component : DetailsPageComponent }, 
+  { path : 'movies/:id', component : DetailsPageComponent }, 
   { path : '**', component : NotFoundPageComponent }, 
 
 ];

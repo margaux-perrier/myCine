@@ -9,7 +9,7 @@ export interface LibraryState {
 }
 
 const initialState : LibraryState = {
-    favorisIdList : [], 
+    favorisIdList : [1,2,3,4,5], 
     watchedIdList : [],
     whishIdList : [],   
     error : '',  
