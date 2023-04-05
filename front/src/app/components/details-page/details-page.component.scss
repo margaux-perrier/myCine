@@ -6,7 +6,7 @@
     inset:0; 
     display : flex; //pour centrer la modal
     justify-content: center; 
-    background-color: rgba(0,0,0,0.75); 
+    background-color: rgba(0,0,0,0.8); 
 }
 
 .details-container{
@@ -70,19 +70,17 @@ img{
 
 .close-button{
     position : absolute;
-    top : 10px;
-    left: 10px;  
-    border: 1px solid vars.$primary-color;
+    top : 15px;
+    right: 15px;  
+    border: 1px solid vars.$gray;
     font-size: vars.$gutter*1.8;
     border-radius : 20px;  
     background-color: vars.$secondary-color;
-    opacity: 0.8; 
-    color: vars.$primary-color;  
+    color: vars.$gray-light;  
 }
 
 .close-button:hover{
-    background-color: vars.$primary-color;
-    color: vars.$secondary-color;  
+  opacity: 0.8; 
 }
 
 .buttons-container{
@@ -100,6 +98,7 @@ img{
     border-radius: 25px; 
     background-color: vars.$gray; 
     opacity: 0.8; 
+    color: white; 
 }
 
 .heart--active{

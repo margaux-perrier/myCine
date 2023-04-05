@@ -13,7 +13,7 @@
     
     <nav class='header_nav--desktop'>
         <ul>
-            <li class = 'nav_link'>Ma bibliothèque</li>
+            <li class = 'nav_link'><a [routerLinkActive]="'active'" [routerLink]="'/library'">Ma bibliothèque</a></li>
             <li class = 'nav_link'>Mon profil</li>    
             <li class = 'nav_link'><app-button [text]="'Déconnexion'" class="primary-button">{{buttonText}}</app-button></li>  
         </ul>

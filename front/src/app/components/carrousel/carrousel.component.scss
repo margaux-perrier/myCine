@@ -26,9 +26,9 @@
 
 .card-container{
     width: calc(50%); 
-    padding-right: 10px; 
+    margin: 0 auto; 
     flex-shrink : 0; 
-    // border: 1px solid red; 
+    border: 1px solid red; 
 }
 
 .track{
@@ -51,6 +51,31 @@
 }
 
 .next{
-    right: -5px; 
+    right: -15px; 
 }
+
+@media screen and (min-width: 500px) {
+    .card-container{
+        width: calc(33.33%); 
+    }
+}
+
+@media screen and (min-width: 912px) {
+    .card-container{
+        width: calc(25%); 
+    }
+}
+
+@media screen and (min-width: 1010px) {
+    .card-container{
+        width: calc(20%); 
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .card-container{
+        width: calc(16.6%); 
+    }
+}
+
 

@@ -22,7 +22,6 @@ export class GenreService {
         ...genre,
         checked : false
       } as IGenre))),
-    tap((data: IGenre[]) => console.log('Genre: service', JSON.stringify(data))),
     catchError(this.handleError)
   ); 
   

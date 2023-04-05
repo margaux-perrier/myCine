@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { map, Observable} from 'rxjs';
-import { setCurrentItem } from 'src/app/actions/items.actions';
+import { map, Observable, tap} from 'rxjs';
+import { loadItemListAction, setCurrentItem } from 'src/app/actions/items.actions';
 import { handleListAction } from 'src/app/actions/list.action';
 import { IItem } from 'src/app/models/item';
 import { getCurrentItem } from 'src/app/reducers/items.reducer';
@@ -26,14 +26,17 @@ export class DetailsPageComponent implements OnInit {
   currentPage$! : Observable<string>; 
   itemId! : number; 
 
-  constructor(private location: Location, private activatedRoute: ActivatedRoute, private router : Router, private store : Store<State> ) {}
+  constructor(private location: Location, private activatedRoute: ActivatedRoute, private store : Store<State> ) {}
 
   ngOnInit() : void {
     this.itemId = Number(this.activatedRoute.snapshot.paramMap.get('id')); 
     this.store.dispatch(setCurrentItem({ currentItemId: this.itemId })); 
+    this.store.dispatch(loadItemListAction()); 
     this.currentItem$ = this.store.select(getCurrentItem); 
 
-    this.currentPage$ = this.store.select(getCurrentUrl); 
+    this.currentPage$ = this.store.select(getCurrentUrl).pipe(
+      tap(data => console.log(data))
+    )
 
     this.favoriteValue$ = this.store.select(getFavorisIdList).pipe(
       map(ids => ids.find(id => id === this.itemId)),
@@ -53,7 +56,7 @@ export class DetailsPageComponent implements OnInit {
   }
 
   handleClick(e : Event){
-    console.log((e.target as HTMLSelectElement).id)
     this.store.dispatch(handleListAction({ name : `${(e.target as HTMLSelectElement).id}`, idItem : this.itemId })); 
   }
 }
+

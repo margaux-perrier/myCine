@@ -24,7 +24,6 @@ export class itemListEffects{
                 delay(500), 
                 map(itemList => loadItemListSuccessAction({itemList})),
                 catchError(error => of(loadItemListFailure({error}))),
-                tap(data => console.log('EFFECTS', data))
             )),
         )
     }); 

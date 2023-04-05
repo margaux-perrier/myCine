@@ -5,7 +5,7 @@
     flex-direction: row;  
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 90%;
     flex-wrap: wrap; 
     margin: vars.$gutter*4 auto 0 auto; 
 }
@@ -16,7 +16,7 @@
 
 @media screen and (min-width: 500px) {
     .cardList>*{
-        flex-basis : 30%; 
+        flex-basis : 33.33%; 
     }
 }
 
@@ -28,12 +28,14 @@
 }
 
 @media screen and (min-width: 960px) {
-    .cardList{
-        width : 100%; 
-        flex-direction: row; 
-    }
-
     .cardList>*{
-        flex-basis : 30vh; 
+        flex-basis : 20%; 
+    }
+}
+
+
+@media screen and (min-width: 1500px) {
+    .cardList>*{
+        flex-basis : 16.6%; 
     }
 }

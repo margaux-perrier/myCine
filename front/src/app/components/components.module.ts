@@ -29,6 +29,8 @@ import { StarsComponent } from './stars/stars.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { ButtonComponent } from './button/button.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
+import { LibraryPageComponent } from './library/library-page.component';
+import { CarrouselShellComponent } from './carrousel/carrousel-shell/carousel-shell.component';
 
 
 
@@ -51,7 +53,9 @@ import { CarrouselComponent } from './carrousel/carrousel.component';
     DetailsPageComponent,
     StarsComponent,
     PaginationComponent,
-    ButtonComponent
+    ButtonComponent,
+    LibraryPageComponent,
+    CarrouselShellComponent
   ],
   imports: [
     CommonModule,

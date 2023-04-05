@@ -17,3 +17,7 @@ export const handleListAction = createAction(
     '[detailsPage] Add or remove Id to List', 
     props<{ name: string, idItem : number }>()
 )
+
+export const initializeIndexArray = createAction(
+    '[Library] initialize IndexArray', 
+)

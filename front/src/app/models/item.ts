@@ -16,5 +16,6 @@ export interface IItem {
     genreIds : number[],
     genres? : IGenre[], 
     rating : number, 
-    classification : string
+    classification : string, 
+    currentIndex? : number, 
 }

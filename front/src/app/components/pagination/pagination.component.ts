@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-pagination',
