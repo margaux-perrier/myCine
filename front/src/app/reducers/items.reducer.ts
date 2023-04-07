@@ -7,14 +7,12 @@ import { getSelectedGenreIdList } from "./filter.reducer";
 export interface ItemListState {
     itemList : IItem[], 
     currentItemId: number | null;
-    selectedGenreIdList : number[], 
     error : string
 }
 
 const initialState : ItemListState = {
     itemList : [], 
     currentItemId : null, 
-    selectedGenreIdList : [], 
     error : ''
 }
 

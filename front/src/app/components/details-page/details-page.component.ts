@@ -6,8 +6,8 @@ import { loadItemListAction, setCurrentItem } from 'src/app/actions/items.action
 import { handleListAction } from 'src/app/actions/list.action';
 import { IItem } from 'src/app/models/item';
 import { getCurrentItem } from 'src/app/reducers/items.reducer';
-import { getFavorisIdList, getWatchedIdList, getwhishIdList } from 'src/app/reducers/library.reducers';
-import { getCurrentUrl } from 'src/app/reducers/menuburger.reducer';
+import { getFavorisIdList, getWatchedIdList, getWishIdList } from 'src/app/reducers/library.reducers';
+import { getCurrentUrl } from 'src/app/reducers/app.reducer';
 import { State } from '../../state/app.state'; 
 import { Location } from '@angular/common'
 
@@ -42,7 +42,7 @@ export class DetailsPageComponent implements OnInit {
       map(ids => ids.find(id => id === this.itemId)),
     )
 
-    this.whishValue$ = this.store.select(getwhishIdList).pipe(
+    this.whishValue$ = this.store.select(getWishIdList).pipe(
       map(ids => ids.find(id => id === this.itemId)),
     )
     

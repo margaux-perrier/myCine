@@ -1,37 +1,37 @@
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
-import { handleCurrentRouteAction, toggleMenuBurgerAction } from "../actions/menuBuger.actions";
+import { handleCurrentRouteAction, toggleMenuBurgerAction } from "../actions/app.actions";
 
-export interface MenuBurgerState {
+export interface AppState {
     showMenuBurger : boolean;
     currentUrl : string, 
 }
 
-const initialState : MenuBurgerState = {
+const initialState : AppState = {
     showMenuBurger : false, 
     currentUrl : ''
 }
 
-const getMenuBurgerState = createFeatureSelector<MenuBurgerState>('menuburger'); 
+const getAppState = createFeatureSelector<AppState>('app'); 
 
 export const getShowMenuBurgerProperty = createSelector(
-    getMenuBurgerState, 
+    getAppState, 
     state => state.showMenuBurger
 )
 
 export const getCurrentUrl = createSelector(
-    getMenuBurgerState, 
+    getAppState, 
     state => state.currentUrl
 )
 
-export const menuburgerReducer = createReducer(
+export const appReducer = createReducer(
     initialState,
-    on(toggleMenuBurgerAction, (state : MenuBurgerState) => {
+    on(toggleMenuBurgerAction, (state : AppState) => {
         return {
             ...state, 
             showMenuBurger : !state.showMenuBurger
         }
     }), 
-    on(handleCurrentRouteAction, (state : MenuBurgerState, action) => {
+    on(handleCurrentRouteAction, (state : AppState, action) => {
         return {
             ...state, 
             currentUrl : action.url

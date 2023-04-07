@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IItem } from 'src/app/models/item';
-import { Observable, catchError, throwError, combineLatest, map, BehaviorSubject, tap } from 'rxjs';
+import { Observable, catchError, throwError, combineLatest, map, BehaviorSubject, tap, shareReplay } from 'rxjs';
 import { PeopleService } from '../people/people.service';
 import { GenreService } from '../genre/genre.service'; 
 
@@ -35,6 +35,7 @@ export class ItemsService {
         genres : item.genreIds.map( id => genreList.find(genre => id === genre.id))
     } as IItem )),
     ), 
+    shareReplay(1) //à voir si besoin ? 
   );
 
   //action stream (searchBar)
@@ -54,7 +55,8 @@ export class ItemsService {
           return true 
         }
       }) as IItem[]
-    )
+    ),
+    shareReplay(1),
   )
   
   // emit a value to the action stream when the user search an item

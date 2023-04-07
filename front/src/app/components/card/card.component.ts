@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { State } from '../../state/app.state'; 
 import { IItem } from '../../models/item';
-import { handleCurrentRouteAction } from 'src/app/actions/menuBuger.actions';
+import { handleCurrentRouteAction } from 'src/app/actions/app.actions';
 
 @Component({
   selector: 'app-card',

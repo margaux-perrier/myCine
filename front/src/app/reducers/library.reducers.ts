@@ -1,18 +1,18 @@
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
 import { handleNextAction } from "../actions/carrousel.action";
-import { handleListAction, initializeIndexArray } from "../actions/list.action";
+import { handleListAction } from "../actions/list.action";
+import { IItem } from "../models/item";
+import { getItemList } from "./items.reducer";
 
 export interface LibraryState {
     favorisIdList : number[],
-    currentIndex : number[], 
     watchedIdList : number[],
     whishIdList : number[],   
     error : string,  
 }
 
 const initialState : LibraryState = {
-    favorisIdList : [2, 1, 3,4,5,6,7,8,9,10], 
-    currentIndex : [],    
+    favorisIdList : [1,2,3,4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],   
     watchedIdList : [],
     whishIdList : [],   
     error : '',  
@@ -25,9 +25,11 @@ export const getFavorisIdList = createSelector(
     state => state.favorisIdList
 )
 
-export const getCurrentIndex = createSelector(
-    getListFeatureState, 
-    state => state.currentIndex
+export const getFavorisList = createSelector(
+    getListFeatureState,
+    getFavorisIdList, 
+    getItemList, 
+    (state, favorisIdList, itemList) => itemList.filter( (item : IItem) => favorisIdList.includes(item.id))
 )
 
 export const getWatchedIdList = createSelector(
@@ -35,9 +37,23 @@ export const getWatchedIdList = createSelector(
     state => state.watchedIdList
 )
 
-export const getwhishIdList = createSelector(
+export const getWatchedList = createSelector(
+    getListFeatureState,
+    getWatchedIdList, 
+    getItemList, 
+    (state, watchedIdList, itemList) => itemList.filter( (item : IItem) => watchedIdList.includes(item.id))
+)
+
+export const getWishIdList = createSelector(
     getListFeatureState, 
     state => state.whishIdList
+)
+
+export const getWishList = createSelector(
+    getListFeatureState,
+    getWishIdList, 
+    getItemList, 
+    (state, wishIdList, itemList) => itemList.filter( (item : IItem) => wishIdList.includes(item.id))
 )
 
 export const libraryReducer = createReducer<LibraryState>(
@@ -69,19 +85,4 @@ export const libraryReducer = createReducer<LibraryState>(
                 throw new Error (`No case for type ${action.name}  found in libraryReducer`); 
         }
     }),
-    on(initializeIndexArray, (state) : LibraryState => {
-        return{
-            ...state, 
-            currentIndex : [...Array(state.favorisIdList.length).keys()].map((el) => el + 0),  
-        }
-    }), 
-    on(handleNextAction, (state) : LibraryState => {
-        return{
-            ...state, 
-            // currentIndex : state.currentIndex.map(index =>  index === state.currentIndex[state.currentIndex.length-1] ? 0 : index + 1),  
-            // currentIndex : state.currentIndex.map(index =>  index === Math.max(...state.currentIndex) ? 0 : index + 1),  
-            favorisIdList : state.favorisIdList.map((item, index ) => index === Math.max(...state.favorisIdList) ? 0 : index +1 )
-        }
-    })
-
 )

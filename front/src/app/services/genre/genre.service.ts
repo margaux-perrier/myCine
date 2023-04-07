@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, tap, catchError, throwError, combineLatest, map } from 'rxjs';
+import { Observable, tap, catchError, throwError, combineLatest, map, shareReplay } from 'rxjs';
 import { IGenre } from 'src/app/models/genre';
 
 /** @class
@@ -22,6 +22,8 @@ export class GenreService {
         ...genre,
         checked : false
       } as IGenre))),
+    tap(data => console.log(data)), 
+    shareReplay(1),
     catchError(this.handleError)
   ); 
   

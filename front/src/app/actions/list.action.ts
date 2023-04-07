@@ -18,6 +18,3 @@ export const handleListAction = createAction(
     props<{ name: string, idItem : number }>()
 )
 
-export const initializeIndexArray = createAction(
-    '[Library] initialize IndexArray', 
-)

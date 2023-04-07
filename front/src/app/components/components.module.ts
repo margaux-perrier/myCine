@@ -12,7 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { StoreModule } from '@ngrx/store';
-import { menuburgerReducer } from '../reducers/menuburger.reducer';
+import { appReducer } from '../reducers/app.reducer';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MoviePageComponent } from './movie-page/movie-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
@@ -30,9 +30,8 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { ButtonComponent } from './button/button.component';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import { LibraryPageComponent } from './library/library-page.component';
-import { CarrouselShellComponent } from './carrousel/carrousel-shell/carousel-shell.component';
-
-
+import { RatingModule } from 'primeng/rating';
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   declarations: [
@@ -55,14 +54,15 @@ import { CarrouselShellComponent } from './carrousel/carrousel-shell/carousel-sh
     PaginationComponent,
     ButtonComponent,
     LibraryPageComponent,
-    CarrouselShellComponent
   ],
   imports: [
     CommonModule,
+    RatingModule, 
+    CarouselModule, 
     FormsModule, 
     FontAwesomeModule, 
     AppRoutingModule,
-    StoreModule.forFeature('menuburger', menuburgerReducer), 
+    StoreModule.forFeature('app', appReducer), 
     StoreModule.forFeature('items', itemListReducer),
     StoreModule.forFeature('filter', filterReducer),
     StoreModule.forFeature('library', libraryReducer),

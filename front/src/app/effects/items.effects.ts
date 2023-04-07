@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { ItemsService } from '../services/items/items.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects'; 
 import {loadItemListAction, loadItemListFailure, loadItemListSuccessAction} from '../actions/items.actions'
-import { catchError, delay, map, mergeMap, switchMap, tap } from 'rxjs/operators';
-import { of } from 'rxjs';
-
+import { catchError, delay, filter, map, mergeMap, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+import { combineLatest, of } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/state/app.state';
+import { getFavorisIdList } from '../reducers/library.reducers';
 /** @class
 * effect
 * @param {Action} action$
@@ -14,7 +16,7 @@ import { of } from 'rxjs';
 @Injectable()
 export class itemListEffects{
 
-    constructor( private actions$ : Actions, private itemsService : ItemsService ){}
+    constructor( private actions$ : Actions, private itemsService : ItemsService, private store : Store<State> ){}
 
     loadItems$ = createEffect(() => {
         return this.actions$
@@ -27,7 +29,6 @@ export class itemListEffects{
             )),
         )
     }); 
-
 
     // loadItems$ = createEffect(() => {
     //     return this.actions$

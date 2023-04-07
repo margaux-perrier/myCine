@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { State } from 'src/app/state/app.state';
-import { getShowMenuBurgerProperty } from '../../reducers/menuburger.reducer';
+import { getShowMenuBurgerProperty } from '../../reducers/app.reducer';
 
 @Component({
   selector: 'app-movie-page',

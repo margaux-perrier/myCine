@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { toggleMenuBurgerAction } from 'src/app/actions/menuBuger.actions';
+import { toggleMenuBurgerAction } from 'src/app/actions/app.actions';
 import { State } from '../../state/app.state'
 
 @Component({
@@ -10,8 +10,6 @@ import { State } from '../../state/app.state'
 })
 
 export class HeaderComponent{
-
-  buttonText! : String; 
   
   constructor(private store : Store<State>) { }
 

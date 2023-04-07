@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { toggleMenuBurgerAction } from '../../actions/menuBuger.actions'; 
+import { toggleMenuBurgerAction } from '../../actions/app.actions'; 
 import { Store } from '@ngrx/store';
 import { State } from '../../state/app.state'
 
@@ -9,7 +9,7 @@ import { State } from '../../state/app.state'
   styleUrls: ['./menu-burger.component.scss']
 })
 export class MenuBurgerComponent  {
-  buttonText! : String; 
+ 
   constructor(private store : Store<State>) { }
 
   handleClick(): void {

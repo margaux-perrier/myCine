@@ -1,7 +1,14 @@
 @use 'src/scss/vars'; 
 
+a{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
 .card{  
     width: fit-content; 
+    max-width: 250px;
     position: relative;
     display: flex;
     margin: vars.$gutter;  
