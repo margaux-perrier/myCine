@@ -34,9 +34,12 @@
                         id="watchedIdList" 
                         [ngClass]="{'icon far fa-lg' : true, 'fas fa-eye eye--active': (watchedValue$ | async), 'far fa-eye-slash' : !(watchedValue$ | async)}">
                     </fa-icon> 
-                    <div class="rating-container">
-                        <fa-icon class="star icon far fa-star fa-lg"></fa-icon>
-                        <div class="rating">{{item.rating}}</div>
+                    <div class="rating-container--close" (click)="handleRating()">
+                        <fa-icon [ngClass]="{ 'icon far fa-star fa-lg' : true, 'star--open fas' : isRatingOpen}"></fa-icon>
+                        <div class="rating" *ngIf="!isRatingOpen">{{item.rating}}</div>
+                    </div>
+                    <div *ngIf="isRatingOpen" class="rating-container--open">
+                        <p-rating [cancel]="false"></p-rating>
                     </div>
                 </div>
 

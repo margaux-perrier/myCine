@@ -25,6 +25,7 @@ export class DetailsPageComponent implements OnInit {
   watchedValue$! :  Observable<number | undefined>; 
   currentPage$! : Observable<string>; 
   itemId! : number; 
+  isRatingOpen : boolean = true; 
 
   constructor(private location: Location, private activatedRoute: ActivatedRoute, private store : Store<State> ) {}
 
@@ -55,6 +56,11 @@ export class DetailsPageComponent implements OnInit {
 
   handleClick(e : Event){
     this.store.dispatch(handleListAction({ name : `${(e.target as HTMLSelectElement).id}`, idItem : this.itemId })); 
+  }
+
+  handleRating(){
+    this.isRatingOpen = !this.isRatingOpen; 
+    console.log(this.isRatingOpen)
   }
 }
 

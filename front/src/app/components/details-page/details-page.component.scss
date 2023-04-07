@@ -85,6 +85,7 @@ img{
 
 .buttons-container{
     display: flex; 
+    align-items: center; 
     margin: vars.$gutter*2; 
 }
 
@@ -109,6 +110,13 @@ img{
     color: vars.$primary-color;
 }
 
+.star--open{
+    color: vars.$primary-color;
+    margin-right: 0; 
+    border-top-right-radius: 0; 
+    border-bottom-right-radius: 0; 
+}
+
 .icon-forbidden{
     display: flex;
     align-items: center; 
@@ -119,9 +127,29 @@ img{
     border-radius: 25px; 
 }
 
-.rating-container{
+.rating-container--close{
     position: relative; 
 }
+
+.rating-container--open{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height : 45px; 
+    width: 150px;
+    border-radius: 0 25px 25px 0; 
+    background-color: vars.$gray; 
+    opacity: 0.8; 
+    color: white; 
+}
+
+.p-rating-star-on{
+    color: red; 
+}
+.p-rating{
+    border: 1px solid red; 
+}
+
 
 .rating{
     position: absolute; 
