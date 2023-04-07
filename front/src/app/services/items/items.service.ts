@@ -61,7 +61,6 @@ export class ItemsService {
   
   // emit a value to the action stream when the user search an item
   onSearchItems(searchValue : string){
-    console.log("ca passe ici"); 
     this.searchValueSubject.next(searchValue); 
   }
 

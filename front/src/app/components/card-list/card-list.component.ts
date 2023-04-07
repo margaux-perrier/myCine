@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../../state/app.state'; 
 import { Observable } from 'rxjs';
@@ -16,7 +16,7 @@ export class CardListComponent {
 
   errorMessage$!: Observable<string>; 
   searchValue = ''; 
-  itemList$!: Observable<IItem[]>;
+  @Input() itemList$!: Observable<IItem[]>;
   // currentPage : number = 1; 
 
   constructor( private store : Store<State> ){}

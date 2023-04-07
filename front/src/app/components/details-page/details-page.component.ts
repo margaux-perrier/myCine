@@ -34,9 +34,7 @@ export class DetailsPageComponent implements OnInit {
     this.store.dispatch(loadItemListAction()); 
     this.currentItem$ = this.store.select(getCurrentItem); 
 
-    this.currentPage$ = this.store.select(getCurrentUrl).pipe(
-      tap(data => console.log(data))
-    )
+    this.currentPage$ = this.store.select(getCurrentUrl); 
 
     this.favoriteValue$ = this.store.select(getFavorisIdList).pipe(
       map(ids => ids.find(id => id === this.itemId)),

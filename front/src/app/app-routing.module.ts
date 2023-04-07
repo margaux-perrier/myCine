@@ -9,6 +9,7 @@ import { LibraryPageComponent } from './components/library/library-page.componen
 const routes: Routes = [
   { path : '', component : HomePageComponent }, 
   { path : 'movies', component : MoviePageComponent },
+  { path : 'series', component : MoviePageComponent },
   { path : 'movies/:id', component : DetailsPageComponent }, 
   { path : 'library', component : LibraryPageComponent }, 
   { path : '**', component : NotFoundPageComponent }, 

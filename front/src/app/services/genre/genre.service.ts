@@ -21,8 +21,7 @@ export class GenreService {
       genreList.map(genre => ({
         ...genre,
         checked : false
-      } as IGenre))),
-    tap(data => console.log(data)), 
+      } as IGenre))), 
     shareReplay(1),
     catchError(this.handleError)
   ); 
