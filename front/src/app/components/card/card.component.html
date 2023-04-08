@@ -6,7 +6,7 @@
             <h2 class='card_content_title'>{{item.name | uppercase }}</h2>
             <h3 class='card_content_subtitle'>{{ item.producer?.firstname | titlecase }} {{ item.producer?.lastname | titlecase }}</h3>
             <p class='card_content_description'>{{item.description}}</p>
-            <app-stars [rating]="item.rating"></app-stars>
+            <p-rating [(ngModel)]="item.rating" [readonly]="true" [cancel]="false"></p-rating>
         </div>
     </div>
 </a>

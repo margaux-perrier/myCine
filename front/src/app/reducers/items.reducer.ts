@@ -1,5 +1,5 @@
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
-import { loadItemListFailure, loadItemListSuccessAction, setCurrentItem } from "../actions/items.actions";
+import { loadItemListFailure, loadItemListSuccessAction, setCurrentItem, setRatingItem } from "../actions/items.actions";
 import { IItem } from "../models/item";
 import { getSelectedGenreIdList } from "./filter.reducer";
 
@@ -69,4 +69,21 @@ export const itemListReducer = createReducer<ItemListState>(
           currentItemId: action.currentItemId, 
         };
     }),
+    on(setRatingItem, (state, action) : ItemListState => {
+        return {
+            ...state, 
+            itemList : state.itemList.map( item => {
+                if(state.currentItemId === item.id){
+                    return{
+                        ...item, 
+                        rating : ((item.rating + action.ratingValue)/2)
+                    }
+                }else{
+                    return item
+                
+                }
+            })
+        }
+    }
+    )
 ); 

@@ -86,16 +86,20 @@ img{
 .buttons-container{
     display: flex; 
     align-items: center; 
+    justify-content: flex-start;
     margin: vars.$gutter*2; 
+    width: 235px; 
+    height: 70px; 
+    overflow: visible;
 }
 
 .icon{
     display: flex;
     justify-content: center;
     align-items: center; 
-    width: 45px; 
-    height : 45px; 
-    margin : vars.$gutter*0.5; 
+    min-width: 45px; 
+    min-height : 45px; 
+    margin : 5px;; 
     border-radius: 25px; 
     background-color: vars.$gray; 
     opacity: 0.8; 
@@ -110,13 +114,6 @@ img{
     color: vars.$primary-color;
 }
 
-.star--open{
-    color: vars.$primary-color;
-    margin-right: 0; 
-    border-top-right-radius: 0; 
-    border-bottom-right-radius: 0; 
-}
-
 .icon-forbidden{
     display: flex;
     align-items: center; 
@@ -127,39 +124,38 @@ img{
     border-radius: 25px; 
 }
 
-.rating-container--close{
+.star--active{
+    z-index: 2; 
+    color: vars.$primary-color; 
+}
+
+.rating-container{
     position: relative; 
+    display: flex; 
+    align-items: center;
+    border: 1px solid red; 
 }
 
 .rating-container--open{
     display: flex;
+    position: absolute;  
     justify-content: center;
-    align-items: center; 
-    height : 45px; 
-    width: 150px;
-    border-radius: 0 25px 25px 0; 
+    align-items: center;  
+    height: 50px;
+    width: 250px; 
+    border-radius: 25px; 
     background-color: vars.$gray; 
-    opacity: 0.8; 
-    color: white; 
 }
-
-.p-rating-star-on{
-    color: red; 
-}
-.p-rating{
-    border: 1px solid red; 
-}
-
 
 .rating{
+    z-index: 4; 
     position: absolute; 
     color: black;  
     background-color: vars.$primary-color;
     font-weight: bold; 
     border-radius: 100px;
     padding: 0.4em;
-    top: -3px;
-    right: -12px;
+    top: -5px;
 }
 
 .description-section{

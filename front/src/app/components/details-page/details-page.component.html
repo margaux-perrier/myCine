@@ -19,6 +19,14 @@
                 <h2 class="item_subtitle">{{item.producer?.firstname | titlecase}} {{ item.producer?.lastname | titlecase }} <span>({{item.year}})</span></h2>
                 
                 <div class="buttons-container">
+                    <div class="rating-container">
+                        <div *ngIf="!isRatingOpen" class="rating">{{item.rating}}</div>
+                        <fa-icon (click)="handleRatingOpening()" [ngClass]="{ 'icon far fa-star fa-lg' : true, 'fas star--active' : ratingValue, isRatingOpen}"></fa-icon> 
+                        <div [@openClose]="isRatingOpen ? 'open' : 'close'" class="rating-container--open" (click)="handleRatingOpening()" >
+                            <p-rating (click)="handleRating()" [(ngModel)]="ratingValue" [cancel]="false"></p-rating>
+                        </div>
+                    </div>
+
                     <fa-icon 
                         (click)='handleClick($event)' 
                         id="favorisIdList" 
@@ -34,14 +42,8 @@
                         id="watchedIdList" 
                         [ngClass]="{'icon far fa-lg' : true, 'fas fa-eye eye--active': (watchedValue$ | async), 'far fa-eye-slash' : !(watchedValue$ | async)}">
                     </fa-icon> 
-                    <div class="rating-container--close" (click)="handleRating()">
-                        <fa-icon [ngClass]="{ 'icon far fa-star fa-lg' : true, 'star--open fas' : isRatingOpen}"></fa-icon>
-                        <div class="rating" *ngIf="!isRatingOpen">{{item.rating}}</div>
-                    </div>
-                    <div *ngIf="isRatingOpen" class="rating-container--open">
-                        <p-rating [cancel]="false"></p-rating>
-                    </div>
                 </div>
+                
 
                 <p class="description-section">{{item.description}}</p>
         

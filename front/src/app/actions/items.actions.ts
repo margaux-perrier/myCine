@@ -17,3 +17,8 @@ export const setCurrentItem = createAction(
   '[itemList] Set current Item', 
   props<{currentItemId: number }>()
 ); 
+
+export const setRatingItem = createAction(
+  '[Details Paage] Set rating Item', 
+  props<{ ratingValue: number }>()
+); 

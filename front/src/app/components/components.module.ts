@@ -32,6 +32,7 @@ import { CarrouselComponent } from './carrousel/carrousel.component';
 import { LibraryPageComponent } from './library/library-page.component';
 import { RatingModule } from 'primeng/rating';
 import { CarouselModule } from 'primeng/carousel';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { CarouselModule } from 'primeng/carousel';
   ],
   imports: [
     CommonModule,
+    BrowserAnimationsModule, 
     RatingModule, 
     CarouselModule, 
     FormsModule, 
