@@ -1,0 +1,212 @@
+@use 'src/scss/vars'; 
+
+.overlay{
+    position : fixed;
+    z-index: 1; 
+    inset:0; 
+    display : flex; //pour centrer la modal
+    justify-content: center; 
+    background-color: rgba(0,0,0,0.8); 
+}
+
+.details-container{
+    min-height: fit-content; 
+    width: 100%;   
+    position: relative;  
+}
+
+.content-container{
+    position: absolute; 
+    z-index: 2; 
+    bottom: 0; 
+    display: flex; 
+    width: 100%;  
+    height: fit-content; 
+    min-height: 40%; 
+    background-color: black;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center;
+    padding-top: vars.$gutter*2; 
+}
+
+.tag-container{
+    display: flex; 
+    width:90%;
+    justify-content: space-around; 
+    align-items: center; 
+    margin : vars.$gutter*2 vars.$gutter; 
+
+    .tag--public{
+        color: vars.$pink;
+        font-size: 0.9em; 
+    }
+
+    .item_time{
+        color: white; 
+        font-size: 0.9em; 
+    }
+}
+
+img{
+    width: 100%; 
+    max-height: 100vh;
+}
+
+.item_title{
+    color:white; 
+    font-weight: bold;
+    margin: vars.$gutter; 
+    text-align: center;
+    font-size: 3.1em; 
+}
+
+.item_subtitle{
+    color: white; 
+    font-style:italic;
+    font-size: 1.2em; 
+    margin-bottom: vars.$gutter; 
+}
+
+.close-button{
+    position : absolute;
+    top : 15px;
+    right: 15px;  
+    border: 1px solid vars.$gray;
+    font-size: vars.$gutter*1.8;
+    border-radius : 20px;  
+    background-color: vars.$secondary-color;
+    color: vars.$gray-light;  
+}
+
+.close-button:hover{
+  opacity: 0.8; 
+}
+
+.buttons-container{
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start;
+    margin: vars.$gutter*2; 
+    width: 235px; 
+    height: 70px; 
+    overflow: visible;
+}
+
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-width: 45px; 
+    min-height : 45px; 
+    margin : 5px;; 
+    border-radius: 25px; 
+    background-color: vars.$gray; 
+    opacity: 0.8; 
+    color: white; 
+}
+
+.heart--active{
+    color: vars.$pink;
+}
+
+.eye--active{
+    color: vars.$primary-color;
+}
+
+.icon-forbidden{
+    display: flex;
+    align-items: center; 
+    background-color: vars.$pink;
+    font-weight: bold; 
+    width : 25px; 
+    height: 25px; 
+    border-radius: 25px; 
+}
+
+.star--active{
+    z-index: 2; 
+    color: vars.$primary-color; 
+}
+
+.rating-container{
+    position: relative; 
+    display: flex; 
+    align-items: center;
+}
+
+.rating-container--open{
+    display: flex;
+    position: absolute;  
+    justify-content: center;
+    align-items: center;  
+    height: 50px;
+    width: 250px; 
+    border-radius: 25px; 
+    background-color: vars.$gray; 
+}
+
+.rating{
+    z-index: 3; 
+    position: absolute; 
+    color: black;  
+    background-color: vars.$primary-color;
+    font-weight: bold; 
+    border-radius: 100px;
+    padding: 0.4em;
+    top: -5px;
+}
+
+.description-section{
+    color : white;   
+    padding: vars.$gutter*2 vars.$gutter; 
+    background-color: vars.$gray;
+}
+
+.actors{
+    display: flex; 
+    width:100%; 
+    justify-content: center;
+    flex-wrap: wrap; 
+    padding: vars.$gutter*2 vars.$gutter; 
+    background-color: vars.$gray;
+    opacity: 0.8; 
+
+    .actor{
+        margin-left: vars.$gutter*0.5; 
+        color: vars.$primary-color;
+    }
+
+    .actor::after{
+        content: ','; 
+    }
+
+    .actor:last-of-type::after{
+        content: ''; 
+    }
+   
+}
+
+
+@media screen and (min-width: 500px) {
+    .details-container{
+        width: 60%;   
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .details-container{
+        width: 40%;   
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .details-container{
+        width: 30%;   
+    }
+}
+
+
+
+
+

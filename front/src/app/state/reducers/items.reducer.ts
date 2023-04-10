@@ -1,0 +1,100 @@
+import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
+import { loadItemListFailure, loadItemListSuccessAction, setCurrentItem, setRatingItem } from "../actions/items.actions";
+import { IItem } from "../../core/models/item";
+import { getSelectedGenreIdList } from "./filter.reducer";
+
+
+export interface ItemListState {
+    itemList : IItem[], 
+    currentItemId: number | null;
+    error : string
+}
+
+const initialState : ItemListState = {
+    itemList : [], 
+    currentItemId : null, 
+    error : ''
+}
+
+const getItemsFeatureState = createFeatureSelector<ItemListState>('items');
+
+export const getItemList = createSelector(
+    getItemsFeatureState,
+    getSelectedGenreIdList,
+    (state, selectedGenreIdList) => {
+        if(selectedGenreIdList.length >0){
+            return state.itemList.filter(item => item.genreIds.map(id => selectedGenreIdList.includes(id)).includes(true))
+        }else{
+            return state.itemList
+        }
+    }
+);
+
+export const getCurrentItemId = createSelector(
+    getItemsFeatureState, 
+    state => state.currentItemId
+)
+
+export const getCurrentItem = createSelector(
+    getItemsFeatureState,
+    getCurrentItemId,    
+    (state, currentItemId) => currentItemId ? state.itemList.find(item => item.id === currentItemId) : null 
+)
+
+export const getMoviesList = createSelector(
+    getItemsFeatureState,
+    getSelectedGenreIdList, 
+    (state, selectedGenreIdList) => {
+        if(selectedGenreIdList.length >0){
+            return state.itemList.filter(item => item.type === 'film' && item.genreIds.map(id => selectedGenreIdList.includes(id)).includes(true))
+        }else{
+            return state.itemList.filter(item => item.type === 'film')
+        }
+    }
+)
+
+export const getErrorItems = createSelector(
+    getItemsFeatureState, 
+    state => state.error
+)
+
+export const itemListReducer = createReducer<ItemListState>(
+    initialState,
+    on(loadItemListSuccessAction, (state, action): ItemListState => {
+        return {
+          ...state,
+          itemList: action.itemList,
+          error: ''
+        };
+    }), 
+    on(loadItemListFailure, (state, action): ItemListState => {
+        return {
+            ...state, 
+            itemList : [], 
+            error : action.error 
+        }
+    }),
+    on(setCurrentItem, (state, action): ItemListState => {
+        return {
+          ...state,
+          currentItemId: action.currentItemId, 
+        };
+    }),
+    on(setRatingItem, (state, action) : ItemListState => {
+        return {
+            ...state, 
+            itemList : state.itemList.map( item => {
+                if(state.currentItemId === item.id){
+                    return{
+                        ...item, 
+                        rating : ((item.rating + action.ratingValue)/2)
+                    }
+                }else{
+                    return item
+                
+                }
+            })
+        }
+    }
+    )
+); 
