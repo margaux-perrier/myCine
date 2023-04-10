@@ -1,11 +1,15 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { State } from '../../../state/app.state'; 
-import {Observable} from 'rxjs';
-import { loadFilterListAction, selectedGenreAction } from '../../../state/actions/filter.action';
 import { IGenre } from 'src/app/core/models/genre';
-import { getErrorGenre, getGenreList, getSelectedGenreIdList } from '../../../state/reducers/filter.reducer';
+import {Observable} from 'rxjs';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/state/app.state'; 
+import { filterActions } from 'src/app/state/actions';
+import { filterReducer } from 'src/app/state/reducers';
 
+/**
+* @description display filter categories and handle items filtering : dispatch selectedGenreAction when a genre is selected. 
+* @param { State } Store
+*/
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
@@ -20,13 +24,13 @@ export class FilterComponent implements OnInit {
   genreList$! : Observable<IGenre[]>; 
  
   onSelected(e : Event){
-    this.store.dispatch(selectedGenreAction({ selectedGenreId : Number((e.target as HTMLSelectElement).id)})); 
+    this.store.dispatch(filterActions.selectedGenreAction({ selectedGenreId : Number((e.target as HTMLSelectElement).id)})); 
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadFilterListAction());  
-    this.genreList$ = this.store.select(getGenreList); 
-    this.errorMessage$ = this.store.select(getErrorGenre); 
+    this.store.dispatch(filterActions.loadFilterListAction());  
+    this.genreList$ = this.store.select(filterReducer.getGenreList); 
+    this.errorMessage$ = this.store.select(filterReducer.getErrorGenre); 
   }
 
 }

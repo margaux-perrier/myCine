@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, tap, catchError, throwError, combineLatest, map, shareReplay } from 'rxjs';
+import { Observable, catchError, throwError, map, shareReplay } from 'rxjs';
 import { IGenre } from 'src/app/core/models/genre';
 
 /** @class
 * retrieve genre list from back-end 
-* @param {Http} Http service
+* @param { Http } Http service
 */
 @Injectable({
   providedIn: 'root'
@@ -27,10 +27,10 @@ export class GenreService {
   ); 
   
   
-  /** @function handleError
-   * handle error
-   * @param {HttpErrorResponse} err
-   * @returns {Observable} errorMessage 
+   /** @function handleError
+   * handle error - retrieve error when a client-side or network error occured or when the backend return an unsuccessful response code.
+   * @param { HttpErrorResponse } err
+   * @returns { Observable } errorMessage 
    */
   private handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage: string = "";

@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { State } from 'src/app/state/app.state';
-import { getShowMenuBurgerProperty } from '../../state/reducers/app.reducer';
 import { IItem } from 'src/app/core/models/item';
-import { getMoviesList } from '../../state/reducers/items.reducer';
-import { loadItemListAction } from '../../state/actions/items.actions';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/state/app.state';
+import { appReducer, itemsReducer } from 'src/app/state/reducers';
+import { itemsActions } from 'src/app/state/actions';
 
-
+/**
+* @description display moviesList 
+* @param { State } Store
+*/
 @Component({
   selector: 'app-movie-page',
   templateUrl: './movie-page.component.html',
@@ -20,8 +22,8 @@ export class MoviePageComponent implements OnInit {
   itemList$ ! : Observable<IItem[]>; 
 
   ngOnInit(): void {
-    this.isMenuBurgerOpen$ = this.store.select(getShowMenuBurgerProperty); 
-    this.store.dispatch(loadItemListAction());  
-    this.itemList$ = this.store.select(getMoviesList); 
+    this.isMenuBurgerOpen$ = this.store.select(appReducer.getShowMenuBurgerProperty); 
+    this.store.dispatch(itemsActions.loadItemListAction());  
+    this.itemList$ = this.store.select(itemsReducer.getMoviesList); 
   }
 }

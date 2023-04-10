@@ -1,13 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IItem } from 'src/app/core/models/item';
 
+/** 
+* @description Reusable carrousel component
+* @param { Observable<IItem[]> } itemList
+* @param { string } titleList  
+*/
 @Component({
   selector: 'app-carrousel',
   templateUrl: './carrousel.component.html',
   styleUrls: ['./carrousel.component.scss']
 })
-export class CarrouselComponent implements OnInit {
+export class CarrouselComponent{
 
   @Input() itemList$! : Observable<IItem[]>;
   @Input() titleList : string = '';  
@@ -39,8 +44,4 @@ export class CarrouselComponent implements OnInit {
       numScroll: 3
     },
   ]
-
-  ngOnInit(): void {
-    // this.favorisList$ = this.store.select(getFavorisList)
-  }
 }

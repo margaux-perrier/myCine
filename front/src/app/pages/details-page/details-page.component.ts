@@ -1,17 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { map, Observable, tap} from 'rxjs';
-import { loadItemListAction, setCurrentItem, setRatingItem } from '../../state/actions/items.actions';
-import { handleListAction } from '../../state/actions/list.action';
-import { IItem } from 'src/app/core/models/item';
-import { getCurrentItem } from '../../state/reducers/items.reducer';
-import { getFavorisIdList, getWatchedIdList, getWishIdList } from '../../state/reducers/library.reducers';
-import { getCurrentUrl } from 'src/app/state/reducers/app.reducer';
-import { State } from '../../state/app.state'; 
 import { Location } from '@angular/common'; 
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { ActivatedRoute } from '@angular/router';
+import { map, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { IItem } from 'src/app/core/models/item';
+import { State } from 'src/app/state/app.state'; 
+import { itemsActions, listActions } from 'src/app/state/actions';
+import { itemsReducer, libraryReducer, appReducer } from 'src/app/state/reducers';  
 
+/**
+* @description Display item's details. Handle favorisList, wishList, watchedList and rating. 
+  When user click on icon, the handleListAction is dispatch. 
+  When user rate the item, the setRatingItemAction is dispatch
+* @param { State } Store
+* @param { State } Store
+* @param { Location } location
+*/
 @Component({
   selector: 'app-details-page',
   animations : [
@@ -49,21 +54,21 @@ export class DetailsPageComponent implements OnInit {
 
   ngOnInit() : void {
     this.itemId = Number(this.activatedRoute.snapshot.paramMap.get('id')); 
-    this.store.dispatch(setCurrentItem({ currentItemId: this.itemId })); 
-    this.store.dispatch(loadItemListAction()); 
-    this.currentItem$ = this.store.select(getCurrentItem); 
+    this.store.dispatch(itemsActions.setCurrentItem({ currentItemId: this.itemId })); 
+    this.store.dispatch(itemsActions.loadItemListAction()); 
+    this.currentItem$ = this.store.select(itemsReducer.getCurrentItem); 
 
-    this.currentPage$ = this.store.select(getCurrentUrl); 
+    this.currentPage$ = this.store.select(appReducer.getCurrentUrl); 
 
-    this.favoriteValue$ = this.store.select(getFavorisIdList).pipe(
+    this.favoriteValue$ = this.store.select(libraryReducer.getFavorisIdList).pipe(
       map(ids => ids.find(id => id === this.itemId)),
     )
 
-    this.whishValue$ = this.store.select(getWishIdList).pipe(
+    this.whishValue$ = this.store.select(libraryReducer.getWishIdList).pipe(
       map(ids => ids.find(id => id === this.itemId)),
     )
     
-    this.watchedValue$ = this.store.select(getWatchedIdList).pipe(
+    this.watchedValue$ = this.store.select(libraryReducer.getWatchedIdList).pipe(
       map(ids => ids.find(id => id === this.itemId)),
     )
   }
@@ -73,15 +78,15 @@ export class DetailsPageComponent implements OnInit {
   }
 
   handleClick(e : Event){
-    this.store.dispatch(handleListAction({ name : `${(e.target as HTMLSelectElement).id}`, idItem : this.itemId })); 
+    this.store.dispatch(listActions.handleListAction({ name : `${(e.target as HTMLSelectElement).id}`, idItem : this.itemId })); 
   }
 
-  handleRatingOpening(){
+  handleRatingOpening() : void {
     this.isRatingOpen = !this.isRatingOpen; 
   }
-  handleRating(){
-    console.log(this.ratingValue)
-    this.isRatingOpen ? this.store.dispatch(setRatingItem({ ratingValue : this.ratingValue})) : null
+
+  handleRating() : void{
+    this.isRatingOpen ? this.store.dispatch(itemsActions.setRatingItem({ ratingValue : this.ratingValue})) : null
   }
 }
 

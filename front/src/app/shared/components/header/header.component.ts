@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { toggleMenuBurgerAction } from '../../../state/actions/app.actions';
-import { State } from '../../../state/app.state'; 
+import { State } from 'src/app/state/app.state'; 
+import { appActions } from 'src/app/state/actions';
 
+/** 
+* @description display header and dispatch toggleMenuBurgerAction when menuBurger button is clicked
+* @param { State } Store
+*/
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,6 +18,6 @@ export class HeaderComponent{
   constructor(private store : Store<State>) { }
 
   handleClick(): void {
-    this.store.dispatch(toggleMenuBurgerAction())
+    this.store.dispatch(appActions.toggleMenuBurgerAction())
   }
 }

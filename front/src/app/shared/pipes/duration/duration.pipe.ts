@@ -1,5 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+/**
+* @description transforms movie's duration (min) to hour-minute format
+* @param { number | undefined } duration
+* @returns { string | null } duration hour-minute format 
+*/
 @Pipe({
   name: 'durationPipe'
 })

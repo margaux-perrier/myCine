@@ -7,8 +7,8 @@ import { GenreService } from '../genre/genre.service';
 
 /** @class
 * retrieve movies and series from back-end and combine it with producer list
-* @param {Http} Http service
-* @param {ProducerService} producer service
+* @param { Http } Http service
+* @param { ProducerService } producer service
 */
 @Injectable({
   providedIn: 'root'
@@ -35,7 +35,7 @@ export class ItemsService {
         genres : item.genreIds.map( id => genreList.find(genre => id === genre.id))
     } as IItem )),
     ), 
-    shareReplay(1) //à voir si besoin ? 
+    shareReplay(1)
   );
 
   //action stream (searchBar)
@@ -65,9 +65,9 @@ export class ItemsService {
   }
 
   /** @function handleError
-   * handle error + rajouter cas d'utilisation 
-   * @param {HttpErrorResponse} err
-   * @returns {Observable} errorMessage 
+   * handle error - retrieve error when a client-side or network error occured or when the backend return an unsuccessful response code.
+   * @param { HttpErrorResponse } err
+   * @returns { Observable } errorMessage 
    */
   private handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage: string = "";

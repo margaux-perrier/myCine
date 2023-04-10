@@ -1,10 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { IItem } from '../../../core/models/item';
 
-
-
-/** @class searchPipe
-* filter items according to a search value based on the item's name or the item's producer name
+/**
+* @description filters items according to a search value based on the item's name or the item's producer name
 * @param {IItem[]} itemList
 * @param {String} searchText
 * @returns {IItem[]} filtered itemList 

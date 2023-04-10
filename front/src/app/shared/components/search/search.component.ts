@@ -1,17 +1,20 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { State } from '../../../state/app.state'; 
-import { resetFilter } from 'src/app/state/actions/filter.action';
+import { State } from 'src/app/state/app.state'; 
+import { filterActions } from 'src/app/state/actions';
 import { ItemsService } from 'src/app/core/services/items/items.service';
 
-
-
+/**
+* @description Display searchBar and filter component. Handle search elements with searchBar, filterMenu opening and filter reseting (reset button). 
+* @param { State } Store
+* @param { itemsService } itemService 
+*/
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent{
  
   searchBarValue : string = ''; 
   isFilterMenuOpen: boolean = false; 
@@ -26,16 +29,12 @@ export class SearchComponent implements OnInit {
     this.itemService.onSearchItems(this.searchBarValue)
   }
 
-  handleFilterMenu(){
+  handleFilterMenuOpening(){
     this.isFilterMenuOpen = !this.isFilterMenuOpen
   }
 
   resetFilter(){
-    this.store.dispatch(resetFilter())
+    this.store.dispatch(filterActions.resetFilter())
   }
-
-  ngOnInit(): void {}
-
-  
 
 }
