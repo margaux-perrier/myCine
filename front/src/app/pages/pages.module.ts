@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MoviePageComponent } from './movie-page/movie-page.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { StoreModule } from '@ngrx/store';
-import { itemListReducer } from '../state/reducers/items.reducer';
+import { itemListReducer } from '../state/items/reducer/items.reducer';
 import { SharedModule } from '../shared/shared.module';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';

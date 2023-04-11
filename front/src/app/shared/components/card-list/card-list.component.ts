@@ -3,7 +3,7 @@ import { IItem } from 'src/app/core/models/item';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state'; 
-import { itemsReducer } from 'src/app/state/reducers';
+import { itemsSelectors } from 'src/app/state/items';
 
 /**
 * @description Display itemList 
@@ -26,7 +26,7 @@ export class CardListComponent {
   
   ngOnInit(): void {
     // this.store.dispatch(loadItemListAction());  
-    this.errorMessage$ = this.store.select(itemsReducer.getErrorItems); 
+    this.errorMessage$ = this.store.select(itemsSelectors.getErrorItems); 
   }
   
   onSearchTextEnter(searchText : string):void{

@@ -43,6 +43,7 @@ export const getCurrentUrl = createSelector(
 * @description manages the following state changes : showMenuBurger and currentUrl
 * @param { AppState } state
 * @param { Action } action
+* @returns { AppState } updated state 
 */
 export const appReducer = createReducer(
     initialState,

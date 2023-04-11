@@ -6,8 +6,9 @@ import { map, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { IItem } from 'src/app/core/models/item';
 import { State } from 'src/app/state/app.state'; 
-import { itemsActions, listActions } from 'src/app/state/actions';
-import { itemsReducer, libraryReducer, appReducer } from 'src/app/state/reducers';  
+import { itemsActions, itemsSelectors } from 'src/app/state/items';
+import { listActions } from 'src/app/state/actions';
+import { libraryReducer, appReducer } from 'src/app/state/reducers';  
 
 /**
 * @description Display item's details. Handle favorisList, wishList, watchedList and rating. 
@@ -57,7 +58,7 @@ export class DetailsPageComponent implements OnInit {
     this.itemId = Number(this.activatedRoute.snapshot.paramMap.get('id')); 
     this.store.dispatch(itemsActions.setCurrentItem({ currentItemId: this.itemId })); 
     this.store.dispatch(itemsActions.loadItemListAction()); 
-    this.currentItem$ = this.store.select(itemsReducer.getCurrentItem); 
+    this.currentItem$ = this.store.select(itemsSelectors.getCurrentItem); 
 
     this.currentPage$ = this.store.select(appReducer.getCurrentUrl); 
 

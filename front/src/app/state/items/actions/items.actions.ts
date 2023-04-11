@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { IItem } from "../../core/models/item";
+import { IItem } from "../../../core/models/item";
 
 export const loadItemListAction = createAction('[ItemsList] Load');
 
@@ -15,7 +15,7 @@ export const loadItemListFailure = createAction(
 
 export const setCurrentItem = createAction(
   '[itemList] Set current Item', 
-  props<{currentItemId: number }>()
+  props<{ currentItemId: number }>()
 ); 
 
 export const setRatingItem = createAction(

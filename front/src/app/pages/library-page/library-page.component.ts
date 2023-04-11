@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state';
 import { appReducer, libraryReducer } from 'src/app/state/reducers';
-import { itemsActions } from 'src/app/state/actions';
+import { itemsActions } from 'src/app/state/items';
 import { IItem } from 'src/app/core/models/item';
 
 

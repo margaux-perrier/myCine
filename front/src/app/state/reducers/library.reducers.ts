@@ -1,5 +1,5 @@
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
-import { getItemList } from "./items.reducer";
+import { itemsSelectors } from "../items";
 import { IItem } from "src/app/core/models/item";
 import { handleListAction } from "../actions/list.action";
 
@@ -43,7 +43,7 @@ export const getFavorisIdList = createSelector(
 export const getFavorisList = createSelector(
     getListFeatureState,
     getFavorisIdList, 
-    getItemList, 
+    itemsSelectors.getItemList, 
     (state, favorisIdList, itemList) => favorisIdList.length > 0 ? itemList.filter( (item : IItem) => favorisIdList.includes(item.id)) : []
 )
 
@@ -66,7 +66,7 @@ export const getWatchedIdList = createSelector(
 export const getWatchedList = createSelector(
     getListFeatureState,
     getWatchedIdList, 
-    getItemList, 
+    itemsSelectors.getItemList,
     (state, watchedIdList, itemList) => watchedIdList.length > 0 ? itemList.filter( (item : IItem) => watchedIdList.includes(item.id)) : []
 )
 
@@ -89,7 +89,7 @@ export const getWishIdList = createSelector(
 export const getWishList = createSelector(
     getListFeatureState,
     getWishIdList, 
-    getItemList, 
+    itemsSelectors.getItemList, 
     (state, wishIdList, itemList) => wishIdList.length ? itemList.filter( (item : IItem) => wishIdList.includes(item.id)) : []
 )
 

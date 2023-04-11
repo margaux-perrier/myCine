@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { IItem } from 'src/app/core/models/item';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state';
-import { appReducer, itemsReducer } from 'src/app/state/reducers';
-import { itemsActions } from 'src/app/state/actions';
+import { appReducer } from 'src/app/state/reducers';
+import { itemsActions, itemsSelectors } from 'src/app/state/items';
 
 /**
 * @description display moviesList 
@@ -25,6 +25,6 @@ export class MoviePageComponent implements OnInit {
   ngOnInit(): void {
     this.isMenuBurgerOpen$ = this.store.select(appReducer.getShowMenuBurgerProperty); 
     this.store.dispatch(itemsActions.loadItemListAction());  
-    this.itemList$ = this.store.select(itemsReducer.getMoviesList); 
+    this.itemList$ = this.store.select(itemsSelectors.getMoviesList); 
   }
 }
