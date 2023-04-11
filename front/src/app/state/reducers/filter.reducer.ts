@@ -8,6 +8,11 @@ export interface FilterListState {
     error : string, 
 }
 
+/**
+ * @property initialState
+ * @description   Defines the initial state of the filter feature : genreList, selectedGenreIdList and error
+ * @type { FilterListState }
+ */
 const initialState : FilterListState = {
     genreList : [], 
     selectedGenreIdList : [], 
@@ -16,16 +21,29 @@ const initialState : FilterListState = {
 
 const getFilterFeatureState = createFeatureSelector<FilterListState>('filter'); 
 
+/**
+* @method getGenreList
+* @description  selector acess to genreList property
+*/
 export const getGenreList = createSelector(
     getFilterFeatureState, 
     state => state.genreList
 ); 
 
+/**
+* @method getErrorGenre
+* @description  selector acess to error property
+*/
 export const getErrorGenre = createSelector(
     getFilterFeatureState, 
     state => state.error
 )
 
+/**
+* @method getSelectedGenreIdList
+* @description  selector acess to the selected genre id list 
+* @returns { number[] } genreIdList 
+*/
 export const getSelectedGenreIdList = createSelector(
     getFilterFeatureState, 
     getGenreList, 
@@ -39,6 +57,12 @@ export const getSelectedGenreIdList = createSelector(
     }
 )
 
+/**
+* @method filterReducer 
+* @description manages the following state changes: genreList, error, selectedGenreIdList and reset
+* @param { AppState } state
+* @param { Action } action 
+*/
 export const filterReducer = createReducer<FilterListState>(
     initialState, 
     on(loadFilterListSuccessAction, (state, action) : FilterListState => {

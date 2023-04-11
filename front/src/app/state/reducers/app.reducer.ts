@@ -6,6 +6,11 @@ export interface AppState {
     currentUrl : string, 
 }
 
+/**
+ * @property initialState
+ * @description   Defines the initial state of app : menuBurger and currentUrl
+ * @type { AppState }
+ */
 const initialState : AppState = {
     showMenuBurger : false, 
     currentUrl : ''
@@ -13,16 +18,32 @@ const initialState : AppState = {
 
 const getAppState = createFeatureSelector<AppState>('app'); 
 
+/**
+* @method getShowMenuBurgerProperty
+* @description  selector acess to showMenuburger property
+* @return { boolean } showMenuBurger property
+*/
 export const getShowMenuBurgerProperty = createSelector(
     getAppState, 
     state => state.showMenuBurger
 )
 
+/**
+* @method getCurrentUrl
+* @description  selector access to currentUrl property
+* @return { string } currentUrl property
+*/
 export const getCurrentUrl = createSelector(
     getAppState, 
     state => state.currentUrl
 )
 
+/**
+* @method appReducer 
+* @description manages the following state changes : showMenuBurger and currentUrl
+* @param { AppState } state
+* @param { Action } action
+*/
 export const appReducer = createReducer(
     initialState,
     on(toggleMenuBurgerAction, (state : AppState) => {

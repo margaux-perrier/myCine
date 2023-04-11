@@ -9,10 +9,10 @@ import { State } from 'src/app/state/app.state';
 import { getFavorisIdList } from '../reducers/library.reducers'
 
 /** @class
-* effect
-* @param {Action} action$
-* @param {ItemsService} itemsService - service
-* @return {Action} action$ - new action
+* effect retrieve itemList 
+* @param { Action } action$
+* @param { ItemsService } itemsService - service
+* @return { Action } action$ - new action
 */
 @Injectable()
 export class itemListEffects{

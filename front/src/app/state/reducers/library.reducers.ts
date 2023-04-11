@@ -10,8 +10,13 @@ export interface LibraryState {
     error : string,  
 }
 
+/**
+ * @property initialState
+ * @description   Defines the initial state of the library feature : favorisList, watchedList, wishList
+ * @type { LibrarytState }
+ */
 const initialState : LibraryState = {
-    favorisIdList : [1,2,3,4,5,6,7,8,9,10],   
+    favorisIdList : [],   
     watchedIdList : [],
     whishIdList : [],   
     error : '',  
@@ -19,42 +24,81 @@ const initialState : LibraryState = {
 
 const getListFeatureState = createFeatureSelector<LibraryState>('library'); 
 
+/**
+* @method getFavorisIdList
+* @description  selector access to favorisIdList
+* @return { number[] }
+*/
 export const getFavorisIdList = createSelector(
     getListFeatureState, 
     state => state.favorisIdList
 )
 
+/**
+* @method getFavorisList
+* @description  selector access to favoris items 
+* @param { number[] }
+* @return { (IItem[] | []) }
+*/
 export const getFavorisList = createSelector(
     getListFeatureState,
     getFavorisIdList, 
     getItemList, 
-    (state, favorisIdList, itemList) => itemList.filter( (item : IItem) => favorisIdList.includes(item.id))
+    (state, favorisIdList, itemList) => favorisIdList.length > 0 ? itemList.filter( (item : IItem) => favorisIdList.includes(item.id)) : []
 )
 
+/**
+* @method getWatchedIdList
+* @description  selector access to watchedIdList
+* @return { number[] }
+*/
 export const getWatchedIdList = createSelector(
     getListFeatureState, 
     state => state.watchedIdList
 )
 
+/**
+* @method getWatchedList
+* @description  selector access to watchedList
+* @param { number[] }
+* @return { (IItem[] | []) }
+*/
 export const getWatchedList = createSelector(
     getListFeatureState,
     getWatchedIdList, 
     getItemList, 
-    (state, watchedIdList, itemList) => itemList.filter( (item : IItem) => watchedIdList.includes(item.id))
+    (state, watchedIdList, itemList) => watchedIdList.length > 0 ? itemList.filter( (item : IItem) => watchedIdList.includes(item.id)) : []
 )
 
+/**
+* @method getWishIdList
+* @description  selector access to wishIdList
+* @return { number[] }
+*/
 export const getWishIdList = createSelector(
     getListFeatureState, 
     state => state.whishIdList
 )
 
+/**
+* @method getWishList
+* @description  selector access to wishList 
+* @param { number[] }
+* @return { (IItem[] | []) }
+*/
 export const getWishList = createSelector(
     getListFeatureState,
     getWishIdList, 
     getItemList, 
-    (state, wishIdList, itemList) => itemList.filter( (item : IItem) => wishIdList.includes(item.id))
+    (state, wishIdList, itemList) => wishIdList.length ? itemList.filter( (item : IItem) => wishIdList.includes(item.id)) : []
 )
 
+/**
+* @method libraryReducer 
+* @description manages the following state changes : add or remove items to wishList, favorisList or watchedList
+* @param { AppState } state
+* @param { Action } action
+*/
 export const libraryReducer = createReducer<LibraryState>(
     initialState, 
     on(handleListAction, (state, action) : LibraryState => {

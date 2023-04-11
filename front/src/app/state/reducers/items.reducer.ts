@@ -10,6 +10,11 @@ export interface ItemListState {
     error : string
 }
 
+/**
+ * @property initialState
+ * @description   Defines the initial state of the items
+ * @type { ItemListState }
+ */
 const initialState : ItemListState = {
     itemList : [], 
     currentItemId : null, 
@@ -18,6 +23,12 @@ const initialState : ItemListState = {
 
 const getItemsFeatureState = createFeatureSelector<ItemListState>('items');
 
+/**
+* @method getItemList
+* @description  selector access to showMenuburger (boolean) property
+* @param { number[] } [selectedGenreIdList]
+* @return { IItem[] }
+*/
 export const getItemList = createSelector(
     getItemsFeatureState,
     getSelectedGenreIdList,
@@ -30,17 +41,34 @@ export const getItemList = createSelector(
     }
 );
 
+/**
+* @method getCurrentItem
+* @description  selector access to currentItemId
+* @return { number | null }
+*/
 export const getCurrentItemId = createSelector(
     getItemsFeatureState, 
     state => state.currentItemId
 )
 
+/**
+* @method getCurrentItem
+* @description  selector retrieve the current item from itemList with currentItemId
+* @param { number } currentItemId
+* @return { IItem | undefined | null } currentItem
+*/
 export const getCurrentItem = createSelector(
     getItemsFeatureState,
     getCurrentItemId,    
     (state, currentItemId) => currentItemId ? state.itemList.find(item => item.id === currentItemId) : null 
 )
 
+/**
+* @method getMoviesList
+* @description  selector retrieve movies list 
+* @param { number[] } [selectedGenreIdList]
+* @return { IItem[] }
+*/
 export const getMoviesList = createSelector(
     getItemsFeatureState,
     getSelectedGenreIdList, 
@@ -53,11 +81,21 @@ export const getMoviesList = createSelector(
     }
 )
 
+/**
+* @method getErrorItems
+* @description  selector access error property
+*/
 export const getErrorItems = createSelector(
     getItemsFeatureState, 
     state => state.error
 )
 
+/**
+* @method itemsListReducer 
+* @description manages the following state changes : itemList with rating, currentItemId
+* @param { AppState } state
+* @param { Action } action
+*/
 export const itemListReducer = createReducer<ItemListState>(
     initialState,
     on(loadItemListSuccessAction, (state, action): ItemListState => {
