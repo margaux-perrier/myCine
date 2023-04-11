@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common'; 
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
@@ -36,7 +36,8 @@ import { itemsReducer, libraryReducer, appReducer } from 'src/app/state/reducers
     ]),
   ], 
   templateUrl: './details-page.component.html',
-  styleUrls: ['./details-page.component.scss']
+  styleUrls: ['./details-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DetailsPageComponent implements OnInit {
 

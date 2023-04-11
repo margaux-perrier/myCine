@@ -36,6 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   exports : [
     MoviePageComponent, 
     DetailsPageComponent,
+    HomePageComponent, 
+    NotFoundPageComponent,
   ]
 })
 export class PagesModule { }

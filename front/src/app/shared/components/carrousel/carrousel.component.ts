@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IItem } from 'src/app/core/models/item';
 
@@ -10,7 +10,8 @@ import { IItem } from 'src/app/core/models/item';
 @Component({
   selector: 'app-carrousel',
   templateUrl: './carrousel.component.html',
-  styleUrls: ['./carrousel.component.scss']
+  styleUrls: ['./carrousel.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CarrouselComponent{
 

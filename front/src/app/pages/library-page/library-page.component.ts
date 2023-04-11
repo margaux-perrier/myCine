@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state';
 import { appReducer, libraryReducer } from 'src/app/state/reducers';
 import { itemsActions } from 'src/app/state/actions';
 import { IItem } from 'src/app/core/models/item';
+
 
 /**
 * @description display favorisList, watchedList and wishList
@@ -13,7 +14,8 @@ import { IItem } from 'src/app/core/models/item';
 @Component({
   selector: 'app-library-page',
   templateUrl: './library-page.component.html',
-  styleUrls: ['./library-page.component.scss']
+  styleUrls: ['./library-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LibraryPageComponent implements OnInit {
 
