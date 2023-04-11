@@ -6,7 +6,6 @@ import { catchError, delay, map,switchMap} from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state';
-import { getFavorisIdList } from '../reducers/library.reducers'
 
 /** @class
 * effect retrieve itemList 

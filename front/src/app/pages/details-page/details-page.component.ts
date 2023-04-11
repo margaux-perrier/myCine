@@ -7,8 +7,8 @@ import { Store } from '@ngrx/store';
 import { IItem } from 'src/app/core/models/item';
 import { State } from 'src/app/state/app.state'; 
 import { itemsActions, itemsSelectors } from 'src/app/state/items';
-import { listActions } from 'src/app/state/actions';
-import { libraryReducer, appReducer } from 'src/app/state/reducers';  
+import { libraryActions, librarySelectors } from 'src/app/state/library';
+import { appReducer } from 'src/app/state/reducers';  
 
 /**
 * @description Display item's details. Handle favorisList, wishList, watchedList and rating. 
@@ -45,7 +45,7 @@ export class DetailsPageComponent implements OnInit {
   name! : string; 
   currentItem$! : Observable<IItem | null | undefined>; 
   favoriteValue$! :  Observable<number | undefined>; 
-  whishValue$! :  Observable<number | undefined>; 
+  wishValue$! :  Observable<number | undefined>; 
   watchedValue$! :  Observable<number | undefined>; 
   currentPage$! : Observable<string>; 
   itemId! : number; 
@@ -62,15 +62,15 @@ export class DetailsPageComponent implements OnInit {
 
     this.currentPage$ = this.store.select(appReducer.getCurrentUrl); 
 
-    this.favoriteValue$ = this.store.select(libraryReducer.getFavorisIdList).pipe(
+    this.favoriteValue$ = this.store.select(librarySelectors.getFavorisIdList).pipe(
       map(ids => ids.find(id => id === this.itemId)),
     )
 
-    this.whishValue$ = this.store.select(libraryReducer.getWishIdList).pipe(
+    this.wishValue$ = this.store.select(librarySelectors.getWishIdList).pipe(
       map(ids => ids.find(id => id === this.itemId)),
     )
     
-    this.watchedValue$ = this.store.select(libraryReducer.getWatchedIdList).pipe(
+    this.watchedValue$ = this.store.select(librarySelectors.getWatchedIdList).pipe(
       map(ids => ids.find(id => id === this.itemId)),
     )
   }
@@ -80,7 +80,7 @@ export class DetailsPageComponent implements OnInit {
   }
 
   handleClick(e : Event){
-    this.store.dispatch(listActions.handleListAction({ name : `${(e.target as HTMLSelectElement).id}`, idItem : this.itemId })); 
+    this.store.dispatch(libraryActions.handleListAction({ name : `${(e.target as HTMLSelectElement).id}`, idItem : this.itemId })); 
   }
 
   handleRatingOpening() : void {

@@ -7,7 +7,7 @@ describe('ItemsReducer', () => {
     describe('unknow action', () => {
         it('should return initial state', () => {
 
-            const action = { type : 'Unknown'}
+            const action = { type : 'unknown'}
             const state = itemListReducer(initialState, action); 
 
             expect(state).toBe(initialState); 

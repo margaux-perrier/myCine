@@ -24,7 +24,7 @@ export const getItemList = createSelector(
 );
 
 /**
-* @method getCurrentItem
+* @method getCurrentItemId
 * @description  selector access to currentItemId
 * @return { number | null }
 */

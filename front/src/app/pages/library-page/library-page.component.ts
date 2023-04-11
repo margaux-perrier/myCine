@@ -2,8 +2,9 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state';
-import { appReducer, libraryReducer } from 'src/app/state/reducers';
+import { appReducer } from 'src/app/state/reducers';
 import { itemsActions } from 'src/app/state/items';
+import { librarySelectors } from 'src/app/state/library';
 import { IItem } from 'src/app/core/models/item';
 
 
@@ -29,9 +30,9 @@ export class LibraryPageComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(itemsActions.loadItemListAction()); 
     this.isMenuBurgerOpen$ = this.store.select(appReducer.getShowMenuBurgerProperty); 
-    this.favorisList$ = this.store.select(libraryReducer.getFavorisList); 
-    this.watchedList$ = this.store.select(libraryReducer.getWatchedList); 
-    this.wishList$ = this.store.select(libraryReducer.getWishList); 
+    this.favorisList$ = this.store.select(librarySelectors.getFavorisList); 
+    this.watchedList$ = this.store.select(librarySelectors.getWatchedList); 
+    this.wishList$ = this.store.select(librarySelectors.getWishList); 
   }
 
 }
