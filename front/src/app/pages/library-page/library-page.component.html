@@ -1,8 +1,8 @@
 <app-header></app-header>
 <main class="main">
   <app-menu-burger *ngIf="isMenuBurgerOpen$ |async"></app-menu-burger>
-  <app-carrousel [itemList$] = "favorisList$" [titleList]="'Mes favoris'"></app-carrousel>
-  <app-carrousel [itemList$] = "wishList$" [titleList]="'Ma wishList'"></app-carrousel>
-  <app-carrousel [itemList$] = "watchedList$" [titleList]="'Mes films déjà vus'"></app-carrousel>
+  <app-carrousel [itemList$] = "favorisList$" [titleList]="'vos favoris'"></app-carrousel>
+  <app-carrousel [itemList$] = "wishList$" [titleList]="'votre wishList'"></app-carrousel>
+  <app-carrousel [itemList$] = "watchedList$" [titleList]="'vos films déjà vus'"></app-carrousel>
 </main>
 <app-footer></app-footer>

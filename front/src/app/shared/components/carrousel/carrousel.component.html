@@ -1,7 +1,11 @@
-<h2 class="carrousel_title">{{titleList | titlecase}}({{(itemList$ | async)?.length}})</h2>
-<p-carousel class= "carrousel" *ngIf="itemList$ | async as itemList" [value]="itemList" [numVisible]="6" [numScroll]="5" [circular]="true" [responsiveOptions] = responsiveOptions>
-	<ng-template loading let-item pTemplate="item">
-		<app-card class="card-carrousel" [item]="item"></app-card>
+<h2 class="carrousel_title">{{titleList}} ({{(itemList$ | async)?.length}})</h2>
+<div *ngIf="itemList$ | async as itemList" >
+	<p-carousel class= "carrousel" *ngIf="itemList.length>0 else message" [value]="itemList" [numVisible]="6" [numScroll]="5" [circular]="true" [responsiveOptions] = responsiveOptions>
+		<ng-template loading let-item pTemplate="item">
+			<app-card class="card-carrousel" [item]="item"></app-card>
+		</ng-template>
+	</p-carousel>
+	<ng-template #message>
+		<h1 class="message">Vous n'avez aucun élément dans {{titleList}}. </h1>
 	</ng-template>
-</p-carousel>
-
+</div>
