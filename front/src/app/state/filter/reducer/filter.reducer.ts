@@ -1,6 +1,6 @@
-import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
+import { createReducer, on } from "@ngrx/store";
 import { loadFilterListFailure, loadFilterListSuccessAction, resetFilter, selectedGenreAction } from "../actions/filter.action";
-import { IGenre } from "../../core/models/genre";
+import { IGenre } from "../../../core/models/genre";
 
 export interface FilterListState {
     genreList : IGenre[], 
@@ -13,49 +13,11 @@ export interface FilterListState {
  * @description   Defines the initial state of the filter feature : genreList, selectedGenreIdList and error
  * @type { FilterListState }
  */
-const initialState : FilterListState = {
+export const initialState : FilterListState = {
     genreList : [], 
     selectedGenreIdList : [], 
     error : ''
 }
-
-const getFilterFeatureState = createFeatureSelector<FilterListState>('filter'); 
-
-/**
-* @method getGenreList
-* @description  selector acess to genreList property
-*/
-export const getGenreList = createSelector(
-    getFilterFeatureState, 
-    state => state.genreList
-); 
-
-/**
-* @method getErrorGenre
-* @description  selector acess to error property
-*/
-export const getErrorGenre = createSelector(
-    getFilterFeatureState, 
-    state => state.error
-)
-
-/**
-* @method getSelectedGenreIdList
-* @description  selector acess to the selected genre id list 
-* @returns { number[] } genreIdList 
-*/
-export const getSelectedGenreIdList = createSelector(
-    getFilterFeatureState, 
-    getGenreList, 
-    (state, genreList) => {
-        let genreListSelected = genreList.filter(item => item.checked === true);
-        if(genreListSelected.length >0 ){
-            return genreListSelected.map(item => item.id)
-        }else{
-            return state.selectedGenreIdList
-        }
-    }
-)
 
 /**
 * @method filterReducer 

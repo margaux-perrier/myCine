@@ -1,0 +1,7 @@
+<app-header></app-header>
+<main class="main">
+   <app-menu-burger *ngIf="isMenuBurgerOpen$ |async"></app-menu-burger>
+   <app-card-list [itemList$]="seriesList$"></app-card-list>->
+</main>
+<app-footer></app-footer>
+

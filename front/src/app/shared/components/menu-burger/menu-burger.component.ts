@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state'
-import { appActions } from 'src/app/state/actions';
+import { appActions } from 'src/app/state/app';
 
 /**
 * @description display MenuBurger and dispatch toggleMenuBurgerAction when menuBurger close button is clicked

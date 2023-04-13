@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { IItem } from 'src/app/core/models/item';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state';
-import { appActions } from 'src/app/state/actions';
+import { appActions } from 'src/app/state/app';
 
 
 /** 

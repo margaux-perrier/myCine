@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state'; 
-import { filterActions } from 'src/app/state/actions';
 import { ItemsService } from 'src/app/core/services/items/items.service';
+import { filterActions } from 'src/app/state/filter';
 
 /**
 * @description Display searchBar and filter component. Handle search elements with searchBar, filterMenu opening and filter reseting (reset button). 

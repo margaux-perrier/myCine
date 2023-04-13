@@ -12,7 +12,7 @@ import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
-import { appReducer } from './state/reducers/app.reducer';
+import { appReducer } from './state/app/reducer/app.reducer';
 
 @NgModule({
   declarations: [

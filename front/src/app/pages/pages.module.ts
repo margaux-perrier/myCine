@@ -14,13 +14,14 @@ import { itemListEffects } from '../state/effects/items.effects';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SeriePageComponent } from './serie-page/serie-page.component';
 
 @NgModule({
   declarations: [
     MoviePageComponent, 
     DetailsPageComponent,
     HomePageComponent, 
-    NotFoundPageComponent,
+    NotFoundPageComponent, SeriePageComponent,
   ],
   imports: [
     CommonModule,

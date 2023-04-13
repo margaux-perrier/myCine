@@ -20,8 +20,8 @@ import { DurationPipe } from './pipes/duration/duration.pipe';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { filterReducer } from '../state/reducers/filter.reducer';
-import { filterListEffects } from '../state/effects/filter.effects';
+import { filterReducer } from '../state/filter/reducer/filter.reducer';
+import { filterListEffects } from '../state/filter/effect/filter.effects';
 
 @NgModule({
   declarations: [

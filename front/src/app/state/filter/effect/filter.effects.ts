@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'; 
-import { GenreService } from '../../core/services/genre/genre.service';
+import { GenreService } from '../../../core/services/genre/genre.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects'; 
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';

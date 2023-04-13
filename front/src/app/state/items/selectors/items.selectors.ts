@@ -1,6 +1,6 @@
 import { createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
 import { ItemListState } from "../reducer/items.reducer";
-import { getSelectedGenreIdList } from "../../reducers/filter.reducer";
+import { filterSelectors } from "../../filter";
 
 
 const getItemsFeatureState = createFeatureSelector<ItemListState>('items');
@@ -13,7 +13,7 @@ const getItemsFeatureState = createFeatureSelector<ItemListState>('items');
 */
 export const getItemList = createSelector(
     getItemsFeatureState,
-    getSelectedGenreIdList,
+    filterSelectors.getSelectedGenreIdList,
     (state, selectedGenreIdList) => {
         if(selectedGenreIdList.length >0){
             return state.itemList.filter(item => item.genreIds.map(id => selectedGenreIdList.includes(id)).includes(true))
@@ -53,12 +53,30 @@ export const getCurrentItem = createSelector(
 */
 export const getMoviesList = createSelector(
     getItemsFeatureState,
-    getSelectedGenreIdList, 
+    filterSelectors.getSelectedGenreIdList, 
     (state, selectedGenreIdList) => {
         if(selectedGenreIdList.length >0){
             return state.itemList.filter(item => item.type === 'film' && item.genreIds.map(id => selectedGenreIdList.includes(id)).includes(true))
         }else{
             return state.itemList.filter(item => item.type === 'film')
+        }
+    }
+)
+
+/**
+* @method getSeriesList
+* @description  selector retrieve movies list 
+* @param { number[] } [selectedGenreIdList]
+* @return { IItem[] }
+*/
+export const getSeriesList = createSelector(
+    getItemsFeatureState,
+    filterSelectors.getSelectedGenreIdList, 
+    (state, selectedGenreIdList) => {
+        if(selectedGenreIdList.length >0){
+            return state.itemList.filter(item => item.type === 'serie' && item.genreIds.map(id => selectedGenreIdList.includes(id)).includes(true))
+        }else{
+            return state.itemList.filter(item => item.type === 'serie')
         }
     }
 )

@@ -2,13 +2,14 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common'; 
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { IItem } from 'src/app/core/models/item';
 import { State } from 'src/app/state/app.state'; 
 import { itemsActions, itemsSelectors } from 'src/app/state/items';
 import { libraryActions, librarySelectors } from 'src/app/state/library';
-import { appReducer } from 'src/app/state/reducers';  
+import { appSelectors } from 'src/app/state/app';
+ 
 
 /**
 * @description Display item's details. Handle favorisList, wishList, watchedList and rating. 
@@ -59,8 +60,11 @@ export class DetailsPageComponent implements OnInit {
     this.store.dispatch(itemsActions.setCurrentItem({ currentItemId: this.itemId })); 
     this.store.dispatch(itemsActions.loadItemListAction()); 
     this.currentItem$ = this.store.select(itemsSelectors.getCurrentItem); 
-
-    this.currentPage$ = this.store.select(appReducer.getCurrentUrl); 
+    
+    this.currentPage$ = this.store.select( appSelectors.getCurrentUrl); 
+   this.currentPage$.pipe(
+      tap(data => console.log('iciiiiiiiiiiii', data))
+    )
 
     this.favoriteValue$ = this.store.select(librarySelectors.getFavorisIdList).pipe(
       map(ids => ids.find(id => id === this.itemId)),

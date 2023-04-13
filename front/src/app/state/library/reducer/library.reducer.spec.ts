@@ -31,13 +31,13 @@ describe('libraryReducer', () => {
         })
     }), 
     describe('handleListAction', () => {
-        it('should update the state with favorisIdList in an immutable way', () => {
+        it('should add id item in favorisIdList in an immutable way', () => {
 
             //arrange
             const action = handleListAction ({ name: 'favorisIdList', idItem: 3 })
             const newState : LibraryState = {
                 ...initialState, 
-                favorisIdList : [ action.idItem ]
+                favorisIdList : [3]
             }
 
             //act
@@ -47,13 +47,29 @@ describe('libraryReducer', () => {
             expect(state).toEqual(newState); 
             expect(state).not.toBe(newState);
         }), 
-        it('should update the state with wishIdList in an immutable way', () => {
+        it('should remove id item from favorisIdList in an immutable way', () => {
+
+            //arrange
+            const initState = {
+                ...initialState, 
+                favorisIdList : [3]
+            }
+            const action = handleListAction ({ name: 'favorisIdList', idItem: 3 })
+          
+            //act
+            const state = libraryReducer(initState, action); 
+
+            //assert
+            expect(state).toEqual(initialState); 
+            expect(state).not.toBe(initialState);
+        }), 
+        it('should add id item in wishIdList in an immutable way', () => {
 
             //arrange
             const action = handleListAction ({ name: 'wishIdList', idItem: 3 })
             const newState : LibraryState = {
                 ...initialState, 
-                wishIdList : [ action.idItem ]
+                wishIdList : [3]
             }
 
             //act
@@ -63,13 +79,29 @@ describe('libraryReducer', () => {
             expect(state).toEqual(newState); 
             expect(state).not.toBe(newState);
         }),
-        it('should update the state with watchedIdList in an immutable way', () => {
+        it('should remove id item from wishIdList in an immutable way', () => {
+
+            //arrange
+            const initState = {
+                ...initialState, 
+                wishIdList : [3]
+            }
+            const action = handleListAction ({ name: 'wishIdList', idItem: 3 })
+          
+            //act
+            const state = libraryReducer(initState, action); 
+
+            //assert
+            expect(state).toEqual(initialState); 
+            expect(state).not.toBe(initialState);
+        }), 
+        it('should add id item in watchedIdList in an immutable way', () => {
 
             //arrange
             const action = handleListAction ({ name: 'watchedIdList', idItem: 3 })
             const newState : LibraryState = {
                 ...initialState, 
-                watchedIdList : [ action.idItem ]
+                watchedIdList : [3]
             }
 
             //act
@@ -78,6 +110,22 @@ describe('libraryReducer', () => {
             //assert
             expect(state).toEqual(newState); 
             expect(state).not.toBe(newState);
+        }),
+        it('should remove id item from watchedIdList in an immutable way', () => {
+
+            //arrange
+            const initState = {
+                ...initialState, 
+                watchedIdList : [3]
+            }
+            const action = handleListAction ({ name: 'watchedIdList', idItem: 3 })
+          
+            //act
+            const state = libraryReducer(initState, action); 
+
+            //assert
+            expect(state).toEqual(initialState); 
+            expect(state).not.toBe(initialState);
         })
     })
 })

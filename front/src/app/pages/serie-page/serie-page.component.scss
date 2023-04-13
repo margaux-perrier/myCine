@@ -1,0 +1,8 @@
+@use 'src/scss/vars'; 
+
+.main{
+    width:100%; 
+    margin: vars.$gutter*3 auto; 
+    min-height: 100vh;  
+    color: white; 
+}

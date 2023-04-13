@@ -1,6 +1,6 @@
-import { AppState } from "../state/reducers/app.reducer";
+import { AppState } from "./app/reducer/app.reducer";
 import { ItemListState } from "./items/reducer/items.reducer";
-import { FilterListState } from "../state/reducers/filter.reducer";
+import { FilterListState } from "./filter/reducer/filter.reducer";
 import { LibraryState } from "./library/reducer/library.reducer";
 
 export interface State { 
