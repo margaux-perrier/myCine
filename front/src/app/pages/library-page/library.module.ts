@@ -5,6 +5,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { libraryReducer } from 'src/app/state/library/reducer/library.reducer';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { MenuBurgerModule } from 'src/app/shared/components/menu-burger/menu-burger.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
   ],
   imports: [
     CommonModule,
-    SharedModule, 
+    SharedModule,
+    MenuBurgerModule, 
     AppRoutingModule,
     StoreModule.forFeature('library', libraryReducer),
   ], 

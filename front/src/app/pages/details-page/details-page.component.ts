@@ -8,8 +8,6 @@ import { IItem } from 'src/app/core/models/item';
 import { State } from 'src/app/state/app.state'; 
 import { itemsActions, itemsSelectors } from 'src/app/state/items';
 import { libraryActions, librarySelectors } from 'src/app/state/library';
-import { appSelectors } from 'src/app/state/app';
- 
 
 /**
 * @description Display item's details. Handle favorisList, wishList, watchedList and rating. 
@@ -48,7 +46,6 @@ export class DetailsPageComponent implements OnInit {
   favoriteValue$! :  Observable<number | undefined>; 
   wishValue$! :  Observable<number | undefined>; 
   watchedValue$! :  Observable<number | undefined>; 
-  currentPage$! : Observable<string>; 
   itemId! : number; 
   isRatingOpen : boolean = false; 
   ratingValue : number = 0; 

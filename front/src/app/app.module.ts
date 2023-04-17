@@ -12,7 +12,7 @@ import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
-import { appReducer } from './state/app/reducer/app.reducer';
+import { MenuBurgerModule } from './shared/components/menu-burger/menu-burger.module';
 
 @NgModule({
   declarations: [
@@ -21,13 +21,13 @@ import { appReducer } from './state/app/reducer/app.reducer';
   imports: [
     CommonModule,
     SharedModule, 
+    MenuBurgerModule, 
     PagesModule, 
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, 
     HttpClientInMemoryWebApiModule.forRoot(DataService),
     StoreModule.forRoot({}, {}),
-    StoreModule.forFeature('app', appReducer), 
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],

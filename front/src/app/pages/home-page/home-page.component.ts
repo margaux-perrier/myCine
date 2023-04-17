@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state'; 
-import { appSelectors } from 'src/app/state/app';
+import { menuBurgerSelectors } from 'src/app/state/menuBurger';
 
 /**
 * @description display homePage 
@@ -19,6 +19,6 @@ export class HomePageComponent implements OnInit{
   constructor(private store : Store<State>) { }
  
   ngOnInit(): void {
-    this.isMenuBurgerOpen$ = this.store.select(appSelectors.getShowMenuBurgerProperty); 
+    this.isMenuBurgerOpen$ = this.store.select(menuBurgerSelectors.getShowMenuBurgerProperty); 
   }
 }

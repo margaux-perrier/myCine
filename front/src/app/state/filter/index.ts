@@ -1,5 +1,5 @@
-export  * as filterReducer from './reducer/filter.reducer'; 
-export * as filterSelectors from './selectors/filter.selectors'; 
-export * as filterActions from './actions/filter.action'; 
+import * as filterReducer from './reducer/filter.reducer'; 
+import * as filterSelectors from './selectors/filter.selectors'; 
+import * as filterActions from './actions/filter.action'; 
 
-// export { filterReducer, filterSelectors, filterActions }; 
+export { filterReducer, filterSelectors, filterActions }; 

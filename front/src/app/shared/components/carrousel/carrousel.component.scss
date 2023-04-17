@@ -1,4 +1,10 @@
-@use 'src/scss/vars'; 
+@use 'src/scss/vars';
+
+.carrousel{
+    width: fit-content;
+    display: flex;  
+    margin : 0 auto; 
+}
 
 .carrousel_title{
     text-align: center;

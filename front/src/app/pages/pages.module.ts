@@ -14,6 +14,7 @@ import { itemListEffects } from '../state/effects/items.effects';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenuBurgerModule } from '../shared/components/menu-burger/menu-burger.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     SharedModule, 
     RatingModule,
+    MenuBurgerModule, 
     BrowserAnimationsModule, 
     FormsModule, 
     LibraryModule,

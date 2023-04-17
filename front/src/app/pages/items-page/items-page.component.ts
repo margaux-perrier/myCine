@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { IItem } from 'src/app/core/models/item';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state';
-import { appSelectors } from 'src/app/state/app';
+import { menuBurgerSelectors } from 'src/app/state/menuBurger';
 import { itemsActions, itemsSelectors } from 'src/app/state/items';
 import { filterActions } from 'src/app/state/filter';
 import { Router } from '@angular/router';
@@ -27,7 +27,7 @@ export class ItemsPageComponent implements OnInit {
   currentUrl! : string; 
 
   ngOnInit(): void {
-    this.isMenuBurgerOpen$ = this.store.select(appSelectors.getShowMenuBurgerProperty); 
+    this.isMenuBurgerOpen$ = this.store.select(menuBurgerSelectors.getShowMenuBurgerProperty); 
     this.store.dispatch(filterActions.resetFilter()); 
     this.store.dispatch(itemsActions.loadItemListAction());  
     this.moviesList$ = this.store.select(itemsSelectors.getMoviesList);

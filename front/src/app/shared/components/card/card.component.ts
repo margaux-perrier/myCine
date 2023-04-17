@@ -1,15 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IItem } from 'src/app/core/models/item';
-import { Store } from '@ngrx/store';
-import { State } from 'src/app/state/app.state';
-import { appActions } from 'src/app/state/app';
-
 
 /** 
-* @description Display one item and set current url in the store when user click on the card
+* @description Display one card item
 * @param { Observable<IItem> } item
-* @param { State } store 
 */
 @Component({
   selector: 'app-card',
@@ -20,20 +15,11 @@ import { appActions } from 'src/app/state/app';
 })
 export class CardComponent {
   @Input() item! : IItem; 
-  @Input() currentUrl! : string; 
 
-  constructor(private route : Router, private store : Store<State>){}
-
+  constructor(private route : Router){}
 
   onClick(id : number) : void {
-    this.currentUrl = this.route.url; 
-    this.route.navigate([this.currentUrl, id ]);
-    console.log('id', this.currentUrl, id)
+    this.route.navigate([this.route.url, id ]);
   }
-  /** 
-  *@function handleCurrentRoute set current url in the store
-  */
-  handleCurrentRoute() : void {
-    this.store.dispatch(appActions.handleCurrentRouteAction( { url : this.route.url }));
-  }
+  
 }

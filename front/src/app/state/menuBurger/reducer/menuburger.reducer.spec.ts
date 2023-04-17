@@ -1,12 +1,12 @@
-import { handleCurrentRouteAction, toggleMenuBurgerAction } from "../actions/app.actions"
-import { appReducer, initialState } from "./app.reducer"
+import { toggleMenuBurgerAction } from "../actions/menuBurger.actions"
+import { menuBurgerReducer, initialState } from "./menuburger.reducer"
 
 describe('AppReducer', () => {
     describe('unknow action', () => {
         it('should return initial state', () => {
 
             const action = { type : 'unknown'}
-            const state = appReducer(initialState, action); 
+            const state = menuBurgerReducer(initialState, action); 
             expect(state).toBe(initialState); 
         })
     }),
@@ -21,7 +21,7 @@ describe('AppReducer', () => {
         }
 
         //act 
-        const state = appReducer(initialState, action); 
+        const state = menuBurgerReducer(initialState, action); 
 
         //assert
         expect(state).toEqual(newState); 
@@ -37,28 +37,10 @@ describe('AppReducer', () => {
         }
 
         //act 
-        const state = appReducer(initState, action); 
+        const state = menuBurgerReducer(initState, action); 
 
         //assert
         expect(state).toEqual(newState); 
       })  
-    }),
-    describe('handleCurrentRoute Action', () => {
-        it('should update the state with currentUrl property in an immutable way', () => {
-  
-          //arrange 
-          const action = handleCurrentRouteAction( { url : 'test' }); 
-          const newState = {
-              ...initialState, 
-              currentUrl : 'test', 
-          }
-  
-          //act 
-          const state = appReducer(initialState, action); 
-  
-          //assert
-          expect(state).toEqual(newState); 
-          expect(state).not.toBe(newState); 
-        })
-      })
+    })
 })
