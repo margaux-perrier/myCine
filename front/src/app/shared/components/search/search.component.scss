@@ -33,9 +33,8 @@
     }
 }
 
-//A VOIR POUR STYLISER
-.button-container .button.reset{
-    margin-left: vars.$gutter; 
+.filter-button{
+    margin-right: vars.$gutter; 
 }
 
 @media screen and (min-width: 590px) {

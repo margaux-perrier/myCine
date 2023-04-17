@@ -12,7 +12,7 @@
 .menuBurger{ 
     border-top: 3px solid vars.$primary-color; 
     position : relative; 
-    background-color: vars.$gray;
+    background-color: vars.$secondary-color;
     opacity: 0.9; 
     width: fit-content; 
     display: flex;
@@ -59,10 +59,6 @@
         }
     }
     
-    //A voir pour styliser 
-    :host(.menu-burger) button{
-        background-color: vars.$gray;
-    }
 }
 
 @media screen and (min-width: 950px) {
