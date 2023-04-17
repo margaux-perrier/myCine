@@ -22,3 +22,8 @@ export const setRatingItem = createAction(
   '[Details Paage] Set rating Item', 
   props<{ ratingValue: number }>()
 ); 
+
+export const setSearchValue = createAction(
+  ' [itemList] Set searchValue Item', 
+  props<{ searchValue: string }>()
+)

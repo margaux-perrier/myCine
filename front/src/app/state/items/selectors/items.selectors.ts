@@ -81,6 +81,11 @@ export const getSeriesList = createSelector(
     }
 )
 
+export const getSearchValue = createSelector(
+    getItemsFeatureState, 
+    state => state.searchValue
+)
+
 /**
 * @method getErrorItems
 * @description  selector access error property

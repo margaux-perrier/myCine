@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import { IItem } from 'src/app/core/models/item';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -16,7 +16,7 @@ import { itemsSelectors } from 'src/app/state/items';
   styleUrls: ['./card-list.component.scss'],
 	changeDetection : ChangeDetectionStrategy.OnPush
 })
-export class CardListComponent {
+export class CardListComponent implements OnInit {
 
   errorMessage$!: Observable<string>; 
   searchValue = ''; 

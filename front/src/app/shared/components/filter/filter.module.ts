@@ -6,8 +6,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { filterListEffects } from 'src/app/state/filter/effect/filter.effects';
 import { filterReducer } from 'src/app/state/filter/reducer/filter.reducer'; 
 
-
-
 @NgModule({
   declarations: [
     FilterComponent
