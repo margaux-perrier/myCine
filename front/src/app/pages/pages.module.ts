@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MoviePageComponent } from './movie-page/movie-page.component';
+import { ItemsPageComponent } from './items-page/items-page.component';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { StoreModule } from '@ngrx/store';
 import { itemListReducer } from '../state/items/reducer/items.reducer';
@@ -14,14 +14,13 @@ import { itemListEffects } from '../state/effects/items.effects';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SeriePageComponent } from './serie-page/serie-page.component';
 
 @NgModule({
   declarations: [
-    MoviePageComponent, 
+    ItemsPageComponent, 
     DetailsPageComponent,
     HomePageComponent, 
-    NotFoundPageComponent, SeriePageComponent,
+    NotFoundPageComponent,
   ],
   imports: [
     CommonModule,
@@ -35,7 +34,7 @@ import { SeriePageComponent } from './serie-page/serie-page.component';
     EffectsModule.forFeature([itemListEffects])
   ],
   exports : [
-    MoviePageComponent, 
+    ItemsPageComponent, 
     DetailsPageComponent,
     HomePageComponent, 
     NotFoundPageComponent,

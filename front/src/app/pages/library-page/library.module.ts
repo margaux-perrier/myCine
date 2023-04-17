@@ -4,6 +4,7 @@ import { LibraryPageComponent } from './library-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { libraryReducer } from 'src/app/state/library/reducer/library.reducer';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { libraryReducer } from 'src/app/state/library/reducer/library.reducer';
   imports: [
     CommonModule,
     SharedModule, 
+    AppRoutingModule,
     StoreModule.forFeature('library', libraryReducer),
   ], 
   exports : [

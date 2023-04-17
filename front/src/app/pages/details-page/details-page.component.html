@@ -1,8 +1,3 @@
-<app-movie-page *ngIf="(currentPage$ | async ) === '/movies' ||  (currentPage$ | async ) === ''" ></app-movie-page>
-<app-serie-page *ngIf="(currentPage$ | async ) === '/series' ||  (currentPage$ | async ) === ''" ></app-serie-page>
-<app-home-page *ngIf="(currentPage$ | async ) === '/'"></app-home-page>
-<app-library-page *ngIf="(currentPage$ | async ) === '/library' ||  (currentPage$ | async ) === '' "></app-library-page>
-
 <div class="overlay" *ngIf="currentItem$ | async as item">
     <div class="details-container" >
         <div class="content-container">

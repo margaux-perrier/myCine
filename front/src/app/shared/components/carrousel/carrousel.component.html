@@ -1,6 +1,6 @@
 <h2 class="carrousel_title">{{titleList}} ({{(itemList$ | async)?.length}})</h2>
 <div *ngIf="itemList$ | async as itemList" >
-	<p-carousel class= "carrousel" *ngIf="itemList.length>0 else message" [value]="itemList" [numVisible]="6" [numScroll]="5" [circular]="true" [responsiveOptions] = responsiveOptions>
+	<p-carousel class= "carrousel" *ngIf="itemList.length>0 else message" [value]="itemList" [numVisible]="6" [numScroll]="5" [circular]="true" [responsiveOptions] = responsiveOptions >
 		<ng-template loading let-item pTemplate="item">
 			<app-card class="card-carrousel" [item]="item"></app-card>
 		</ng-template>

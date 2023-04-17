@@ -60,12 +60,7 @@ export class DetailsPageComponent implements OnInit {
     this.store.dispatch(itemsActions.setCurrentItem({ currentItemId: this.itemId })); 
     this.store.dispatch(itemsActions.loadItemListAction()); 
     this.currentItem$ = this.store.select(itemsSelectors.getCurrentItem); 
-    
-    this.currentPage$ = this.store.select( appSelectors.getCurrentUrl); 
-   this.currentPage$.pipe(
-      tap(data => console.log('iciiiiiiiiiiii', data))
-    )
-
+      
     this.favoriteValue$ = this.store.select(librarySelectors.getFavorisIdList).pipe(
       map(ids => ids.find(id => id === this.itemId)),
     )
@@ -80,7 +75,7 @@ export class DetailsPageComponent implements OnInit {
   }
 
   handleClose() : void{
-    this.location.back()
+    this.location.back(); 
   }
 
   handleClick(e : Event){

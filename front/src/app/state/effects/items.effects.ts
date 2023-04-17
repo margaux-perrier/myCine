@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ItemsService } from '../../core/services/items/items.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects'; 
 import {loadItemListAction, loadItemListFailure, loadItemListSuccessAction} from '../items/actions/items.actions'
-import { catchError, delay, map,switchMap} from 'rxjs/operators';
+import { catchError, delay, map,mergeMap,switchMap} from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { State } from 'src/app/state/app.state';
@@ -23,7 +23,7 @@ export class itemListEffects{
         .pipe(
             ofType(loadItemListAction), 
             switchMap(() => this.itemsService.searchedItems$.pipe(
-                delay(500), 
+                delay(1000), 
                 map(itemList => loadItemListSuccessAction({itemList})),
                 catchError(error => of(loadItemListFailure({error}))),
             )),
@@ -37,7 +37,6 @@ export class itemListEffects{
     //         mergeMap(() => this.itemsService.itemWithProducerActorGenreList$.pipe(
     //             map(itemList => loadItemListSuccessAction({itemList})),
     //             catchError(error => of(loadItemListFailure({error}))),
-    //             tap(data => console.log('EFFECTS', data))
     //         )),
     //     )
     // })

@@ -20,9 +20,16 @@ import { appActions } from 'src/app/state/app';
 })
 export class CardComponent {
   @Input() item! : IItem; 
+  @Input() currentUrl! : string; 
 
   constructor(private route : Router, private store : Store<State>){}
 
+
+  onClick(id : number) : void {
+    this.currentUrl = this.route.url; 
+    this.route.navigate([this.currentUrl, id ]);
+    console.log('id', this.currentUrl, id)
+  }
   /** 
   *@function handleCurrentRoute set current url in the store
   */
