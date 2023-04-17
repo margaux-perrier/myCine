@@ -81,10 +81,10 @@ export const getSeriesList = createSelector(
     }
 )
 
-export const getSearchValue = createSelector(
-    getItemsFeatureState, 
-    state => state.searchValue
-)
+// export const getSearchValue = createSelector(
+//     getItemsFeatureState, 
+//     state => state.searchValue
+// )
 
 /**
 * @method getErrorItems

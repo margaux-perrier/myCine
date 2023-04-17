@@ -14,7 +14,7 @@ export interface LibraryState {
  * @type { LibrarytState }
  */
 export const initialState : LibraryState = {
-    favorisIdList : [2],   
+    favorisIdList : [],   
     watchedIdList : [],
     wishIdList : [],   
     error : '',  

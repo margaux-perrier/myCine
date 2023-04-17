@@ -6,7 +6,6 @@ import { IItem } from "../../../core/models/item";
 export interface ItemListState {
     itemList : IItem[], 
     currentItemId: number | null;
-    searchValue: string, 
     error : string
 }
 
@@ -18,7 +17,6 @@ export interface ItemListState {
 export const initialState : ItemListState = {
     itemList : [], 
     currentItemId : null, 
-    searchValue: '', 
     error : ''
 }
 
@@ -66,10 +64,10 @@ export const itemListReducer = createReducer<ItemListState>(
             })
         }
     }), 
-    on(setSearchValue, (state, action) : ItemListState => {
-        return {
-            ...state, 
-            searchValue : action.searchValue, 
-        }
-    })
+    // on(setSearchValue, (state, action) : ItemListState => {
+    //     return {
+    //         ...state, 
+    //         searchValue : action.searchValue, 
+    //     }
+    // })
 ); 
