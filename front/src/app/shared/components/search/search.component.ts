@@ -15,7 +15,7 @@ import { filterActions } from 'src/app/state/filter';
   styleUrls: ['./search.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SearchComponent implements OnInit{
+export class SearchComponent {
  
   searchBarValue : string = ''; 
   isFilterMenuOpen: boolean = false; 
@@ -25,10 +25,6 @@ export class SearchComponent implements OnInit{
 
   constructor(private store : Store<State>, private itemService : ItemsService) {}
   
-  ngOnInit(): void {
-    this.itemService.onSearchItems('')
-  }
-
   onSearchValueChanged() {
     
     //SEARCH PIPE 

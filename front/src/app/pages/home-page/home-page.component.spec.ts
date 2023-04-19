@@ -1,9 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { HomePageComponent } from './home-page.component';
-import { getShowMenuBurgerProperty } from 'src/app/state/menuBurger/selectors/menuburger.selectors';
-
-
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
