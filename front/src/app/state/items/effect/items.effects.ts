@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'; 
-import { ItemsService } from '../../core/services/items/items.service';
+import { ItemsService } from '../../../core/services/items/items.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects'; 
-import { loadItemListAction, loadItemListFailure, loadItemListSuccessAction } from '../items/actions/items.actions'
+import { loadItemListAction, loadItemListFailure, loadItemListSuccessAction } from '../actions/items.actions'
 import { catchError, map,mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 

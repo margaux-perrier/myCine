@@ -25,7 +25,6 @@ export class CardListComponent implements OnInit {
   constructor( private store : Store<State> ){}
   
   ngOnInit(): void {
-    // this.store.dispatch(loadItemListAction());  
     this.errorMessage$ = this.store.select(itemsSelectors.getErrorItems); 
   }
   

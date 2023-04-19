@@ -2,7 +2,7 @@ import { LibraryState } from "../reducer/library.reducer"
 import { getFavorisIdList, getFavorisList, getWatchedIdList, getWatchedList, getWishIdList, getWishList } from "./library.selectors"
 import { ItemListState } from "../../items/reducer/items.reducer";
 
-describe('Library Selector', () => {
+describe('Library selectors', () => {
    
     it('should select favorisIdList - getFavorisIDList', () => {
         const initialState = createInitialState(); 

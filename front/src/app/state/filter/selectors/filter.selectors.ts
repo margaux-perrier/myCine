@@ -30,11 +30,6 @@ export const getSelectedGenreIdList = createSelector(
     getFilterFeatureState, 
     getGenreList, 
     (state, genreList) => {
-        let genreListSelected = genreList.filter(item => item.checked === true);
-        if(genreListSelected.length >0 ){
-            return genreListSelected.map(item => item.id)
-        }else{
-            return state.selectedGenreIdList
-        }
+        return genreList.filter(item => item.checked === true).map(item => item.id);
     }
 )

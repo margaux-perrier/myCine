@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { LibraryModule } from './library-page/library.module';
 import { EffectsModule } from '@ngrx/effects';
-import { itemListEffects } from '../state/effects/items.effects'; 
+import { itemListEffects } from '../state/items/effect/items.effects'; 
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
