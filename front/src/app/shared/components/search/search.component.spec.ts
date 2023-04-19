@@ -3,13 +3,13 @@ import { SearchComponent } from './search.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { filterActions } from 'src/app/state/filter';
 import { ItemsService } from 'src/app/core/services/items/items.service';
-
+import { ButtonComponent } from '../button/button.component';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
   let mockStore : MockStore; 
-  const mockItemsService : ItemsService = jasmine.createSpyObj(['itemList$', 'itemWithProducerActorGenreList$', 'searchedItems$', 'searchValueAction$', 'onSearchItems', 'handleError',]);
+  const mockItemsService : ItemsService = jasmine.createSpyObj(['onSearchItems']);
 
 
   let initialState = {
@@ -22,7 +22,7 @@ describe('SearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchComponent ], 
+      declarations: [ SearchComponent, ButtonComponent ], 
        providers : [
         provideMockStore({initialState}),
         { provide : ItemsService, useValue : mockItemsService } 
@@ -47,7 +47,7 @@ describe('SearchComponent', () => {
     expect(mockStore.dispatch).toHaveBeenCalledWith(action); 
   })
 
-  it('should called onSearchItems action when onSearchValueChanged is called', () => {
+  it('should called onSearchItems method when onSearchValueChanged is called', () => {
     component.onSearchValueChanged(); 
     expect(mockItemsService.onSearchItems).toHaveBeenCalled(); 
   })

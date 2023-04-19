@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MenuBurgerComponent } from './menu-burger.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { menuBurgerActions } from 'src/app/state/menuBurger';
-
+import { ButtonComponent } from '../button/button.component';
 
 describe('MenuBurgerComponent', () => {
   let component: MenuBurgerComponent;
@@ -17,7 +17,7 @@ describe('MenuBurgerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenuBurgerComponent ],
+      declarations: [ MenuBurgerComponent, ButtonComponent ],
       providers : [
         provideMockStore({initialState}) , 
       ]

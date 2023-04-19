@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { HomePageComponent } from './home-page.component';
+import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
+import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { Component } from '@angular/core';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -13,9 +16,16 @@ describe('HomePageComponent', () => {
     }
   }
 
+  @Component({
+    selector: 'app-header',  
+    template: '<div></div>'
+  })
+  class FakeHeaderComponent {
+  }
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomePageComponent ], 
+      declarations: [ HomePageComponent, FooterComponent, FakeHeaderComponent, ButtonComponent ], 
       providers : [
         provideMockStore({initialState}) , 
       ]

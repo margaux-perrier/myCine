@@ -3,7 +3,7 @@
         <h1 class="filter_category_title">Genre</h1>
         <ul *ngIf="genreList$ | async as genreList" class="filter_category_itemList">
             <li *ngFor="let genre of genreList" class="filter_category_item" >
-                <input [checked] = "genre.checked" type = 'checkbox' name="{{genre.name}}" id="{{genre.id}}" value="{{genre.checked}}" (click)="onSelected($event)"/>
+                <input class="input" [checked] = "genre.checked" type = 'checkbox' name="{{genre.name}}" id="{{genre.id}}" value="{{genre.checked}}" (click)="onSelected($event)"/>
                 <label>{{genre.name | titlecase}}</label>
             </li>
         </ul>

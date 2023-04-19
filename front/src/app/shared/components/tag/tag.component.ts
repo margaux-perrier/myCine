@@ -11,5 +11,5 @@ import { IGenre } from 'src/app/core/models/genre';
   styleUrls: ['./tag.component.scss']
 })
 export class TagComponent {
-  @Input() genre! : IGenre; 
+  @Input() genre! : IGenre;  
 }

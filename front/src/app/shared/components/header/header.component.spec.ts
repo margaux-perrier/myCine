@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { menuBurgerActions } from 'src/app/state/menuBurger';
+import { ButtonComponent } from '../button/button.component';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -16,7 +17,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ], 
+      declarations: [ HeaderComponent, ButtonComponent ], 
       providers : [
         provideMockStore({initialState}) , 
       ]
