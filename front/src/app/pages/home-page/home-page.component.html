@@ -11,8 +11,8 @@
             <p>Faîtes confaince à <span>MyCiné</span> et sa communauté ! </p>
 
             <div class="button_container">
-               <a [routerLinkActive]="'active'" [routerLink]="'/movies'"><app-button [text]="'Voir les films'" class="primary-button button"></app-button></a>
-               <a [routerLinkActive]="'active'" [routerLink]="'/series'"><app-button [text]="'Voir les séries'" class="primary-button"></app-button></a>
+               <app-button [routerLink]="'/movies'" [text]="'Voir les films'" class="primary-button button button--movies"></app-button>
+               <app-button [routerLink]="'/series'" [text]="'Voir les séries'" class="primary-button button--series"></app-button>
             </div>
         </div>
 

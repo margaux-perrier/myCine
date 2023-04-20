@@ -3,6 +3,7 @@ import { MenuBurgerComponent } from './menu-burger.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { menuBurgerActions } from 'src/app/state/menuBurger';
 import { ButtonComponent } from '../button/button.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('MenuBurgerComponent', () => {
   let component: MenuBurgerComponent;
@@ -20,7 +21,8 @@ describe('MenuBurgerComponent', () => {
       declarations: [ MenuBurgerComponent, ButtonComponent ],
       providers : [
         provideMockStore({initialState}) , 
-      ]
+      ], 
+      imports : [RouterTestingModule]
     })
     .compileComponents();
 

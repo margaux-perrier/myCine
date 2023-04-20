@@ -5,6 +5,7 @@ import { itemsActions } from 'src/app/state/items';
 import { CarrouselComponent } from 'src/app/shared/components/carrousel/carrousel.component';
 import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
 import { Component } from '@angular/core';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('LibraryComponent', () => {
   let component: LibraryPageComponent;
@@ -27,6 +28,7 @@ describe('LibraryComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ LibraryPageComponent, CarrouselComponent, FooterComponent, FakeHeaderComponent ], 
+      imports: [ RouterTestingModule ], 
       providers : [
         provideMockStore({initialState}),
       ]

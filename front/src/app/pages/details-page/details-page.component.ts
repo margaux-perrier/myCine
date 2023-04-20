@@ -14,7 +14,7 @@ import { libraryActions, librarySelectors } from 'src/app/state/library';
   When user click on icon, the handleListAction is dispatch. 
   When user rate the item, the setRatingItemAction is dispatch
 * @param { State } Store
-* @param { State } Store
+* @param { ActivatedRoute } ActivatedRoute 
 * @param { Location } location
 */
 @Component({
@@ -83,8 +83,8 @@ export class DetailsPageComponent implements OnInit {
     this.isRatingOpen = !this.isRatingOpen; 
   }
 
-  handleRating() : void{
-    this.isRatingOpen ? this.store.dispatch(itemsActions.setRatingItem({ ratingValue : this.ratingValue})) : null
+  handleRating(){
+    this.store.dispatch(itemsActions.setRatingItem({ ratingValue : this.ratingValue}))
   }
 }
 

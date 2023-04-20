@@ -4,6 +4,8 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { filterActions } from 'src/app/state/filter';
 import { ItemsService } from 'src/app/core/services/items/items.service';
 import { ButtonComponent } from '../button/button.component';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -23,10 +25,11 @@ describe('SearchComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SearchComponent, ButtonComponent ], 
-       providers : [
+      providers : [
         provideMockStore({initialState}),
         { provide : ItemsService, useValue : mockItemsService } 
-      ]
+      ], 
+      imports : [ FormsModule, FontAwesomeModule ]
     })
     .compileComponents();
 
@@ -45,6 +48,11 @@ describe('SearchComponent', () => {
     const action = filterActions.resetFilter(); 
     component.resetFilter(); 
     expect(mockStore.dispatch).toHaveBeenCalledWith(action); 
+  })
+
+  it('should called onSearchItems method when ngOnInit is called with empty string value', () => {
+    component.ngOnInit(); 
+    expect(mockItemsService.onSearchItems).toHaveBeenCalled(); 
   })
 
   it('should called onSearchItems method when onSearchValueChanged is called', () => {

@@ -3,6 +3,9 @@ import { CardComponent } from './card.component';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { IItem } from 'src/app/core/models/item';
+import { RatingModule } from 'primeng/rating'; 
+import { FormsModule } from '@angular/forms';
+
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -27,7 +30,7 @@ describe('CardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CardComponent ], 
-      imports : [ RouterTestingModule], 
+      imports : [ RouterTestingModule, RatingModule, FormsModule ], 
     })
     .compileComponents();
 

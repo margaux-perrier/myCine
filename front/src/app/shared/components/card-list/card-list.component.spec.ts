@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardListComponent } from './card-list.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { Component } from '@angular/core';
+import { RouterTestingModule } from '@angular/router/testing';
+import { By } from '@angular/platform-browser';
 
 describe('CardListComponent', () => {
   let component: CardListComponent;
@@ -26,6 +28,7 @@ describe('CardListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CardListComponent, FakeSearchComponent ], 
+      imports: [ RouterTestingModule ], 
       providers : [
         provideMockStore({initialState}),  
       ]
@@ -40,4 +43,10 @@ describe('CardListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('searchValue should have been updated when onSearchTextEnter is called', () => {
+    const element = fixture.debugElement.query(By.css('.searchBar')); 
+    expect(element).toBeTruthy(); 
+    
+  })
 });

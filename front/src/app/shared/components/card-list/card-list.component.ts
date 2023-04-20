@@ -25,11 +25,11 @@ export class CardListComponent implements OnInit {
   constructor( private store : Store<State> ){}
   
   ngOnInit(): void {
-    this.errorMessage$ = this.store.select(itemsSelectors.getErrorItems); 
+    this.errorMessage$ = this.store.select(itemsSelectors.getErrorItems);
   }
   
-  onSearchTextEnter(searchText : string):void{
-    this.searchValue = searchText; 
-  }
+  // onSearchTextEnter(searchText : string):void{
+  //   this.searchValue = searchText; 
+  // }
   
 }

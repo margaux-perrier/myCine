@@ -27,3 +27,7 @@ export const setSearchValue = createAction(
   ' [itemList] Set searchValue Item', 
   props<{ searchValue: string }>()
 )
+
+export function handleListAction() {
+  throw new Error('Function not implemented.');
+}

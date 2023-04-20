@@ -3,6 +3,8 @@ import { HeaderComponent } from './header.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { menuBurgerActions } from 'src/app/state/menuBurger';
 import { ButtonComponent } from '../button/button.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -20,7 +22,8 @@ describe('HeaderComponent', () => {
       declarations: [ HeaderComponent, ButtonComponent ], 
       providers : [
         provideMockStore({initialState}) , 
-      ]
+      ], 
+      imports : [FontAwesomeModule, RouterTestingModule ]
     })
     .compileComponents();
 
