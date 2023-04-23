@@ -32,7 +32,7 @@ export class GenreService {
    * @param { HttpErrorResponse } err
    * @returns { Observable } errorMessage 
    */
-  private handleError(err: HttpErrorResponse): Observable<never> {
+  handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage: string = "";
     if (err.error instanceof ErrorEvent) {
       errorMessage = `An error occurred: ${err.error.message}`;

@@ -52,7 +52,7 @@ describe('SearchComponent', () => {
 
   it('should called onSearchItems method when ngOnInit is called with empty string value', () => {
     component.ngOnInit(); 
-    expect(mockItemsService.onSearchItems).toHaveBeenCalled(); 
+    expect(mockItemsService.onSearchItems).toHaveBeenCalledWith(''); 
   })
 
   it('should called onSearchItems method when onSearchValueChanged is called', () => {

@@ -8,12 +8,14 @@ import { Location } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ItemsPageComponent } from '../items-page/items-page.component';
 import { By } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 // import { Router } from '@angular/router';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
   let fixture: ComponentFixture<HomePageComponent>;
   let mockStore : MockStore; 
+  let router : Router; 
   let mockLocation : Location
   let initialState = {
     menuburger : {
@@ -57,6 +59,7 @@ describe('HomePageComponent', () => {
     })
     .compileComponents();
     
+    router = TestBed.inject(Router)
     mockLocation = TestBed.inject(Location);
     mockStore = TestBed.inject(MockStore);
     fixture = TestBed.createComponent(HomePageComponent);

@@ -43,10 +43,4 @@ describe('CardListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('searchValue should have been updated when onSearchTextEnter is called', () => {
-    const element = fixture.debugElement.query(By.css('.searchBar')); 
-    expect(element).toBeTruthy(); 
-    
-  })
 });

@@ -1,11 +1,11 @@
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
 import { itemListEffects } from "./items.effects";
 import {  MockStore, provideMockStore } from '@ngrx/store/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { State } from "../../app.state";
 import { ItemsService } from "src/app/core/services/items/items.service";
 import { TestBed } from "@angular/core/testing";
-import { TestScheduler } from 'rxjs/testing';
+// import { TestScheduler } from 'rxjs/testing';
 import { IItem } from "src/app/core/models/item";
 import { loadItemListAction, loadItemListSuccessAction } from "../actions/items.actions";
 
@@ -39,7 +39,7 @@ describe('itemListEffects', async() => {
     let actions$: Observable<any>;
     let effects : itemListEffects; 
     let store : MockStore<State>; 
-    let testScheduler : TestScheduler;
+    // let testScheduler : TestScheduler;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -54,10 +54,10 @@ describe('itemListEffects', async() => {
         effects = TestBed.inject(itemListEffects); 
         store = TestBed.inject(MockStore); 
 
-        testScheduler = new TestScheduler((actual, expected) => {
-            expect(actual).toEqual(expected);
-          });
-    }); 
+        // testScheduler = new TestScheduler((actual, expected) => {
+        //     expect(actual).toEqual(expected);
+        //   });
+    });
 
     it('should be created', () => {
         expect(effects).toBeTruthy();
@@ -70,10 +70,18 @@ describe('itemListEffects', async() => {
     //    testScheduler.run(({ hot, cold, expectObservable }) => {
     //     actions$ = hot('-a', { a: action });
     //     const response = cold('-b|', { b: mockedItemList });
-    //     expectObservable(effects.loadItems$).toBe('--b', { b: expectedAction });
-    //   });
-
+    //     mockItemsService.searchedItems$ = of(mockedItemList);
+    //     expectObservable(effects.loadItems$).toBe('-b', { b: expectedAction });
+    //     });
     // }); 
+
+    it('should handle the loadItemsListAction and return a loadItemListSuccessAction', () => {
+        actions$ = of(loadItemListAction());
+        mockItemsService.searchedItems$ = of(mockedItemList); 
+        effects.loadItems$.subscribe( action => {
+          expect(action).toEqual(loadItemListSuccessAction({itemList : mockedItemList}) );
+        });
+    });
 
 }); 
 
